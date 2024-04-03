@@ -25,7 +25,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: ${{ github.event.repository.name }}
-          tags: nightly
+          tags: dev
           registry: ghcr.io
           dockerfile: NightlyDockerfile
           username: ${{ github.repository_owner }}
