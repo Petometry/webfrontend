@@ -1,5 +1,5 @@
 export const environment = {
-  baseDomain: "roboter5123.com",
+  baseDomain: "petometry.uk",
   httpProtocol: "https",
-  servicePrefix: ""
+  servicePrefix: "dev."
 };

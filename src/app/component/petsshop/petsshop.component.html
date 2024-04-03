@@ -1,1 +1,5 @@
-<p>petsshop works!</p>
+@for (pet of petShop.pets; track pet.id){
+  <div [ngStyle]="{'color': pet.appearance.color}" id="{{pet.id}}" (click)="buyPet($event)" >{{ JSON.stringify(pet) }}</div>
+} @empty {
+  All pets sold out today. Come back tomorrow
+}

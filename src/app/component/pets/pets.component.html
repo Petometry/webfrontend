@@ -1,1 +1,5 @@
-<p>pets works!</p>
+@for (pet of pets; track pet.id) {
+  <div [ngStyle]="{'color': pet.appearance.color}">{{ JSON.stringify(pet) }}</div>
+} @empty {
+  You do not have any pets
+}
