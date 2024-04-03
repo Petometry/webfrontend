@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrivatePageComponent } from './private-page.component';
+import { WorkplaceComponent } from './workplace.component';
 
-describe('PrivatePageComponent', () => {
-  let component: PrivatePageComponent;
-  let fixture: ComponentFixture<PrivatePageComponent>;
+describe('WorkplaceComponent', () => {
+  let component: WorkplaceComponent;
+  let fixture: ComponentFixture<WorkplaceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PrivatePageComponent]
+      imports: [WorkplaceComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PrivatePageComponent);
+    fixture = TestBed.createComponent(WorkplaceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

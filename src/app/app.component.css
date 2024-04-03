@@ -3,3 +3,8 @@ header{
   justify-content: space-between;
   align-items: center;
 }
+
+:host {
+  min-height: 100vh;
+  display: block;
+}

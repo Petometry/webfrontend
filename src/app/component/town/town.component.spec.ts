@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrivateSpaceComponent } from './private-space.component';
+import { TownComponent } from './town.component';
 
-describe('PrivateSpaceComponent', () => {
-  let component: PrivateSpaceComponent;
-  let fixture: ComponentFixture<PrivateSpaceComponent>;
+describe('TownComponent', () => {
+  let component: TownComponent;
+  let fixture: ComponentFixture<TownComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PrivateSpaceComponent]
+      imports: [TownComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PrivateSpaceComponent);
+    fixture = TestBed.createComponent(TownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
