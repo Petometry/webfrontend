@@ -1,7 +1,8 @@
-@for (pet of petShop.pets; track pet.id) {
-  <div [ngStyle]="{'color': pet.appearance.color}" id="{{pet.id}}" (click)="buyPet($event)">{{ JSON.stringify(pet) }}
-  </div>
-} @empty {
-  <div>All pets sold out today.</div>
-  <div>Come back tomorrow</div>
-}
+<div class="pets">
+  @for (pet of petShop.pets; track pet.id) {
+    <app-petoverview id="{{pet.id}}" [pet]="pet" (click)="buyPet($event)"></app-petoverview>
+<!--    <div [ngStyle]="{'color': pet.appearance.color}" id="{{pet.id}}" (click)="buyPet($event)">{{ JSON.stringify(pet) }}</div>-->
+  } @empty {
+    <div>All pets sold out today.</div>
+    <div>Come back tomorrow</div>
+  }</div>

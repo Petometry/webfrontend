@@ -1,0 +1,12 @@
+.pet{
+  width: 100%;
+  height: 100%;
+}
+
+.circle{
+  border-radius: 50%;
+}
+
+.triangle{
+  border-radius: 50% 50% 0 0;
+}

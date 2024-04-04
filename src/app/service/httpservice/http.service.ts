@@ -35,6 +35,7 @@ export class HttpService {
 
   public sendDeleteRequest(service: string, path: string): Observable<any> {
     let url = this.prefix + service + this.domain + path;
+    console.log(url)
     return this.httpClient.delete(url)
   }
 }
