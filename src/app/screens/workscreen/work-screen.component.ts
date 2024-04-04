@@ -6,13 +6,13 @@ import {Activity} from "../../model/activity/activity";
   selector: 'app-workplace',
   standalone: true,
   imports: [],
-  templateUrl: './workplace.component.html',
-  styleUrl: './workplace.component.css',
+  templateUrl: './work-screen.component.html',
+  styleUrl: './work-screen.component.css',
   host: {
     class: 'game-screen'
   }
 })
-export class WorkplaceComponent implements AfterViewInit{
+export class WorkScreenComponent implements AfterViewInit{
 
   activity: Activity | undefined
   protected workHours: number;
@@ -28,7 +28,7 @@ export class WorkplaceComponent implements AfterViewInit{
   }
 
   startWork() {
-    this.activityService.startWork(this.workHours as number).subscribe(activity => this.activity = activity);
+    this.activityService.startWork(this.workHours).subscribe(activity => this.activity = activity);
   }
 
   updateWorkValue(event: any) {

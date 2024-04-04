@@ -3,22 +3,22 @@ import {PetService} from "../../service/petservice/pet.service";
 import {PetShop} from "../../model/pet/petshop.service";
 import {Pet} from "../../model/pet/pet";
 import {NgStyle} from "@angular/common";
-import {PetoverviewComponent} from "../petoverview/petoverview.component";
+import {PetComponent} from "../../component/petcomponent/pet.component";
 
 @Component({
   selector: 'app-petsshop',
   standalone: true,
   imports: [
     NgStyle,
-    PetoverviewComponent
+    PetComponent
   ],
-  templateUrl: './petsshop.component.html',
-  styleUrl: './petsshop.component.css',
+  templateUrl: './pet-shop-screen.component.html',
+  styleUrl: './pet-shop-screen.component.css',
   host: {
     class: 'game-screen'
   }
 })
-export class PetsshopComponent {
+export class PetShopScreenComponent {
   protected petShop: PetShop;
 
   constructor(private petService: PetService) {

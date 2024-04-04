@@ -4,12 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-town',
   standalone: true,
   imports: [],
-  templateUrl: './town.component.html',
-  styleUrl: './town.component.css',
+  templateUrl: './town-screen.component.html',
+  styleUrl: './town-screen.component.css',
   host: {
     class: 'game-screen'
   }
 })
-export class TownComponent {
+export class TownScreenComponent {
 
 }

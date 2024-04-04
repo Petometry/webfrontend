@@ -8,10 +8,10 @@ import {Pet} from "../../model/pet/pet";
   imports: [
     NgStyle
   ],
-  templateUrl: './petoverview.component.html',
-  styleUrl: './petoverview.component.css'
+  templateUrl: './pet.component.html',
+  styleUrl: './pet.component.css'
 })
-export class PetoverviewComponent {
+export class PetComponent {
 
   pet = input.required<Pet>();
 }
