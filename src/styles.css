@@ -78,4 +78,5 @@ body {
 
 .game-screen{
   flex-grow: 1;
+  border: black solid 1px;
 }

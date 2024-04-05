@@ -14,4 +14,9 @@ import {Petoverview} from "../../model/pet/petoverview";
 export class PetComponent {
 
   pet = input.required<Petoverview>();
+
+  triangleGradient(petoverview: Petoverview) {
+
+    return "background-image:linear-gradient(to bottom right, transparent 50%, "+ petoverview.appearance.color + " 0),linear-gradient(to top right, "+ petoverview.appearance.color + " 50%, transparent 0);"
+  }
 }
