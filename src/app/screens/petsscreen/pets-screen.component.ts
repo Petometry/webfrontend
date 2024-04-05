@@ -1,15 +1,18 @@
 import {Component} from '@angular/core';
-import {PetService} from "../../service/petservice/pet.service";
-import {Pet} from "../../model/pet/pet";
 import {NgStyle} from "@angular/common";
-import {PetComponent} from "../../component/petcomponent/pet.component";
+import {PetComponent} from "../../component/pet/pet.component";
+import {PetsOverviewComponent} from "../../component/pets-overview/pets-overview.component";
+import {PetDetailsComponent} from "../../component/petdetails/pet-details.component";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-pets',
   standalone: true,
   imports: [
     NgStyle,
-    PetComponent
+    PetComponent,
+    PetsOverviewComponent,
+    PetDetailsComponent
   ],
   templateUrl: './pets-screen.component.html',
   styleUrl: './pets-screen.component.css',
@@ -18,13 +21,15 @@ import {PetComponent} from "../../component/petcomponent/pet.component";
   }
 })
 export class PetsScreenComponent {
+  petId: number | undefined;
 
-  protected pets: Pet[];
-
-  constructor(private petService: PetService) {
-    this.pets = []
-    petService.getUserPets().subscribe(pets => this.pets = pets)
+  constructor(private route: ActivatedRoute ) {
+    this.route.paramMap.subscribe(paramMap => {
+      this.petId = paramMap.get('petId') as unknown as number | undefined;
+    })
   }
 
-  protected readonly JSON = JSON;
+  viewPetDetails(petId: number) {
+    this.petId = petId;
+  }
 }

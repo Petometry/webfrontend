@@ -1,7 +1,6 @@
-<div class="pets">
-  @for (pet of pets; track pet.id) {
-    <app-petoverview [pet]="pet"></app-petoverview>
-  } @empty {
-    You do not have any pets
-  }
-</div>
+@if (petId == undefined){
+  <app-pets-overview/>
+} @else{
+  <app-pet-details [petId]="petId"/>
+}
+

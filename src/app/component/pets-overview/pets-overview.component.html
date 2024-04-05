@@ -1,0 +1,11 @@
+<div class="pets">
+  @if (pets == undefined) {
+  <app-loading></app-loading>
+  } @else {
+    @for (pet of pets; track pet.id) {
+      <app-pet id="{{pet.id}}" [pet]="pet" (click)="showPetDetails($event)"></app-pet>
+    } @empty {
+      You do not have any pets
+    }
+  }
+</div>

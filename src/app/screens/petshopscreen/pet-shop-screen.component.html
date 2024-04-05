@@ -1,7 +1,8 @@
-<div class="pets">
-  @for (pet of petShop.pets; track pet.id) {
-    <app-petoverview id="{{pet.id}}" [pet]="pet" (click)="buyPet($event)"></app-petoverview>
-  } @empty {
-    <div>All pets sold out today.</div>
-    <div>Come back tomorrow</div>
-  }</div>
+<div class="full-height flex">
+  <div id="shopkeep" class="row">
+    <div>Put image for Shopkeeper here</div>
+  </div>
+  <div id="petshop-row" class="row full-height-flex">
+    <app-petshop class="full-height-flex"></app-petshop>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="full-height full-width flex">
+  @if (petShop == undefined) {
+    <app-loading></app-loading>
+  } @else {
+    <div id="pets-row" class="row full-height-flex">
+      @for (pet of petShop.pets; track pet.id) {
+        <app-pet id="{{pet.id}}" class="col-4" [pet]="pet" (click)="buyPet($event)"/>
+      }
+    </div>
+  }
+</div>

@@ -1,6 +1,6 @@
 import {PetApperance} from "./petapperance";
 
-export interface Pet {
+export interface Petoverview {
     id: number,
     appearance: PetApperance
 }

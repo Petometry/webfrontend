@@ -14,6 +14,7 @@ export const routes: Routes = [
     component: GamePageComponent,
     canActivate: [KeycloakGuard],
     children: [
+      {path: 'pets/:petId', component: PetsScreenComponent},
       {path: 'pets', component: PetsScreenComponent},
       {path: 'petshop', component: PetShopScreenComponent},
       {path: 'work', component: WorkScreenComponent},

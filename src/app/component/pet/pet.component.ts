@@ -1,9 +1,9 @@
 import {Component, input} from '@angular/core';
 import {NgStyle} from "@angular/common";
-import {Pet} from "../../model/pet/pet";
+import {Petoverview} from "../../model/pet/petoverview";
 
 @Component({
-  selector: 'app-petoverview',
+  selector: 'app-pet',
   standalone: true,
   imports: [
     NgStyle
@@ -13,5 +13,5 @@ import {Pet} from "../../model/pet/pet";
 })
 export class PetComponent {
 
-  pet = input.required<Pet>();
+  pet = input.required<Petoverview>();
 }

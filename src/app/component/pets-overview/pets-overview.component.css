@@ -5,17 +5,11 @@
   flex-wrap: wrap;
   border: black solid 1px;
   flex-grow: 1;
+  height: 100%;
 }
 
 app-pet{
   width: 30%;
   height: 30%;
   margin: 5px;
-  cursor: pointer;
-}
-
-#shopkeep{
-  align-items: center;
-  justify-content: center;
-  height: 50%;
 }
