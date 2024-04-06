@@ -1,3 +1,40 @@
-app-sidebar{
-  min-width: fit-content;
+
+#page-layout{
+  height: 100%;
+  max-height: 100vh;
+  grid-template-areas:
+    'header header header'
+    '. game .'
+    'footer footer footer'
+;
+
+  grid-template-rows: 100px 1fr 100px;
+  grid-template-columns: minmax(0, auto) minmax(auto, 1720px) minmax(0, auto);
+}
+
+#grid-header{
+grid-area: header;
+}
+
+#game-layout{
+  grid-area: game;
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    'menu game';
+  grid-template-columns: minmax(100px,10%) 90% ;
+  grid-template-rows: 100%;
+}
+
+#grid-footer{
+  grid-area: footer;
+}
+
+#page-sidebar{
+  grid-area: menu;
+}
+
+#page-content{
+  grid-area: game;
+  border: black solid 1px;
 }

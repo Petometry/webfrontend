@@ -2,16 +2,21 @@
   height: fit-content;
 }
 
-#container {
-  width: 100%;
+#container:before{
+  content: ' ';
+  display: inline-block;
+  width: 0;
   padding-bottom: 100%;
-  position: relative;
+}
+
+#container{
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 .pet {
-  width: 100%;
-  height: 100%;
-  position: absolute;
+flex-grow: 1;
 }
 
 .circle {

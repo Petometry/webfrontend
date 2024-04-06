@@ -1,9 +1,12 @@
-<div class="flex full-page">
-  <header class="row"><h1>Petometry</h1></header>
-  <div class="container">
-    <div class="row full-height-flex">
-      <app-sidebar id="sidebar" class="full-height-flex col-2"></app-sidebar>
+<div id="page-layout" class="grid-container">
+  <header id="grid-header">
+    <h1>Petometry</h1>
+  </header>
+  <div id="game-layout">
+    <app-sidebar id="page-sidebar"></app-sidebar>
+    <div id="page-content">
       <router-outlet/>
     </div>
   </div>
+  <div id="grid-footer"></div>
 </div>
