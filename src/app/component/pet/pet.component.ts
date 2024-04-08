@@ -19,9 +19,7 @@ export class PetComponent{
 
   @ViewChild('petElement') petElement !: ElementRef;
 
-  petHeight = "0px";
-
-  petWidth = "0px";
+  petSize = "0px";
   private resizeObserver: ResizeObserver | null = null;
 
 
@@ -35,18 +33,11 @@ export class PetComponent{
     }, {phase: AfterRenderPhase.Write});
   }
 
-  triangleGradient(petoverview: Petoverview) {
-
-    return "background-image:linear-gradient(to bottom right, transparent 50%, " + petoverview.appearance.color + " 0),linear-gradient(to top right, " + petoverview.appearance.color + " 50%, transparent 0);"
-  }
-
   private calculatePetSize() {
 
     const containerWidth = this.container.nativeElement.clientWidth
     const containerHeight = this.container.nativeElement.clientHeight
     let petSize = containerWidth > containerHeight ? containerHeight : containerWidth;
-    this.petHeight = petSize + "px";
-    this.petWidth = petSize + "px";
-    console.log(petSize)
+    this.petSize = petSize + "px";
   }
 }

@@ -3,7 +3,7 @@
 } @else {
   <div id="shop-layout" class="grid-container">
     @for (pet of pets; track pet.id) {
-        <app-pet [pet]="pet"></app-pet>
+        <app-pet (click)="showPetDetails($event)" [pet]="pet"/>
     } @empty {
       You do not have any pets
     }
