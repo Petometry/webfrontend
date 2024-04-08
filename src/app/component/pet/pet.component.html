@@ -1,4 +1,4 @@
-<div id="container">
+<div #container id="container">
   <div id="{{pet().id}}" class="pet {{pet().appearance.geometry}}"
-       [ngStyle]="{'background-color': pet().appearance.color}"></div>
+       [ngStyle]="{'background-color': pet().appearance.color, 'height' : petHeight, 'width' : petWidth}"></div>
 </div>
