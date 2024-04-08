@@ -21,8 +21,8 @@ grid-area: header;
   width: 100%;
   display: grid;
   grid-template-areas:
-    'menu game';
-  grid-template-columns: minmax(100px,10%) 90% ;
+    'menu screen';
+  grid-template-columns: 100px auto ;
   grid-template-rows: 100%;
 }
 
@@ -35,6 +35,6 @@ grid-area: header;
 }
 
 #page-content{
-  grid-area: game;
+  grid-area: screen;
   border: black solid 1px;
 }
