@@ -7,6 +7,10 @@
   flex-grow: 1;
 }
 
+#petshop-row{
+  height: 50%;
+}
+
 app-pet{
   width: 30%;
   height: 30%;
