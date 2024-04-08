@@ -2,10 +2,10 @@
   <app-loading></app-loading>
 } @else {
   <div id="shop-layout" class="grid-container">
-      @for (pet of pets; track pet.id) {
+    @for (pet of pets; track pet.id) {
         <app-pet [pet]="pet"></app-pet>
-      } @empty {
-        You do not have any pets
-      }
+    } @empty {
+      You do not have any pets
+    }
   </div>
 }
