@@ -14,12 +14,12 @@ import {Work} from "../../model/activity/work";
 })
 export class WorkScreenComponent implements AfterViewInit{
 
-  activity: Work | undefined
+  work: Work | undefined
   protected workHours: number;
   @ViewChild('workhoursselect') workHourInput: any;
 
   constructor(private activityService: ActivityService) {
-    activityService.getCurrentActivity().subscribe(activity => this.activity = activity)
+    activityService.getWork().subscribe(work => this.work = work)
     this.workHours = 0
   }
 
@@ -28,7 +28,7 @@ export class WorkScreenComponent implements AfterViewInit{
   }
 
   startWork() {
-    this.activityService.startWork(this.workHours).subscribe(activity => this.activity = activity);
+    this.activityService.startWork(this.workHours).subscribe(work => this.work = work);
   }
 
   updateWorkValue(event: any) {
@@ -36,7 +36,7 @@ export class WorkScreenComponent implements AfterViewInit{
     this.workHours = target.value;
   }
 
-  stopActivity() {
-    this.activityService.stopCurrentActivity().pipe().subscribe(this.activity = undefined);
+  stopWork() {
+    this.activityService.stopWork().pipe().subscribe(this.work = undefined);
   }
 }
