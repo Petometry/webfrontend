@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {ActivityService} from "../../service/activityservice/activity.service";
-import {Activity} from "../../model/activity/activity";
+import {Work} from "../../model/activity/work";
 
 @Component({
   selector: 'app-workplace',
@@ -14,7 +14,7 @@ import {Activity} from "../../model/activity/activity";
 })
 export class WorkScreenComponent implements AfterViewInit{
 
-  activity: Activity | undefined
+  activity: Work | undefined
   protected workHours: number;
   @ViewChild('workhoursselect') workHourInput: any;
 
