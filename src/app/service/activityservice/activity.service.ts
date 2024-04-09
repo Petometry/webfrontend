@@ -24,7 +24,7 @@ export class ActivityService {
     return this.httpService.sendGetRequest("activity", "activities/work")
   }
 
-  stopCurrentActivity():Observable<undefined> {
-    return this.httpService.sendDeleteRequest("activity", "activities");
+  stopWork():Observable<undefined> {
+    return this.httpService.sendDeleteRequest("activity", "activities/work");
   }
 }
