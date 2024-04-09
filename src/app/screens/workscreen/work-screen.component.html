@@ -1,4 +1,4 @@
-@if (activity == undefined){
+@if (work == undefined){
   <div> How long do you want to work for? (Hours)</div>
   <input #workhoursselect type="range" step="1" max="10" min="1" (input)="updateWorkValue($event)">
   <div>You are going to work for {{workHours}} hours.</div>
@@ -6,7 +6,7 @@
   <button (click)="startWork()">Start Work</button>
 } @else{
   <div>You are already on an activity</div>
-  <div>Activity finished at {{activity.endTime}}</div>
-  <div>You will receive {{activity.reward}} GeoCoin</div>
+  <div>Activity finishes at {{work.endTime}}</div>
+  <div>You will receive {{work.reward}} GeoCoin</div>
   <button (click)="stopActivity()">Stop Activity</button>
 }
