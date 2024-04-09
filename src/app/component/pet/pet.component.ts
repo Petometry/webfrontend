@@ -29,7 +29,8 @@ export class PetComponent implements AfterViewInit {
 
   @ViewChild('petElement') petElement !: ElementRef;
 
-  petSize = "0px";
+  petHeight = "0px";
+  petWidth = "0px"
   private resizeObserver: ResizeObserver | null = null;
 
 
@@ -52,10 +53,10 @@ export class PetComponent implements AfterViewInit {
   }
 
   private calculatePetSize() {
-
     const containerWidth = this.container.nativeElement.clientWidth;
     const containerHeight = this.container.nativeElement.clientHeight;
     let petSize = containerWidth > containerHeight ? containerHeight : containerWidth;
-    this.petSize = petSize + "px";
+    this.petHeight = petSize + "px";
+    this.petWidth = petSize + "px"
   }
 }
