@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {ActivityService} from "../../service/activityservice/activity.service";
 import {Work} from "../../model/activity/work";
 import {Activity} from "../../model/activity/activity";
+import {LoadingComponent} from "../loading/loading.component";
 
 @Component({
   selector: 'app-workplace',
