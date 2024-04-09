@@ -46,6 +46,6 @@ export class WorkScreenComponent implements AfterViewInit{
   }
 
   stopWork() {
-    this.activityService.stopWork().pipe().subscribe(this.work = undefined);
+    this.activityService.stopWork().pipe().subscribe(this.work = {} as Work);
   }
 }
