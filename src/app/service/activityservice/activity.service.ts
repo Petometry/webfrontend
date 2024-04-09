@@ -23,14 +23,13 @@ export class ActivityService {
   }
 
   getWork():Observable<Work|undefined> {
-
     return this.getCurrentActivity().pipe(
     switchMap((activity: Activity|undefined) => {
       if(activity != undefined){
         return this.httpService.sendGetRequest("activity", "activities/work")
       }
       return activity;
-    })
+    }))
   }
 
   stopWork():Observable<undefined> {
