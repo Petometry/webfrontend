@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {Work} from "../../model/activity/work";
 import {HttpService} from "../httpservice/http.service";
+import {Activity} from "../../model/activity/activity";
 
 @Injectable({
   providedIn: 'root'
