@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {Work} from "../../model/activity/work";
 import {HttpService} from "../httpservice/http.service";
 import {Activity} from "../../model/activity/activity";
+import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
