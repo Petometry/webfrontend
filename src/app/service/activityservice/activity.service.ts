@@ -28,7 +28,7 @@ export class ActivityService {
       if(activity != undefined){
         return this.httpService.sendGetRequest("activity", "activities/work")
       }
-      return new Observable({} as Work);
+      return Observable.of({} as Work);
     }))
   }
 
