@@ -26,7 +26,7 @@ export class ActivityService {
 
     return this.getCurrentActivity().pipe(
     switchMap((activity: Activity|undefined) => {
-      if{activitiy != undefined}{
+      if(activitiy != undefined){
         return this.httpService.sendGetRequest("activity", "activities/work")
       }
     })
