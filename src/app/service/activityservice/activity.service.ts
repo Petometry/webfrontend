@@ -4,6 +4,7 @@ import {Work} from "../../model/activity/work";
 import {HttpService} from "../httpservice/http.service";
 import {Activity} from "../../model/activity/activity";
 import { switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,7 @@ export class ActivityService {
       if(activity != undefined){
         return this.httpService.sendGetRequest("activity", "activities/work")
       }
-      return Observable.of({} as Work);
+      return of({} as Work);
     }))
   }
 
