@@ -23,12 +23,6 @@ export class WorkScreenComponent {
   @ViewChild('workhoursselect') workHourInput: any;
 
   constructor(private activityService: ActivityService) {
-    this.getActivity();
-    this.getWork();
-    this.workHours = 10
-  }
-
-  private getActivity() {
     let activityObserver: Observer<Activity> = {
       next: (activity: Activity) => this.activity = activity.type,
       error: (err: Error) => this.activity = "NONE",
@@ -36,15 +30,24 @@ export class WorkScreenComponent {
     };
     this.activityService.getCurrentActivity().subscribe(activityObserver)
 
-  }
-
-  private getWork() {
     let workObserver: Observer<Work> = {
-      next: (work: Work) => this.work = work,
+      next: (work: Work) => {
+        if (work.collectable){
+          this.collectWork();
+        }else {
+          this.work = work
+        }
+      },
       error: (err: Error) => this.work = {} as Work,
       complete: () => console.log("Completed current work getting")
     };
     this.activityService.getWork().subscribe(workObserver)
+    this.workHours = 10
+  }
+
+  private collectWork() {
+    this.work = {} as Work
+    this.activity = "NONE"
   }
 
   startWork() {
