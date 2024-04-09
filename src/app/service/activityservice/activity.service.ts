@@ -28,7 +28,7 @@ export class ActivityService {
       if(activity != undefined){
         return this.httpService.sendGetRequest("activity", "activities/work")
       }
-      return activity;
+      return (activity as Unknown) as Work;
     }))
   }
 
