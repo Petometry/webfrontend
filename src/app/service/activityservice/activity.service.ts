@@ -23,7 +23,7 @@ export class ActivityService {
 
     getWork():Observable<Work|undefined> {
 
-    let observable = getCurrentActivity().pipe(
+    let observable = this.getCurrentActivity().pipe(
     switchMap((activity: Activity) => {
       if{activitiy != undefined}{
         return this.httpService.sendGetRequest("activity", "activities/work")
