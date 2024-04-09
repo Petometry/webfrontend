@@ -19,7 +19,14 @@ export class WorkScreenComponent implements AfterViewInit{
   @ViewChild('workhoursselect') workHourInput: any;
 
   constructor(private activityService: ActivityService) {
-    activityService.getWork().subscribe(work => this.work = work)
+    activityService.getCurrentActivity().subscribe(activity => {
+      if(activity != undefined){
+        activityService.getWork().subscribe(work => this.work = work);
+      }else{
+        this.work = undefined;
+      }
+    });
+    
     this.workHours = 0
   }
 
