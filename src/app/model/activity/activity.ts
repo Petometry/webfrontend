@@ -1,6 +1,4 @@
-export interface Activity {
-  "type": string,
+export interface Work {
   "startTime": Date,
   "endTime": Date,
-  "reward": number
 }
