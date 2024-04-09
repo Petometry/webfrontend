@@ -1,7 +1,6 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {ActivityService} from "../../service/activityservice/activity.service";
 import {Work} from "../../model/activity/work";
-import {Activity} from "../../model/activity/activity";
 import {LoadingComponent} from "../../component/loading/loading.component";
 
 @Component({
@@ -14,26 +13,15 @@ import {LoadingComponent} from "../../component/loading/loading.component";
     class: 'game-screen'
   }
 })
-export class WorkScreenComponent implements AfterViewInit{
+export class WorkScreenComponent{
 
   work: Work | undefined
   protected workHours: number;
   @ViewChild('workhoursselect') workHourInput: any;
 
   constructor(private activityService: ActivityService) {
-    activityService.getCurrentActivity().subscribe(activity => {
-      if(activity != undefined){
-        activityService.getWork().subscribe(work => this.work = work);
-      }else{
-        this.work = undefined;
-      }
-    });
-    
-    this.workHours = 0
-  }
-
-  ngAfterViewInit() {
-    this.workHours = this.workHourInput.nativeElement.value
+    activityService.getWork().subscribe(work => this.work = work)
+    this.workHours = 10
   }
 
   startWork() {

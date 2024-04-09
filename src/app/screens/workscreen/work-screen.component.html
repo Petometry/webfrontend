@@ -2,7 +2,7 @@
   <app-loading></app-loading>
 }@else if (work.endTime == undefined){
   <div> How long do you want to work for? (Hours)</div>
-  <input #workhoursselect type="range" step="1" max="10" min="1" (input)="updateWorkValue($event)">
+  <input #workhoursselect type="range" step="1" max="10" min="1" [defaultValue]=workHours (input)="updateWorkValue($event)">
   <div>You are going to work for {{workHours}} hours.</div>
   <div>Reward: {{(workHours * 0.1).toFixed(2)}}</div>
   <button (click)="startWork()">Start Work</button>

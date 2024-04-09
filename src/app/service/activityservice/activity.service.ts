@@ -1,10 +1,9 @@
-import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {Injectable} from '@angular/core';
+import {Observable, of} from "rxjs";
 import {Work} from "../../model/activity/work";
 import {HttpService} from "../httpservice/http.service";
 import {Activity} from "../../model/activity/activity";
-import { switchMap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import {switchMap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +25,7 @@ export class ActivityService {
   getWork():Observable<Work|undefined> {
     return this.getCurrentActivity().pipe(
     switchMap((activity: any) => {
+      console.log(activity)
       if(activity != undefined){
         return this.httpService.sendGetRequest("activity", "activities/work")
       }
