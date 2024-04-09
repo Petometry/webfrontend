@@ -7,7 +7,7 @@ import {LoadingComponent} from "../../component/loading/loading.component";
 @Component({
   selector: 'app-workplace',
   standalone: true,
-  imports: [],
+  imports: [LoadingComponent],
   templateUrl: './work-screen.component.html',
   styleUrl: './work-screen.component.css',
   host: {
