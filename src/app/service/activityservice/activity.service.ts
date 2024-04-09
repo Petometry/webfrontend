@@ -26,10 +26,10 @@ export class ActivityService {
 
     return this.getCurrentActivity().pipe(
     switchMap((activity: Activity|undefined) => {
-      if(activitiy != undefined){
+      if(activity != undefined){
         return this.httpService.sendGetRequest("activity", "activities/work")
       }
-      return null;
+      return activity;
     })
   }
 
