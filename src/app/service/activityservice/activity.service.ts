@@ -10,7 +10,7 @@ export class ActivityService {
 
   constructor(private httpService:HttpService) { }
 
-  getCurrentActivity():Observable<Work|undefined> {
+  getCurrentActivity():Observable<Activity|undefined> {
 
     return this.httpService.sendGetRequest("activity", "activities")
   }
