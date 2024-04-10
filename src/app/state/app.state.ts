@@ -1,5 +1,5 @@
-import { Pet } from "../../model/pet/pet";
+import { PetOverview } from "../../model/pet/petoverview";
 
 export interface AppState {
-    pets:Pet[];
+    pets:PetOverview[];
 }
