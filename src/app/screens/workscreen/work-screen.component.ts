@@ -1,14 +1,17 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, inject, ViewChild} from '@angular/core';
 import {ActivityService} from "../../service/activityservice/activity.service";
-import {Work} from "../../model/activity/work";
 import {LoadingComponent} from "../../component/loading/loading.component";
-import {Activity} from "../../model/activity/activity";
-import {Observer} from "rxjs";
+import {Observable} from "rxjs";
+import {ActivityState} from "../../reducers/activity.reducers";
+import {Store} from "@ngrx/store";
+import {AsyncPipe} from "@angular/common";
+import {createWork, deleteWork, loadWork} from "../../actions/work.actions";
+import {WorkState} from "../../reducers/work.reducers";
 
 @Component({
   selector: 'app-workplace',
   standalone: true,
-  imports: [LoadingComponent],
+  imports: [LoadingComponent, AsyncPipe],
   templateUrl: './work-screen.component.html',
   styleUrl: './work-screen.component.css',
   host: {
@@ -17,55 +20,29 @@ import {Observer} from "rxjs";
 })
 export class WorkScreenComponent {
 
-  activity: string | undefined
-  work: Work | undefined
+  activity$?: Observable<ActivityState>
+  store = inject(Store)
+  work$: Observable<WorkState>
   protected workHours: number;
   @ViewChild('workhoursselect') workHourInput: any;
 
-  constructor(private activityService: ActivityService) {
-    let activityObserver: Observer<Activity> = {
-      next: (activity: Activity) => this.activity = activity.type,
-      error: (err: Error) => this.activity = "NONE",
-      complete: () => console.log("Completed current activity getting")
-    };
-    this.activityService.getCurrentActivity().subscribe(activityObserver)
-
-    let workObserver: Observer<Work> = {
-      next: (work: Work) => {
-        if (work.collectable){
-          this.collectWork();
-        }else {
-          this.work = work
-        }
-      },
-      error: (err: Error) => this.work = {} as Work,
-      complete: () => console.log("Completed current work getting")
-    };
-    this.activityService.getWork().subscribe(workObserver)
+  constructor() {
+    this.activity$ = this.store.select('activity')
+    this.work$ = this.store.select('work')
+    this.store.dispatch(loadWork());
     this.workHours = 10
   }
 
-  private collectWork() {
-    this.work = {} as Work
-    this.activity = "NONE"
+  startWork() {
+    this.store.dispatch(createWork({duration: this.workHours}));
   }
 
-  startWork() {
-    this.activityService.startWork(this.workHours).subscribe(work => {
-      this.work = work
-      this.activity = "WORK"
-    });
+  stopWork() {
+    this.store.dispatch(deleteWork());
   }
 
   updateWorkValue(event: any) {
     let target = event.target;
     this.workHours = target.value;
-  }
-
-  stopWork() {
-    this.activityService.stopWork().pipe().subscribe(() => {
-      this.work = {} as Work
-      this.activity = "NONE"
-    });
   }
 }

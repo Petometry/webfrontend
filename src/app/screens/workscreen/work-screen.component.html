@@ -1,17 +1,19 @@
-@if (activity == undefined) {
+@if ((activity$ |async)?.loading) {
   <app-loading></app-loading>
-} @else if (activity == "WORK") {
-  <div>You are already working</div>
-  <div>Activity finishes at {{ work?.endTime }}</div>
-  <div>You will receive {{ work?.reward }} GeoCoin</div>
-  <button (click)="stopWork()">Stop Activity</button>
-} @else if (activity == "NONE") {
+
+} @else if ((activity$ |async)?.activity == undefined) {
   <div> How long do you want to work for? (Hours)</div>
   <input #workhoursselect type="range" step="1" max="10" min="1" [defaultValue]=workHours
          (input)="updateWorkValue($event)">
   <div>You are going to work for {{ workHours }} hours.</div>
   <div>Reward: {{ (workHours * 0.1).toFixed(2) }}</div>
   <button (click)="startWork()">Start Work</button>
-} @else {
+} @else if ((activity$ |async)?.activity?.type != "WORK") {
   <div>You are already on another activity</div>
+} @else if ((activity$ |async)?.activity?.type == "WORK") {
+  <div>You are already working</div>
+  <div>Activity finishes at {{ (work$ |async)?.work?.endTime }}</div>
+  <div>You will receive {{ (work$ |async)?.work?.reward }} GeoCoin</div>
+  <button (click)="stopWork()">Stop Activity</button>
 }
+
