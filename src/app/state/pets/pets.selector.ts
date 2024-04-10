@@ -2,7 +2,7 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { AppState } from '../app.state';
 import { PetOverview } from "../../models/pets/petoverview";
 
-// Get complete state of the favorites products in application
+// Get complete state of the pets in application
 export const selectAppState = createFeatureSelector<AppState>('pets');
 
 // get All pets
