@@ -16,4 +16,6 @@ on(ActivityActions.loadActivity, state => ({ ...state, loading: true })),
 on(ActivityActions.loadActivitySuccess, (state, { activity }) =>({ ...state, activity, loading: false })),
 
 on(ActivityActions.loadActivityFailure, (state, { error }) => ({ ...state, error, loading: false })),
+  
+on(ActivityActions.updateActivity, (state, { activity }) =>({ ...state, activity})),
 );
