@@ -13,8 +13,7 @@ initialState,
 
 on(ActivityActions.loadActivity, state => ({ ...state, loading: true })),
 
-on(ActivityActions.loadActivity, (state, { activity }) =>({ ...state, activity, loading: false })),
+on(ActivityActions.loadActivitySuccess, (state, { activity }) =>({ ...state, activity, loading: false })),
 
-on(ActivityActions.loadActivity, (state, { error }) => ({ ...state, error, loading: false })),
-
+on(ActivityActions.loadActivityFailure, (state, { error }) => ({ ...state, error, loading: false })),
 );
