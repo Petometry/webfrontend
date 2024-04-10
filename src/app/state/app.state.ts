@@ -1,4 +1,4 @@
-import { PetOverview } from "../../model/pet/petoverview";
+import { PetOverview } from "../model/pet/petoverview";
 
 export interface AppState {
     pets:PetOverview[];
