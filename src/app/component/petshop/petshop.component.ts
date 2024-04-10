@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PetShop} from "../../model/pet/petshop.service";
 import {PetService} from "../../service/petservice/pet.service";
-import {Petoverview} from "../../model/pet/petoverview";
+import {Pet} from "../../model/pet/pet";
 import {PetComponent} from "../pet/pet.component";
 import {LoadingComponent} from "../loading/loading.component";
 
@@ -27,10 +27,10 @@ export class PetshopComponent implements OnInit {
   buyPet(event: MouseEvent) {
 
     let target = event.target as Element;
-    this.petService.buypet((target.id as unknown as number)).subscribe(pet => this.processBoughtPet(pet))
+    this.petService.createPet((target.id as unknown as number)).subscribe(pet => this.processBoughtPet(pet))
   }
 
-  processBoughtPet(pet: Petoverview) {
+  processBoughtPet(pet: Pet) {
     if (this.petShop == undefined){
       return
     }

@@ -5,12 +5,14 @@ import {routes} from '../app/app.routes';
 import {KeycloakService} from "keycloak-angular";
 import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {KeycloakBearerInterceptorProvider, KeycloakInitializerProvider} from "./keycloak.config";
-import { provideStore } from '@ngrx/store';
-import { reducers, metaReducers } from '../app/reducers';
+import {provideStore} from '@ngrx/store';
+import {metaReducers, reducers} from '../app/reducers';
 import {provideEffects} from "@ngrx/effects";
 import {ActivityEffects} from "../app/effects/activity.effects";
 import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {WorkEffects} from "../app/effects/work.effects";
+import {PetsEffects} from "../app/effects/pets.effects";
+import {PetEffects} from "../app/effects/pet.effects";
 
 
 export const appConfig: ApplicationConfig = {
@@ -21,8 +23,8 @@ export const appConfig: ApplicationConfig = {
     KeycloakService, // Service for Keycloak
     provideRouter(routes) // Provides routing for the application
     ,
-    provideStore(reducers, { metaReducers }),
-    provideEffects(ActivityEffects, WorkEffects),
+    provideStore(reducers, {metaReducers}),
+    provideEffects(ActivityEffects, WorkEffects, PetsEffects, PetEffects),
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode
@@ -31,5 +33,5 @@ export const appConfig: ApplicationConfig = {
       traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
       connectInZone: true // If set to true, the connection is established within the Angular zone
     })
-]
+  ]
 };

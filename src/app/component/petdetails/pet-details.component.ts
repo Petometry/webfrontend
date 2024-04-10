@@ -1,38 +1,38 @@
-import {Component, input, OnInit} from '@angular/core';
-import {Petoverview} from "../../model/pet/petoverview";
-import {PetService} from "../../service/petservice/pet.service";
+import {Component, inject, input, OnInit} from '@angular/core';
+import {Pet} from "../../model/pet/pet";
 import {PetComponent} from "../pet/pet.component";
-import {Router} from "@angular/router";
-import {Observer} from "rxjs";
-import {PetDetails} from "../../model/pet/petdetails";
+import {map, Observable} from "rxjs";
 import {LoadingComponent} from "../loading/loading.component";
+import {Store} from "@ngrx/store";
+import {PetsState} from "../../reducers/pets.reducers";
+import {AsyncPipe} from "@angular/common";
+import {loadPet} from "../../actions/pet.actions";
 
 @Component({
   selector: 'app-pet-details',
   standalone: true,
   imports: [
     PetComponent,
-    LoadingComponent
+    LoadingComponent,
+    AsyncPipe
   ],
   templateUrl: './pet-details.component.html',
   styleUrl: './pet-details.component.css'
 })
-export class PetDetailsComponent implements OnInit {
+export class PetDetailsComponent implements OnInit{
 
   petId = input.required<number>();
-  protected pet: Petoverview | undefined;
 
+  store = inject(Store)
+  pet$: Observable<Pet | undefined>
+  pets$: Observable<PetsState>;
 
-  constructor(private petService: PetService, private router: Router) {
+  constructor() {
+    this.pets$ = this.store.select("pets")
+    this.pet$ = this.pets$.pipe(map(ps => ps.pets.find((p => p.id == this.petId()))))
   }
 
   ngOnInit(): void {
-
-    const observer: Observer<PetDetails> = {
-      error: () => this.router.navigateByUrl("/game"),
-      next: (pet: PetDetails) => this.pet = pet,
-      complete: () => console.log("Completed")
-    }
-    this.petService.getUserPet(this.petId()).subscribe(observer)
+    this.store.dispatch(loadPet({id: this.petId()}))
   }
 }

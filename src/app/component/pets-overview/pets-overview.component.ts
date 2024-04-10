@@ -1,29 +1,32 @@
-import {Component, OnInit} from '@angular/core';
-import {Petoverview} from "../../model/pet/petoverview";
+import {Component, inject} from '@angular/core';
 import {PetService} from "../../service/petservice/pet.service";
 import {PetComponent} from "../pet/pet.component";
 import {Router} from "@angular/router";
 import {LoadingComponent} from "../loading/loading.component";
+import {Observable} from "rxjs";
+import {Store} from "@ngrx/store";
+import {AsyncPipe} from "@angular/common";
+import {PetsState} from "../../reducers/pets.reducers";
 
 @Component({
   selector: 'app-pets-overview',
   standalone: true,
   imports: [
     PetComponent,
-    LoadingComponent
+    LoadingComponent,
+    AsyncPipe
   ],
   templateUrl: './pets-overview.component.html',
   styleUrl: './pets-overview.component.css'
 })
-export class PetsOverviewComponent implements OnInit{
+export class PetsOverviewComponent{
 
-  protected pets: Petoverview[] | undefined;
+  pets$: Observable<PetsState>
 
-  constructor(private petService: PetService, private router: Router ) {
-  }
+  store = inject(Store)
 
-  ngOnInit(): void {
-    this.petService.getUserPets().subscribe((pets: Petoverview[]) => this.pets = pets)
+  constructor(private petService: PetService, private router: Router) {
+    this.pets$ = this.store.select('pets')
   }
 
   showPetDetails(event: MouseEvent){

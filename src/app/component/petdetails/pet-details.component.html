@@ -1,9 +1,11 @@
 <div id="container" class="grid-container">
   <div id="containerheader"> <h2>Pet Details</h2></div>
-  @if (pet == undefined){
+  @if ((pets$ | async)?.loading){
     <app-loading></app-loading>
+  } @else if ((pet$ | async) == undefined){
+
   } @else {
-    <app-pet [pet]="pet"></app-pet>
+    <app-pet [pet]="(pet$ | async)!"></app-pet>
   }
 </div>
 

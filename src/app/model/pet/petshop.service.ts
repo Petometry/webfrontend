@@ -1,8 +1,8 @@
-import {Petoverview} from "./petoverview";
+import {Pet} from "./pet";
 
 export interface PetShop {
     "id": number,
-    "pets": Petoverview[],
+    "pets": Pet[],
     "ownerId": string,
     "validFor": Date
 }
