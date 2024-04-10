@@ -4,6 +4,7 @@ import {Work} from "../../model/activity/work";
 import {LoadingComponent} from "../../component/loading/loading.component";
 import {Activity} from "../../model/activity/activity";
 import {Observer} from "rxjs";
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-workplace',
@@ -22,7 +23,7 @@ export class WorkScreenComponent {
   protected workHours: number;
   @ViewChild('workhoursselect') workHourInput: any;
 
-  constructor(private activityService: ActivityService) {
+  constructor(private activityService: ActivityService, private store:Store) {
     let activityObserver: Observer<Activity> = {
       next: (activity: Activity) => this.activity = activity.type,
       error: (err: Error) => this.activity = "NONE",
