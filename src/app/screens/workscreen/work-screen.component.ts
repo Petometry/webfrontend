@@ -1,5 +1,4 @@
 import {Component, inject, ViewChild} from '@angular/core';
-import {ActivityService} from "../../service/activityservice/activity.service";
 import {LoadingComponent} from "../../component/loading/loading.component";
 import {Observable} from "rxjs";
 import {ActivityState} from "../../reducers/activity.reducers";
@@ -7,7 +6,7 @@ import {Store} from "@ngrx/store";
 import {AsyncPipe} from "@angular/common";
 import {createWork, deleteWork, loadWork} from "../../actions/work.actions";
 import {WorkState} from "../../reducers/work.reducers";
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import {FormControl, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-workplace',
@@ -26,12 +25,13 @@ export class WorkScreenComponent {
   work$: Observable<WorkState>
   protected workHours: number;
   @ViewChild('workhoursselect') workHourInput: any;
-  workHoursFormControl = new FormControl(10);
+  workHoursFormControl: FormControl<number | null>;
 
   constructor() {
     this.activity$ = this.store.select('activity')
     this.work$ = this.store.select('work')
     this.store.dispatch(loadWork());
+    this.workHoursFormControl = new FormControl(10);
     this.workHours = 10
   }
 
