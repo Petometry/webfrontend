@@ -4,8 +4,8 @@
 } @else if ((activity$ |async)?.activity == undefined) {
   <div> How long do you want to work for? (Hours)</div>
   <input #workhoursselect type="range" step="1" max="10" min="1" [formControl] = "workHoursFormControl">
-  <div>You are going to work for {{ workHoursFormControl.value }} hours.</div>
-  <div>Reward: {{ (workHoursFormControl.value * 0.1).toFixed(2) }}</div>
+  <div>You are going to work for {{ workHoursFormControl.value! }} hours.</div>
+  <div>Reward: {{ (workHoursFormControl.value! * 0.1).toFixed(2) }}</div>
   <button (click)="startWork()">Start Work</button>
 } @else if ((activity$ |async)?.activity?.type != "WORK") {
   <div>You are already on another activity</div>
