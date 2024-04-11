@@ -7,11 +7,12 @@ import {Store} from "@ngrx/store";
 import {AsyncPipe} from "@angular/common";
 import {createWork, deleteWork, loadWork} from "../../actions/work.actions";
 import {WorkState} from "../../reducers/work.reducers";
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-workplace',
   standalone: true,
-  imports: [LoadingComponent, AsyncPipe],
+  imports: [LoadingComponent, AsyncPipe, ReactiveFormsModule],
   templateUrl: './work-screen.component.html',
   styleUrl: './work-screen.component.css',
   host: {
@@ -25,6 +26,7 @@ export class WorkScreenComponent {
   work$: Observable<WorkState>
   protected workHours: number;
   @ViewChild('workhoursselect') workHourInput: any;
+  workHoursFormControl = new FormControl(10);
 
   constructor() {
     this.activity$ = this.store.select('activity')
