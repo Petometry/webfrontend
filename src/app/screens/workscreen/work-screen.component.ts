@@ -36,7 +36,7 @@ export class WorkScreenComponent {
   }
 
   startWork() {
-    this.store.dispatch(createWork({duration: this.workHours}));
+    this.store.dispatch(createWork({duration: this.workHoursFormControl.value}));
   }
 
   stopWork() {
