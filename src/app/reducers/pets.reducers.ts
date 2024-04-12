@@ -3,19 +3,18 @@ import {Pet} from "../model/pet/pet";
 import {loadPets, loadPetsError, loadPetsSuccess} from "../actions/pets.actions";
 
 export interface PetsState {
-  petsEntities: PetsEntity
+  petsEntities: PetsEntities
   pets: Pet[],
   loading: boolean,
   error: string
 }
 
-export interface PetsEntity {
+export interface PetsEntities {
 [id:number] : Pet
 }
 
 export const initialState:PetsState = {
-  petsEntities: PetsEntity
-  petsEntities: {}
+  petsEntities: PetsEntities
   pets: [],
   loading: true,
   error: ''
