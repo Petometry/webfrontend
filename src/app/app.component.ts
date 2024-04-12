@@ -4,6 +4,9 @@ import {PetComponent} from "./component/pets/pet/pet.component";
 import {Store} from "@ngrx/store";
 import {loadWork} from "./actions/work.actions";
 import {loadPets} from "./actions/pets.actions";
+import {loadGeocoins} from "./actions/geocoins.actions";
+import {loadPetShop} from "./actions/petshop.actions";
+import {interval} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -20,11 +23,14 @@ export class AppComponent {
 
   constructor(private store: Store ) {
     this.initializeStore()
+    interval(300_000).subscribe(()=> this.initializeStore())
   }
 
   initializeStore() {
     this.store.dispatch(loadWork())
     this.store.dispatch(loadPets())
+    this.store.dispatch(loadGeocoins())
+    this.store.dispatch(loadPetShop())
   }
 
 

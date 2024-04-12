@@ -1,23 +1,27 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {CurrencyService} from "../../service/currencyservice/currency.service";
+import {Store} from "@ngrx/store";
+import {AsyncPipe} from "@angular/common";
+import {Observable} from "rxjs";
+import {GeocoinsState} from "../../reducers/geocoins.reducers";
+import {loadGeocoins} from "../../actions/geocoins.actions";
 
 @Component({
   selector: 'app-currencies',
   standalone: true,
-  imports: [],
+  imports: [
+    AsyncPipe
+  ],
   templateUrl: './currencies.component.html',
   styleUrl: './currencies.component.css'
 })
-export class CurrenciesComponent implements OnInit{
-  protected geoCoins: number;
+export class CurrenciesComponent{
 
+  store = inject(Store)
+  protected geoCoins$:Observable<GeocoinsState>
 
   constructor(private currencyService:CurrencyService) {
-    this.geoCoins = 0;
-  }
-
-  ngOnInit(): void {
-
-    this.currencyService.getCurrencies().subscribe((currencies => this.geoCoins = currencies.geocoin))
+    this.geoCoins$ = this.store.select('geocoins')
+    this.store.dispatch(loadGeocoins())
   }
 }

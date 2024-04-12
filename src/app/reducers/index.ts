@@ -4,6 +4,7 @@ import {activityReducer} from "./activity.reducers";
 import {workReducer} from "./work.reducers";
 import {petsReducer} from "./pets.reducers";
 import {PetShopReducer} from "./petshop.reducers";
+import {geocoinsReducers} from "./geocoins.reducers";
 
 export interface State {
 
@@ -13,7 +14,8 @@ export const reducers: ActionReducerMap<State> = {
   activity: activityReducer,
   work: workReducer,
   pets: petsReducer,
-  petShop: PetShopReducer
+  petShop: PetShopReducer,
+  geocoins: geocoinsReducers
 };
 
 
