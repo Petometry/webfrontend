@@ -1,8 +1,17 @@
-@if ((work$ | async)?.loading){
+@if ((work$ | async)?.loading) {
   <app-loading/>
 } @else {
-  <div>You are already working</div>
-  <div>Your Workday ends at {{ (work$ |async)?.work?.endTime | date:'dd/MM. HH:mm' }}</div>
-  <div>You will receive {{ (work$ |async)?.work?.reward }} GeoCoin</div>
-  <button (click)="stopWork()">Stop Work</button>
+  <div id="layout">
+    <div id="component">
+      <div id="header"><h2>You are working</h2></div>
+      <div>Your Workday ends at
+        <h4>{{ (work$ |async)?.work?.endTime | date:'dd/MM. HH:mm' }}</h4>
+      </div>
+      <div>You will receive
+        <h4>{{ (work$ |async)?.work?.reward }} GeoCoin</h4>
+        </div>
+      <button (click)="stopWork()">Stop Work</button>
+    </div>
+  </div>
+
 }
