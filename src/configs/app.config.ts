@@ -13,7 +13,7 @@ import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {WorkEffects} from "../app/store/effects/work.effects";
 import {PetsEffects} from "../app/store/effects/pets.effects";
 import {PetShopEffects} from "../app/store/effects/petshop.effects";
-import {GeocoinsEffects} from "../app/store/effects/geocoins.effects";
+import {BalancesEffects} from "../app/store/effects/balances.effects";
 
 
 export const appConfig: ApplicationConfig = {
@@ -25,7 +25,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes) // Provides routing for the application
     ,
     provideStore(reducers, {metaReducers}),
-    provideEffects(ActivityEffects, WorkEffects, PetsEffects, PetShopEffects, GeocoinsEffects),
+    provideEffects(ActivityEffects, WorkEffects, PetsEffects, PetShopEffects, BalancesEffects),
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode

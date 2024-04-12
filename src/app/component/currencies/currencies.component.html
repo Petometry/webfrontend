@@ -1,9 +1,9 @@
 <div>GeoCoins:
-  @if((geoCoins$ |async)?.geocoins! > 1000000000) {
-    {{ ((geoCoins$ |async)?.geocoins! / 1000000000).toFixed(0) }}B
-  } @else if ((geoCoins$ |async)?.geocoins! > 1000000) {
-    {{ ((geoCoins$ |async)?.geocoins! / 1000000).toFixed(0) }}M
+  @if((balances$ |async)?.balances?.geocoin! > 1000000000) {
+    {{ ((balances$ |async)?.balances?.geocoin! / 1000000000).toFixed(0) }}B
+  } @else if ((balances$ |async)?.balances?.geocoin! > 1000000) {
+    {{ ((balances$ |async)?.balances?.geocoin! / 1000000).toFixed(0) }}M
   }@else {
-    {{ (geoCoins$ |async)?.geocoins! }}
+    {{ (balances$ |async)?.balances?.geocoin! }}
   }
 </div>
