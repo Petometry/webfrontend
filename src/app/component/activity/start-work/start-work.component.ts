@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {createWork} from "../../../actions/work.actions";
+import {createWork} from "../../../store/actions/work.actions";
 import {Store} from "@ngrx/store";
 
 @Component({

@@ -1,5 +1,5 @@
 import {createAction, props} from "@ngrx/store";
-import {WorkModel} from "../model/activity/work.model";
+import {WorkModel} from "../../model/activity/work.model";
 
 export const loadWork = createAction('[WorkModel] Load WorkModel ActivityModel')
 export const loadWorkSuccess = createAction('[WorkModel] Load WorkModel Success', props<{work: WorkModel}>())

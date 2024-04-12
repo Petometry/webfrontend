@@ -6,14 +6,14 @@ import {KeycloakService} from "keycloak-angular";
 import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {KeycloakBearerInterceptorProvider, KeycloakInitializerProvider} from "./keycloak.config";
 import {provideStore} from '@ngrx/store';
-import {metaReducers, reducers} from '../app/reducers';
+import {metaReducers, reducers} from './reducers.config';
 import {provideEffects} from "@ngrx/effects";
-import {ActivityEffects} from "../app/effects/activity.effects";
+import {ActivityEffects} from "../app/store/effects/activity.effects";
 import {provideStoreDevtools} from "@ngrx/store-devtools";
-import {WorkEffects} from "../app/effects/work.effects";
-import {PetsEffects} from "../app/effects/pets.effects";
-import {PetShopEffects} from "../app/effects/petshop.effects";
-import {GeocoinsEffects} from "../app/effects/geocoins.effects";
+import {WorkEffects} from "../app/store/effects/work.effects";
+import {PetsEffects} from "../app/store/effects/pets.effects";
+import {PetShopEffects} from "../app/store/effects/petshop.effects";
+import {GeocoinsEffects} from "../app/store/effects/geocoins.effects";
 
 
 export const appConfig: ApplicationConfig = {

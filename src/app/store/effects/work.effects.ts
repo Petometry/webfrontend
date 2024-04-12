@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {loadActivity} from "../actions/activity.actions";
-import {ActivityService} from "../service/activityservice/activity.service";
+import {ActivityService} from "../../service/activityservice/activity.service";
 import {catchError, map, mergeMap, of} from "rxjs";
 import {createWork, deleteWork, loadWork, loadWorkError, loadWorkSuccess} from "../actions/work.actions";
 

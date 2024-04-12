@@ -1,5 +1,5 @@
 import {createReducer, on} from "@ngrx/store";
-import {PetShopModel} from "../model/pet/petshop.model";
+import {PetShopModel} from "../../model/pet/petshop.model";
 import {buyPetError, loadPetShop, loadPetShopError, loadPetShopSuccess} from "../actions/petshop.actions";
 
 export interface PetShopState {

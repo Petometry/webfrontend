@@ -1,10 +1,10 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {catchError, map, mergeMap, of} from "rxjs";
-import {PetService} from "../service/petservice/pet.service";
+import {PetService} from "../../service/petservice/pet.service";
 import {loadPets, loadPetsError, loadPetsSuccess} from "../actions/pets.actions";
 import {buyPet, buyPetError, buyPetSuccess} from "../actions/petshop.actions";
-import {PetModel} from "../model/pet/pet.model";
+import {PetModel} from "../../model/pet/pet.model";
 
 @Injectable()
 export class PetsEffects {

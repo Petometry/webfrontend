@@ -1,9 +1,9 @@
 import {Component, inject} from '@angular/core';
 import {AsyncPipe} from "@angular/common";
-import {deleteWork} from "../../../actions/work.actions";
+import {deleteWork} from "../../../store/actions/work.actions";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
-import {WorkState} from "../../../reducers/work.reducers";
+import {WorkState} from "../../../store/reducers/work.reducers";
 import {LoadingComponent} from "../../loading/loading.component";
 
 @Component({

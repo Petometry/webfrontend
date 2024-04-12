@@ -2,11 +2,11 @@ import {Component} from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {PetComponent} from "./component/pets/pet/pet.component";
 import {Store} from "@ngrx/store";
-import {loadWork} from "./actions/work.actions";
-import {loadPets} from "./actions/pets.actions";
-import {loadGeocoins} from "./actions/geocoins.actions";
-import {loadPetShop} from "./actions/petshop.actions";
 import {interval} from "rxjs";
+import {loadWork} from "./store/actions/work.actions";
+import {loadPets} from "./store/actions/pets.actions";
+import {loadGeocoins} from "./store/actions/geocoins.actions";
+import {loadPetShop} from "./store/actions/petshop.actions";
 
 @Component({
   selector: 'app-root',

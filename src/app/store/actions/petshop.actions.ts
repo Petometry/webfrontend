@@ -1,6 +1,6 @@
 import {createAction, props} from "@ngrx/store";
-import {PetShopModel} from "../model/pet/petshop.model";
-import {PetModel} from "../model/pet/pet.model";
+import {PetShopModel} from "../../model/pet/petshop.model";
+import {PetModel} from "../../model/pet/pet.model";
 
 
 export const loadPetShop = createAction('[PetShop] Load PetShop')

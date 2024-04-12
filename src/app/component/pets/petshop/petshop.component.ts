@@ -1,11 +1,10 @@
 import {Component, inject} from '@angular/core';
-import {PetService} from "../../../service/petservice/pet.service";
 import {PetComponent} from "../pet/pet.component";
 import {LoadingComponent} from "../../loading/loading.component";
 import {Store} from "@ngrx/store";
-import {buyPet, loadPetShop} from "../../../actions/petshop.actions";
+import {buyPet, loadPetShop} from "../../../store/actions/petshop.actions";
 import {Observable} from "rxjs";
-import {PetShopState} from "../../../reducers/petshop.reducers";
+import {PetShopState} from "../../../store/reducers/petshop.reducers";
 import {AsyncPipe} from "@angular/common";
 
 @Component({

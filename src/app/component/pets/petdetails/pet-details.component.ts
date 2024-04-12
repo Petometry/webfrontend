@@ -4,9 +4,9 @@ import {PetComponent} from "../pet/pet.component";
 import {map, Observable} from "rxjs";
 import {LoadingComponent} from "../../loading/loading.component";
 import {Store} from "@ngrx/store";
-import {PetsState} from "../../../reducers/pets.reducers";
+import {PetsState} from "../../../store/reducers/pets.reducers";
 import {AsyncPipe} from "@angular/common";
-import {loadPets} from "../../../actions/pets.actions";
+import {loadPets} from "../../../store/actions/pets.actions";
 
 @Component({
   selector: 'app-pet-details',

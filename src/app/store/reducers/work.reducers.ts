@@ -1,6 +1,6 @@
 import {createReducer, on} from "@ngrx/store";
 import {createWork, deleteWork, loadWork, loadWorkError, loadWorkSuccess} from "../actions/work.actions";
-import {WorkModel} from "../model/activity/work.model";
+import {WorkModel} from "../../model/activity/work.model";
 
 export interface WorkState {
   work: WorkModel | undefined,
@@ -19,5 +19,5 @@ export const workReducer = createReducer(
   on(loadWorkSuccess, (state, {work}) => ({...state, work, loading: false})),
   on(loadWorkError, (state, {error}) => ({...state, error: error, loading: false})),
   on(deleteWork, (state) => ({...state, work: {} as WorkModel})),
-  on(createWork, (state,{duration}) => ({...state, work: {} as WorkModel}))
+  on(createWork, (state) => ({...state, work: {} as WorkModel}))
 );

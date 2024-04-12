@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {catchError, map, mergeMap, of} from "rxjs";
 import {loadGeocoins, loadGeocoinsError, loadGeocoinsSuccess} from "../actions/geocoins.actions";
-import {CurrencyService} from "../service/currencyservice/currency.service";
+import {CurrencyService} from "../../service/currencyservice/currency.service";
 import {buyPetSuccess} from "../actions/petshop.actions";
 
 @Injectable()

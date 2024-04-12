@@ -1,6 +1,6 @@
 import {createReducer, on} from "@ngrx/store";
 import {loadActivity, loadActivityError, loadActivitySuccess} from "../actions/activity.actions";
-import {ActivityModel} from "../model/activity/activity.model";
+import {ActivityModel} from "../../model/activity/activity.model";
 
 export interface ActivityState {
   activity: ActivityModel|undefined,

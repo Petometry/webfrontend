@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 
 import {catchError, map, mergeMap, of} from "rxjs";
-import {PetService} from "../service/petservice/pet.service";
+import {PetService} from "../../service/petservice/pet.service";
 import {buyPetSuccess, loadPetShop, loadPetShopError, loadPetShopSuccess} from "../actions/petshop.actions";
 
 @Injectable()

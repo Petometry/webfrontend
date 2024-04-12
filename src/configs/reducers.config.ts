@@ -1,10 +1,10 @@
 import {isDevMode} from '@angular/core';
 import {ActionReducerMap, MetaReducer} from '@ngrx/store';
-import {activityReducer} from "./activity.reducers";
-import {workReducer} from "./work.reducers";
-import {petsReducer} from "./pets.reducers";
-import {PetShopReducer} from "./petshop.reducers";
-import {geocoinsReducers} from "./geocoins.reducers";
+import {activityReducer} from "../app/store/reducers/activity.reducers";
+import {workReducer} from "../app/store/reducers/work.reducers";
+import {petsReducer} from "../app/store/reducers/pets.reducers";
+import {PetShopReducer} from "../app/store/reducers/petshop.reducers";
+import {geocoinsReducers} from "../app/store/reducers/geocoins.reducers";
 
 export interface State {
 

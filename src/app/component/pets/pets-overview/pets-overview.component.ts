@@ -6,7 +6,7 @@ import {LoadingComponent} from "../../loading/loading.component";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import {AsyncPipe} from "@angular/common";
-import {PetsState} from "../../../reducers/pets.reducers";
+import {PetsState} from "../../../store/reducers/pets.reducers";
 
 @Component({
   selector: 'app-pets-overview',
