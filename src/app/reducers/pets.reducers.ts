@@ -2,6 +2,7 @@ import {createReducer, on} from "@ngrx/store";
 import {PetModel} from "../model/pet/pet.model";
 import {createEntityAdapter, EntityAdapter, EntityState} from "@ngrx/entity";
 import {loadPets, loadPetsError, loadPetsSuccess} from "../actions/pets.actions";
+import {buyPetSuccess} from "../actions/petshop.actions";
 
 export interface PetsState extends EntityState<PetModel> {
   loading: boolean,
@@ -27,4 +28,7 @@ export const petsReducer = createReducer(
     return adapter.addMany(pets, {...state, loading: false, error: ''})
   }),
   on(loadPetsError, (state, {error}) => ({...state, error: error, loading: false})),
+  on(buyPetSuccess, (state, {pet}) => {
+    return adapter.addOne(pet, {...state})
+  }),
 );

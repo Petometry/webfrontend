@@ -1,6 +1,6 @@
 import {createReducer, on} from "@ngrx/store";
 import {PetShopModel} from "../model/pet/petshop.model";
-import {loadPetShop, loadPetShopError, loadPetShopSuccess} from "../actions/petshop.actions";
+import {buyPetError, loadPetShop, loadPetShopError, loadPetShopSuccess} from "../actions/petshop.actions";
 
 export interface PetShopState {
   petShop: PetShopModel|undefined,
@@ -18,4 +18,5 @@ export const PetShopReducer = createReducer(
   on(loadPetShop, (state) => ({ ...state, loading: true })),
   on(loadPetShopSuccess, (state, {petShop}) => ({ ...state, petShop, loading: false })),
   on(loadPetShopError, (state, {error}) => ({ ...state, error: error, loading: false })),
+  on(buyPetError, (state, {error}) => ({ ...state, error: error, loading: false })),
 );

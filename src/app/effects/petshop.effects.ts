@@ -3,7 +3,7 @@ import {Actions, createEffect, ofType} from "@ngrx/effects";
 
 import {catchError, map, mergeMap, of} from "rxjs";
 import {PetService} from "../service/petservice/pet.service";
-import {loadPetShop, loadPetShopError, loadPetShopSuccess} from "../actions/petshop.actions";
+import {buyPetSuccess, loadPetShop, loadPetShopError, loadPetShopSuccess} from "../actions/petshop.actions";
 
 @Injectable()
 export class PetShopEffects {
@@ -17,5 +17,12 @@ export class PetShopEffects {
       mergeMap(() =>
         this.petService.getPetShop().pipe(map((petShop) => loadPetShopSuccess({petShop})), catchError((error) => of(loadPetShopError({error}))))
       ))
+  )
+
+  buyPetSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(buyPetSuccess),
+      mergeMap(() => of(undefined).pipe(map((loadPetShop))))
+    )
   )
 }
