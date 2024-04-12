@@ -4,12 +4,14 @@ import {AsyncPipe} from "@angular/common";
 import {Observable} from "rxjs";
 import {loadBalances} from "../../store/actions/geocoins.actions";
 import {BalancesState} from "../../store/reducers/balancesReducers";
+import {LoadingComponent} from "../loading/loading.component";
 
 @Component({
   selector: 'app-currencies',
   standalone: true,
   imports: [
-    AsyncPipe
+    AsyncPipe,
+    LoadingComponent
   ],
   templateUrl: './currencies.component.html',
   styleUrl: './currencies.component.css'

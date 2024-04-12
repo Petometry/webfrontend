@@ -1,4 +1,4 @@
-#layout{
+.layout{
   display: grid;
   grid-template-areas:
     "header header header"
@@ -12,14 +12,14 @@
   align-items: center;
 }
 
-#component{
+.component{
   grid-area: component;
   padding: 10px;
   border: black solid 1px;
 
 }
 
-#header{
+.header{
   grid-area: header;
 }
 

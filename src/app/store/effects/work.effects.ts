@@ -3,7 +3,15 @@ import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {loadActivity} from "../actions/activity.actions";
 import {ActivityService} from "../../service/activityservice/activity.service";
 import {catchError, map, mergeMap, of} from "rxjs";
-import {createWork, deleteWork, loadWork, loadWorkError, loadWorkSuccess} from "../actions/work.actions";
+import {
+  collectWorkReward, collectWorkRewardError,
+  collectWorkRewardSuccess,
+  createWork,
+  deleteWork,
+  loadWork,
+  loadWorkError,
+  loadWorkSuccess
+} from "../actions/work.actions";
 
 @Injectable()
 export class WorkEffects {
@@ -53,6 +61,25 @@ export class WorkEffects {
       ofType(loadWorkSuccess, loadWorkError),
       mergeMap(() =>
         of(undefined).pipe(map(loadActivity))
+      ))
+  )
+
+  collectReward$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(collectWorkReward),
+      mergeMap((props) =>
+        this.activityService.collectWork().pipe(
+          map(collectWorkRewardSuccess)
+          , catchError((error) => of(collectWorkRewardError({error}))))
+      )
+    )
+  )
+
+  collectRewardSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(collectWorkRewardSuccess),
+      mergeMap(() =>
+        of(undefined).pipe(map(loadWork))
       ))
   )
 }

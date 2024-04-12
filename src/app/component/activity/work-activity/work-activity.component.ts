@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {AsyncPipe, DatePipe} from "@angular/common";
-import {deleteWork} from "../../../store/actions/work.actions";
+import {collectWorkReward, deleteWork} from "../../../store/actions/work.actions";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {WorkState} from "../../../store/reducers/work.reducers";
@@ -29,6 +29,10 @@ export class WorkActivityComponent {
 
   stopWork() {
     this.store.dispatch(deleteWork());
+  }
+
+  collectReward() {
+    this.store.dispatch(collectWorkReward())
   }
 }
 

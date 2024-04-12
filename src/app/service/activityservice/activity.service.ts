@@ -29,4 +29,8 @@ export class ActivityService {
   stopWork():Observable<WorkModel> {
     return this.httpService.sendDeleteRequest("activity", "activities/work");
   }
+
+  collectWork() {
+    return this.httpService.sendPutRequest("activity", "activities/work/collectable", '');
+  }
 }

@@ -4,6 +4,7 @@ import {catchError, map, mergeMap, of} from "rxjs";
 import {loadBalances, loadBalancesError, loadBalancesSuccess} from "../actions/geocoins.actions";
 import {CurrencyService} from "../../service/currencyservice/currency.service";
 import {buyPetSuccess} from "../actions/petshop.actions";
+import {collectWorkRewardSuccess} from "../actions/work.actions";
 
 @Injectable()
 export class BalancesEffects {
@@ -24,6 +25,14 @@ export class BalancesEffects {
       ofType(buyPetSuccess),
       mergeMap(() =>
         this.currencyService.getCurrencies().pipe(map((balances) => loadBalancesSuccess({balances})), catchError((error) => of(loadBalancesError({error}))))
+      ))
+  )
+
+  collectWorkRewardSuccess = createEffect(() =>
+    this.actions$.pipe(
+      ofType(collectWorkRewardSuccess),
+      mergeMap(() =>
+        of(undefined).pipe(map(loadBalances))
       ))
   )
 }
