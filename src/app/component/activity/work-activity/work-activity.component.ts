@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {AsyncPipe} from "@angular/common";
+import {AsyncPipe, DatePipe} from "@angular/common";
 import {deleteWork} from "../../../store/actions/work.actions";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
@@ -11,7 +11,8 @@ import {LoadingComponent} from "../../loading/loading.component";
   standalone: true,
   imports: [
     AsyncPipe,
-    LoadingComponent
+    LoadingComponent,
+    DatePipe
   ],
   templateUrl: './work-activity.component.html',
   styleUrl: './work-activity.component.css'
