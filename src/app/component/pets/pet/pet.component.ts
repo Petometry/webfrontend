@@ -10,7 +10,7 @@ import {
   ViewChild
 } from '@angular/core';
 import {NgStyle} from "@angular/common";
-import {Pet} from "../../model/pet/pet";
+import {PetModel} from "../../../model/pet/pet.model";
 
 @Component({
   selector: 'app-pet',
@@ -23,7 +23,7 @@ import {Pet} from "../../model/pet/pet";
 })
 export class PetComponent implements AfterViewInit {
 
-  pet = input.required<Pet>();
+  pet = input.required<PetModel>();
 
   @ViewChild('container') container !: ElementRef;
 

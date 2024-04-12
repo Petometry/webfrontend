@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpService} from "../httpservice/http.service";
 import {Observable} from "rxjs";
-import {Balances} from "../../model/currency/balances";
+import {BalancesModel} from "../../model/currency/balances.model";
 
 
 @Injectable({
@@ -11,7 +11,7 @@ export class CurrencyService {
 
   constructor(private httpService:HttpService) { }
 
-  getCurrencies():Observable<Balances>{
+  getCurrencies():Observable<BalancesModel>{
 
     return this.httpService.sendGetRequest("currency", "balances");
   }

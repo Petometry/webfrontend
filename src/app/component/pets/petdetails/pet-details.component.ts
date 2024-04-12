@@ -1,12 +1,12 @@
 import {Component, inject, input, OnInit} from '@angular/core';
-import {Pet} from "../../model/pet/pet";
+import {PetModel} from "../../../model/pet/pet.model";
 import {PetComponent} from "../pet/pet.component";
 import {map, Observable} from "rxjs";
-import {LoadingComponent} from "../loading/loading.component";
+import {LoadingComponent} from "../../loading/loading.component";
 import {Store} from "@ngrx/store";
-import {PetsState} from "../../reducers/pets.reducers";
+import {PetsState} from "../../../reducers/pets.reducers";
 import {AsyncPipe} from "@angular/common";
-import {loadPet} from "../../actions/pet.actions";
+import {loadPets} from "../../../actions/pets.actions";
 
 @Component({
   selector: 'app-pet-details',
@@ -24,7 +24,7 @@ export class PetDetailsComponent implements OnInit{
   petId = input.required<number>();
 
   store = inject(Store)
-  pet$: Observable<Pet | undefined>
+  pet$: Observable<PetModel | undefined>
   pets$: Observable<PetsState>;
 
   constructor() {
@@ -33,6 +33,6 @@ export class PetDetailsComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.store.dispatch(loadPet({id: this.petId()}))
+    this.store.dispatch(loadPets())
   }
 }

@@ -1,0 +1,8 @@
+@if ((work$ | async)?.loading){
+  <app-loading/>
+} @else {
+  <div>You are already working</div>
+  <div>ActivityModel finishes at {{ (work$ |async)?.work?.endTime }}</div>
+  <div>You will receive {{ (work$ |async)?.work?.reward }} GeoCoin</div>
+  <button (click)="stopWork()">Stop Work</button>
+}

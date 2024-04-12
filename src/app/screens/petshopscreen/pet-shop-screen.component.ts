@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {NgStyle} from "@angular/common";
-import {PetComponent} from "../../component/pet/pet.component";
-import {PetshopComponent} from "../../component/petshop/petshop.component";
+import {PetComponent} from "../../component/pets/pet/pet.component";
+import {PetshopComponent} from "../../component/pets/petshop/petshop.component";
 
 @Component({
   selector: 'app-petshop-screen',

@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Pet} from "../../model/pet/pet";
+import {PetModel} from "../../model/pet/pet.model";
 import {HttpService} from "../httpservice/http.service";
 import {Observable} from "rxjs";
-import {PetShop} from "../../model/pet/petshop.service";
+import {PetShopModel} from "../../model/pet/petshop.model";
 
 @Injectable({
   providedIn: 'root'
@@ -14,27 +14,27 @@ export class PetService {
 
   private service = "pet";
 
-  public createPet(petId: number): Observable<Pet> {
+  public createPet(petId: number): Observable<PetModel> {
 
     return this.httpService.sendPostRequest(this.service, "pets/" + petId, null)
   }
 
-  public getPets(): Observable<Pet[]> {
+  public getPets(): Observable<PetModel[]> {
 
     return this.httpService.sendGetRequest(this.service, "pets")
   }
 
-  public deletePet(petId: number): Observable<Pet> {
+  public deletePet(petId: number): Observable<PetModel> {
 
     return this.httpService.sendDeleteRequest(this.service, "pets/" + petId)
   }
 
-  public getPetShop(): Observable<PetShop> {
+  public getPetShop(): Observable<PetShopModel> {
 
     return this.httpService.sendGetRequest(this.service, "petshops")
   }
 
-  getPet(id:number): Observable<Pet> {
+  getPet(id:number): Observable<PetModel> {
 
     return this.httpService.sendGetRequest(this.service, "pets/"+ id)
   }

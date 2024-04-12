@@ -1,25 +1,5 @@
-.pets{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
-  border: black solid 1px;
-  flex-grow: 1;
-}
-
-#petshop-row{
-  height: 50%;
-}
-
-app-pet{
-  width: 30%;
-  height: 30%;
-  margin: 5px;
-  cursor: pointer;
-}
-
-#shopkeep{
-  align-items: center;
-  justify-content: center;
-  height: 50%;
+#shop{
+  height: 100%;
+  width: 100%;
+  grid-area: component;
 }

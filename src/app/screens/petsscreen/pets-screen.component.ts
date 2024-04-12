@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {NgStyle} from "@angular/common";
-import {PetComponent} from "../../component/pet/pet.component";
-import {PetsOverviewComponent} from "../../component/pets-overview/pets-overview.component";
-import {PetDetailsComponent} from "../../component/petdetails/pet-details.component";
+import {PetComponent} from "../../component/pets/pet/pet.component";
+import {PetsOverviewComponent} from "../../component/pets/pets-overview/pets-overview.component";
+import {PetDetailsComponent} from "../../component/pets/petdetails/pet-details.component";
 
 @Component({
   selector: 'app-pets',

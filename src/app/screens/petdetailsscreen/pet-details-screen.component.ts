@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {PetDetailsComponent} from "../../component/petdetails/pet-details.component";
+import {PetDetailsComponent} from "../../component/pets/petdetails/pet-details.component";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({

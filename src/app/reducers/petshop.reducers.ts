@@ -1,15 +1,15 @@
 import {createReducer, on} from "@ngrx/store";
-import {PetShop} from "../model/pet/petshop.service";
+import {PetShopModel} from "../model/pet/petshop.model";
 import {loadPetShop, loadPetShopError, loadPetShopSuccess} from "../actions/petshop.actions";
 
 export interface PetShopState {
-  petShop: PetShop|undefined,
+  petShop: PetShopModel|undefined,
   loading: boolean,
   error: string
 }
 
 export const initialState:PetShopState = {
-  petShop: {} as PetShop,
+  petShop: {} as PetShopModel,
   loading: true,
   error: ''
 }

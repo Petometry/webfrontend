@@ -1,26 +1,5 @@
-#pets-layout {
-  height: 100%;
-  grid-template-areas:
-    'header'
-    'pets'
-    '.';
-
-  grid-template-rows: 100px 1fr 100px;
-}
-
-#pets-header {
-  text-align: center;
-  grid-area: header;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 #pets-overview {
-  grid-area: pets;
-  max-height: 100%;
-  max-width: 100%;
+  grid-area: component;
   height: 100%;
   width: 100%;
-
 }

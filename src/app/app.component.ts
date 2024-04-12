@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
-import {PetComponent} from "./component/pet/pet.component";
+import {PetComponent} from "./component/pets/pet/pet.component";
 import {Store} from "@ngrx/store";
 import {loadWork} from "./actions/work.actions";
 import {loadPets} from "./actions/pets.actions";

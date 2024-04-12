@@ -9,7 +9,7 @@
 app-pet{
   cursor: pointer;
   padding: 10px;
-  height: 33%;
+  height: 50%;
   width: 33%;
   flex-grow: 1;
 }

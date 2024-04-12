@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
-import {Work} from "../../model/activity/work";
+import {WorkModel} from "../../model/activity/work.model";
 import {HttpService} from "../httpservice/http.service";
-import {Activity} from "../../model/activity/activity";
+import {ActivityModel} from "../../model/activity/activity.model";
 
 @Injectable({
   providedIn: 'root'
@@ -11,22 +11,22 @@ export class ActivityService {
 
   constructor(private httpService:HttpService) { }
 
-  getCurrentActivity():Observable<Activity> {
+  getCurrentActivity():Observable<ActivityModel> {
 
     return this.httpService.sendGetRequest("activity", "activities")
   }
 
-  startWork(hoursToWork: number):Observable<Work> {
+  startWork(hoursToWork: number):Observable<WorkModel> {
     let work = {duration: hoursToWork}
     return this.httpService.sendPostRequest("activity", "activities/work", work)
   }
 
-  getWork():Observable<Work> {
+  getWork():Observable<WorkModel> {
     return this.httpService.sendGetRequest("activity", "activities/work")
 
   }
 
-  stopWork():Observable<Work> {
+  stopWork():Observable<WorkModel> {
     return this.httpService.sendDeleteRequest("activity", "activities/work");
   }
 }

@@ -1,0 +1,15 @@
+#startwork{
+  grid-area: component;
+  height: 100%;
+  width: 100%;
+}
+#alreadyonactivity{
+  grid-area: component;
+  height: 100%;
+  width: 100%;
+}
+#workactivity{
+  grid-area: component;
+  height: 100%;
+  width: 100%;
+}

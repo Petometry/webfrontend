@@ -1,4 +1,4 @@
-export interface PetApperance {
+export interface PetApperanceModel {
   "geometry": string
   "color": string
 }

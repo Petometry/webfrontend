@@ -38,3 +38,28 @@ body {
   height: 100%;
   display: block;
 }
+
+.screen-layout{
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-areas:
+    'header header header'
+    '. component .'
+    '. . .'
+;
+
+  grid-template-rows: 100px 1fr 100px;
+  grid-template-columns: minmax(0, 100px) 1fr minmax(0, 100px);
+}
+
+.screen-component{
+  height: 100%;
+  width: 100%;
+  grid-area: component;
+}
+
+.screen-header {
+  grid-area: header;
+  text-align: center;
+}

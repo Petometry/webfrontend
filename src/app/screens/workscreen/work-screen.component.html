@@ -1,18 +1,14 @@
-@if ((activity$ |async)?.loading) {
-  <app-loading></app-loading>
+<div class="grid-container screen-layout">
+  <div class="screen-header"><h2>Work</h2></div>
+  @if ((activity$ |async)?.loading) {
+    <app-loading></app-loading>
+  } @else if ((activity$ |async)?.activity == undefined) {
+    <app-start-work class="screen-component"/>
+  } @else if ((activity$ |async)?.activity?.type != "WORK") {
+    <div class="screen-component" >You are on another activity</div>
+  } @else if ((activity$ |async)?.activity?.type == "WORK") {
+    <app-work-activity class="screen-component"/>
+  }
+</div>
 
-} @else if ((activity$ |async)?.activity == undefined) {
-  <div> How long do you want to work for? (Hours)</div>
-  <input #workhoursselect type="range" step="1" max="10" min="1" [formControl] = "workHoursFormControl">
-  <div>You are going to work for {{ workHoursFormControl.value! }} hours.</div>
-  <div>Reward: {{ (workHoursFormControl.value! * 0.1).toFixed(2) }}</div>
-  <button (click)="startWork()">Start Work</button>
-} @else if ((activity$ |async)?.activity?.type != "WORK") {
-  <div>You are already on another activity</div>
-} @else if ((activity$ |async)?.activity?.type == "WORK") {
-  <div>You are already working</div>
-  <div>Activity finishes at {{ (work$ |async)?.work?.endTime }}</div>
-  <div>You will receive {{ (work$ |async)?.work?.reward }} GeoCoin</div>
-  <button (click)="stopWork()">Stop Activity</button>
-}
 

@@ -1,15 +1,15 @@
 import {createReducer, on} from "@ngrx/store";
 import {loadActivity, loadActivityError, loadActivitySuccess} from "../actions/activity.actions";
-import {Activity} from "../model/activity/activity";
+import {ActivityModel} from "../model/activity/activity.model";
 
 export interface ActivityState {
-  activity: Activity|undefined,
+  activity: ActivityModel|undefined,
   loading: boolean,
   error: string
 }
 
 export const initialState:ActivityState = {
-  activity: {} as Activity,
+  activity: {} as ActivityModel,
   loading: true,
   error: ''
 }

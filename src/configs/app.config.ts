@@ -12,7 +12,6 @@ import {ActivityEffects} from "../app/effects/activity.effects";
 import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {WorkEffects} from "../app/effects/work.effects";
 import {PetsEffects} from "../app/effects/pets.effects";
-import {PetEffects} from "../app/effects/pet.effects";
 import {PetShopEffects} from "../app/effects/petshop.effects";
 
 
@@ -25,7 +24,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes) // Provides routing for the application
     ,
     provideStore(reducers, {metaReducers}),
-    provideEffects(ActivityEffects, WorkEffects, PetsEffects, PetEffects, PetShopEffects),
+    provideEffects(ActivityEffects, WorkEffects, PetsEffects, PetShopEffects),
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode
