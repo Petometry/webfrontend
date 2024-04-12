@@ -1,0 +1,35 @@
+#layout{
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    ". component ."
+    ". . ."
+;
+  height: 100%;
+  grid-template-rows: minmax(0px, auto) auto minmax(0px, auto);
+  grid-template-columns: minmax(0px, auto) auto minmax(0px, auto);
+  justify-items: center;
+  align-items: center;
+}
+
+#component{
+  grid-area: component;
+  padding: 10px;
+  border: black solid 1px;
+
+}
+
+#header{
+  grid-area: header;
+}
+
+#range-container{
+  display: flex;
+  width: 100%;
+align-items: center;
+  justify-content: center;
+}
+
+#range-container input{
+  width: 100%;
+}

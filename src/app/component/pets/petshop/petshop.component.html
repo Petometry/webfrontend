@@ -1,11 +1,12 @@
-<div class="full-height full-width flex">
-  @if ((petShop$ |async)?.loading == undefined) {
-    <app-loading></app-loading>
-  } @else {
-    <div id="pets-row" class="row full-height-flex">
+@if ((petShop$ |async)?.loading == undefined) {
+  <app-loading></app-loading>
+} @else {
+  <div class="screen-layout">
+    <div id="shop-layout" class="grid-container">
       @for (pet of (petShop$ | async)?.petShop?.pets; track pet.id) {
-        <app-pet id="{{pet.id}}" class="col-4" [pet]="pet" (click)="buyPet($event)"/>
+        <app-pet id="{{pet.id}}"[pet]="pet" (click)="buyPet($event)"/>
       }
     </div>
-  }
-</div>
+  </div>
+}
+

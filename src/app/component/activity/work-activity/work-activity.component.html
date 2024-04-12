@@ -5,10 +5,10 @@
     <div id="component">
       <div id="header"><h2>You are working</h2></div>
       <div>Your Workday ends at
-        <h4>{{ (work$ |async)?.work?.endTime | date:'dd/MM. HH:mm' }}</h4>
+        <h4>{{ (work$ |async)?.work?.endTime | date:'dd/MM HH:mm' }}</h4>
       </div>
       <div>You will receive
-        <h4>{{ (work$ |async)?.work?.reward }} GeoCoin</h4>
+        <b>{{ (work$ |async)?.work?.reward }} GeoCoin</b>
         </div>
       <button (click)="stopWork()">Stop Work</button>
     </div>
