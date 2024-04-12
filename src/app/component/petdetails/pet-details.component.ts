@@ -29,7 +29,7 @@ export class PetDetailsComponent implements OnInit{
 
   constructor() {
     this.pets$ = this.store.select("pets")
-    this.pet$ = this.pets$.pipe(map(ps => ps.pets.find((p => p.id == this.petId()))))
+    this.pet$ = this.pets$.pipe(map(ps => ps.entities[this.petId()]))
   }
 
   ngOnInit(): void {

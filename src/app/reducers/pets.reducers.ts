@@ -1,27 +1,23 @@
-import {createReducer, on} from "@ngrx/store";
+import {createReducer} from "@ngrx/store";
 import {Pet} from "../model/pet/pet";
-import {loadPets, loadPetsError, loadPetsSuccess} from "../actions/pets.actions";
+import {createEntityAdapter, EntityAdapter, EntityState} from "@ngrx/entity";
 
-export interface PetsState {
-  petsEntities: PetsEntities,
-  pets: Pet[],
+export interface PetsState extends EntityState<Pet>{
   loading: boolean,
   error: string
 }
 
-export interface PetsEntities {
-[id:number] : Pet
+export function selectPetId(a: Pet): number {
+  //In this case this would be optional since primary key is id
+  return a.id;
 }
+export const adapter: EntityAdapter<Pet> = createEntityAdapter<Pet>({
+  selectId: selectPetId
+});
 
-export const initialState:PetsState = {
-  petsEntities: {} as PetsEntities,
-  pets: [],
+export const initialState: PetsState = adapter.getInitialState({
   loading: true,
   error: ''
-}
-export const petsReducer = createReducer(
-  initialState,
-  on(loadPets, (state) => ({ ...state, loading: true })),
-  on(loadPetsSuccess, (state, {pets}) => ({ ...state, pets, loading: false })),
-  on(loadPetsError, (state, {error}) => ({ ...state, error: error, loading: false })),
-);
+});
+
+export const petsReducer = createReducer(initialState);

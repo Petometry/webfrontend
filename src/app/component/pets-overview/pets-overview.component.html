@@ -2,8 +2,8 @@
   <app-loading></app-loading>
 } @else {
   <div id="shop-layout" class="grid-container">
-    @for (pet of (pets$ | async)?.pets; track pet.id) {
-        <app-pet (click)="showPetDetails($event)" [pet]="pet"/>
+    @for (id of (pets$ | async)?.ids; track id) {
+        <app-pet (click)="showPetDetails($event)" [pet]="(pets$ | async)!.entities[id]!"/>
     } @empty {
       You do not have any pets
     }
