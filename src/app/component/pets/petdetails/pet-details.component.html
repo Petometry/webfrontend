@@ -1,0 +1,13 @@
+<div id="container" class="grid-container">
+  @if ((pets$ | async)?.loading){
+    <app-loading></app-loading>
+  } @else if ((pet$ | async) == undefined){
+
+  } @else {
+    <div id="pet-details">Put the details for the pet here</div>
+    <app-pet [pet]="(pet$ | async)!"></app-pet>
+  }
+</div>
+
+
+

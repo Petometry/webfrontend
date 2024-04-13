@@ -23,16 +23,19 @@ export class HttpService {
 
   public sendGetRequest(service: string, path: string): Observable<any> {
     let url = this.prefix + service + this.domain + path;
+    console.log("Calling url: " + url)
     return this.httpClient.get(url)
   }
 
-  public sendPutRequest(service: string, path: string, body: string): Observable<any> {
+  public sendPutRequest(service: string, path: string, body: any): Observable<any> {
     let url = this.prefix + service + this.domain + path;
+    console.log("Calling url: " + url)
     return this.httpClient.put(url,body)
   }
 
   public sendDeleteRequest(service: string, path: string): Observable<any> {
     let url = this.prefix + service + this.domain + path;
+    console.log(url)
     return this.httpClient.delete(url)
   }
 }

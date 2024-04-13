@@ -1,14 +1,21 @@
-.sidebar{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+#sidebar-layout {
   border: black solid 1px;
+  height: 100%;
+  grid-template-areas:
+    "balances"
+    "pets"
+    "work"
+    "petshop";
+  grid-template-rows: fit-content(4em) fit-content(4em) fit-content(4em) fit-content(4em);
 }
 
-.sidebar-item{
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border: black solid 1px;
+.sidebar-item {
+  border-top: black solid 1px;
+  border-bottom: black solid 1px;
   text-align: center;
+  padding: 10px 0;
+}
+
+#balances {
+  grid-area: balances;
 }

@@ -1,0 +1,9 @@
+<div id="layout">
+  <div id="component">
+    <div> How long do you want to work for? (Hours)</div>
+    <div id="range-container"><input type="range" step="1" max="10" min="1" [formControl]="workHoursFormControl"></div>
+    <div>You are going to work for <b>{{ workHoursFormControl.value! }} hours</b>.</div>
+    <div><b>Reward:{{ (workHoursFormControl.value! * 0.1).toFixed(2) }}</b></div>
+    <button (click)="startWork()">Start Work</button>
+  </div>
+</div>
