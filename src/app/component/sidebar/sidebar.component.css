@@ -6,7 +6,7 @@
     "pets"
     "work"
     "petshop";
-  grid-template-rows: fit-content(4em) fit-content(4em) fit-content(4em) fit-content(4em);
+  grid-template-rows: repeat(5, fit-content(4em));
 }
 
 .sidebar-item {

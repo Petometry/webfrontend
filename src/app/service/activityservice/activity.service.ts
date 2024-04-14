@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {WorkModel} from "../../model/activity/work.model";
 import {HttpService} from "../httpservice/http.service";
 import {ActivityModel} from "../../model/activity/activity.model";
+import {ForagingModel} from "../../model/activity/foraging.model";
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,23 @@ export class ActivityService {
 
   collectWork() {
     return this.httpService.sendPutRequest("activity", "activities/work/collectable", '');
+  }
+
+  startForaging(minutesToForage: number):Observable<ForagingModel> {
+    let foraging = {duration: minutesToForage}
+    return this.httpService.sendPostRequest("activity", "activities/foraging", foraging)
+  }
+
+  getForaging():Observable<ForagingModel> {
+    return this.httpService.sendGetRequest("activity", "activities/foraging")
+
+  }
+
+  stopForaging():Observable<ForagingModel> {
+    return this.httpService.sendDeleteRequest("activity", "activities/foraging");
+  }
+
+  collectForaging() {
+    return this.httpService.sendPutRequest("activity", "activities/foraging/collectable", null);
   }
 }

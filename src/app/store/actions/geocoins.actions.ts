@@ -1,6 +1,11 @@
 import {createAction, props} from "@ngrx/store";
-import {BalancesModel} from "../../model/currency/balances.model";
+import {GeocoinsModel} from "../../model/currency/geocoins.model";
 
-export const loadBalances = createAction('[Balances] Load Balances')
-export const loadBalancesSuccess = createAction('[Balances] Load Balances Success', props<{balances: BalancesModel}>())
-export const loadBalancesError = createAction('[Balances] Load Balances Error', props<{error: string}>())
+// Load GeoCoins
+export const loadGeoCoins = createAction('[Geocoins] Load Geocoins')
+export const loadGeoCoinsSuccess = createAction('[Geocoins] Load Geocoins Success', props<{balances: GeocoinsModel}>())
+export const loadGeoCoinsError = createAction('[Geocoins] Load Geocoins Error', props<{error: string}>())
+
+// No Backend from here
+export const increaseGeoCoins = createAction('[Geocoins] Increase Geocoins', props<{amount: number}>())
+export const decreaseGeoCoins = createAction('[Geocoins] Decrease Geocoins', props<{amount: number}>())

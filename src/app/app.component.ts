@@ -5,8 +5,9 @@ import {Store} from "@ngrx/store";
 import {interval} from "rxjs";
 import {loadWork} from "./store/actions/work.actions";
 import {loadPets} from "./store/actions/pets.actions";
-import {loadBalances} from "./store/actions/geocoins.actions";
+import {loadGeoCoins} from "./store/actions/geocoins.actions";
 import {loadPetShop} from "./store/actions/petshop.actions";
+import {loadForaging} from "./store/actions/foraging.actions";
 
 @Component({
   selector: 'app-root',
@@ -28,8 +29,9 @@ export class AppComponent {
 
   initializeStore() {
     this.store.dispatch(loadWork())
+    this.store.dispatch(loadForaging())
     this.store.dispatch(loadPets())
-    this.store.dispatch(loadBalances())
+    this.store.dispatch(loadGeoCoins())
     this.store.dispatch(loadPetShop())
   }
 
