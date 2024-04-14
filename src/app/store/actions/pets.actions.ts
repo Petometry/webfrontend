@@ -18,3 +18,4 @@ export const feedPetError = createAction('[Pets] Feed Pet Error', props<{ error:
 
 //No Backend from here
 export const addPet = createAction('[Pets] Add Pet', props<{ pet: PetModel }>())
+export const removePet = createAction('[Pets] Remove Pet', props<{ pet: PetModel }>())

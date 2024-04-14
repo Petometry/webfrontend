@@ -2,8 +2,8 @@ import {createReducer, on} from "@ngrx/store";
 import {ForagingModel} from "../../model/activity/foraging.model";
 import {
   collectForagingReward, collectForagingRewardError, collectForagingRewardSuccess,
-  createForaging,
-  deleteForaging,
+  createForaging, createForagingError, createForagingSuccess,
+  deleteForaging, deleteForagingError, deleteForagingSuccess,
   loadForaging,
   loadForagingError,
   loadForagingSuccess
@@ -25,10 +25,13 @@ export const ForagingReducers = createReducer(
     on(loadForaging, (state) => ({...state, loading: true})),
     on(loadForagingSuccess, (state, {foraging}) => ({...state, foraging, loading: false})),
     on(loadForagingError, (state, {error}) => ({...state, error: error, loading: false})),
-    on(deleteForaging, (state) => ({...state, foraging: {} as ForagingModel})),
-    on(createForaging, (state) => ({...state, foraging: {} as ForagingModel})),
-    on(collectForagingReward, (state) => ({...state, loading: true})),
-    on(collectForagingRewardSuccess, (state) => ({...state, loading: false})),
-    on(collectForagingRewardError, (state, {error}) => ({...state, error, loading: false})),
+
+    on(createForaging, (state) => ({...state, loading: true})),
+    on(createForagingSuccess, (state, {foraging}) => ({...state, foraging, loading: false})),
+    on(createForagingError, (state, {error}) => ({...state, error: error, loading: false})),
+
+    on(deleteForaging, collectForagingReward, (state) => ({...state, loading: true})),
+    on(deleteForagingSuccess, collectForagingRewardSuccess, (state,) => ({...state, foraging: undefined, loading: false})),
+    on(deleteForagingError, collectForagingRewardError, (state, {error}) => ({...state, error: error, loading: false})),
   )
 ;

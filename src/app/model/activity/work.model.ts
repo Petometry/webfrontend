@@ -1,6 +1,6 @@
-export interface WorkModel {
-  collectable: boolean;
-  "startTime": Date,
-  "endTime": Date,
+import {ActivityModel} from "./activity.model";
+
+export interface WorkModel extends ActivityModel{
+  "type" : "WORK",
   "reward" : number
 }

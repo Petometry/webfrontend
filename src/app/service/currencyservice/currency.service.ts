@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpService} from "../httpservice/http.service";
 import {Observable} from "rxjs";
-import {GeocoinsModel} from "../../model/currency/geocoins.model";
+import {GeoCoinsModel} from "../../model/currency/geoCoinsModel";
 import {PetfoodsModel} from "../../model/currency/petfoods.model";
 
 
@@ -12,7 +12,7 @@ export class CurrencyService {
 
   constructor(private httpService:HttpService) { }
 
-  getCurrencies():Observable<GeocoinsModel>{
+  getCurrencies():Observable<GeoCoinsModel>{
 
     return this.httpService.sendGetRequest("currency", "geocoins");
   }

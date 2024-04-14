@@ -3,7 +3,7 @@ import {Store} from "@ngrx/store";
 import {AsyncPipe} from "@angular/common";
 import {Observable} from "rxjs";
 import {loadGeoCoins} from "../../store/actions/geocoins.actions";
-import {BalancesState} from "../../store/reducers/balances.reducers";
+import {GeoCoinsState} from "../../store/reducers/geoCoinsReducers";
 import {LoadingComponent} from "../loading/loading.component";
 
 @Component({
@@ -19,7 +19,7 @@ import {LoadingComponent} from "../loading/loading.component";
 export class CurrenciesComponent{
 
   store = inject(Store)
-  protected balances$:Observable<BalancesState>
+  protected balances$:Observable<GeoCoinsState>
 
   constructor() {
     this.balances$ = this.store.select('balances')
