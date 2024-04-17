@@ -37,15 +37,17 @@ export class ActivityEffects {
     this.actions$.pipe(
       ofType(loadActivitySuccess),
       mergeMap((props) =>
-        of(props).pipe(map((props)=>this.mapLoadActivity(props.activity)))
+        of(props).pipe(map((props) => this.mapLoadActivity(props.activity)))
       ))
   )
 
-  private mapLoadActivity(activity: ActivityModel):TypedAction<"[Work] Load Work"| "[Foraging] Load Foraging">   {
-    if (activity.type == "WORK"){
+  private mapLoadActivity(activity: ActivityModel): TypedAction<any> | undefined {
+    if (activity.type == "WORK") {
       return loadWork();
-    }else {
+    } else if (activity.type == "FORAGING"){
       return loadForaging()
+    }else {
+      return undefined
     }
   }
 
@@ -53,7 +55,7 @@ export class ActivityEffects {
     this.actions$.pipe(
       ofType(createForagingSuccess, createWorkSuccess),
       mergeMap((props) =>
-        of(props.activity).pipe(map((foraging) => createActivity({activity: props.activity})))
+        of(props.activity).pipe(map((activity) => createActivity({activity})))
       ))
   )
 
@@ -61,10 +63,9 @@ export class ActivityEffects {
     this.actions$.pipe(
       ofType(deleteForagingSuccess, collectForagingRewardSuccess, deleteWorkSuccess, collectWorkRewardSuccess),
       mergeMap(() =>
-        of(undefined).pipe(
-          map(() => {
-            deleteActivity();
-          }))
+        of(undefined).pipe(map(() => {
+          deleteActivity();
+        }))
       )
     )
   )

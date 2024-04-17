@@ -49,8 +49,8 @@ export const petsReducer = createReducer(
   on(loadPetsError, (state, {error}) => ({...state, error: error, loading: false})),
 
   on(freePet, (state) => ({...state, loading: true})),
-  on(removePet, freePetSuccess, (state, {pet}) => {
-    return adapter.removeOne(pet.id, {...state})
+  on(removePet, freePetSuccess, (state, {petId}) => {
+    return adapter.removeOne(petId, {...state})
   }),
   on(addPet, (state, {pet}) => {
     return adapter.addOne(pet, {...state})

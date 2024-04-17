@@ -6,7 +6,7 @@ import {
   collectForagingReward,
   collectForagingRewardError,
   collectForagingRewardSuccess,
-  createForaging,
+  createForaging, createForagingError, createForagingSuccess,
   deleteForaging,
   deleteForagingError,
   deleteForagingSuccess,
@@ -14,6 +14,7 @@ import {
   loadForagingError,
   loadForagingSuccess
 } from "../actions/foraging.actions";
+import {increasePetfoods} from "../actions/petfoods.actions";
 
 
 @Injectable()
@@ -28,7 +29,7 @@ export class ForagingEffects {
       mergeMap(() =>
         this.activityService.getForaging().pipe(
           map((foraging) => {
-            loadForagingSuccess({foraging});
+            loadForagingSuccess({activity: foraging});
           })
           , catchError((error) => of(loadForagingError({error}))))
       ))
@@ -39,10 +40,10 @@ export class ForagingEffects {
       ofType(createForaging),
       mergeMap((props) =>
         this.activityService.startForaging(props.duration).pipe(
-          map((foraging) => {
-            loadForagingSuccess({foraging});
+          map((activity) => {
+            createForagingSuccess({activity});
           })
-          , catchError((error) => of(loadForagingError({error}))))
+          , catchError((error) => of(createForagingError({error}))))
       )
     )
   )
@@ -67,6 +68,18 @@ export class ForagingEffects {
           map((reward) => {
             collectForagingRewardSuccess({reward});
           }), catchError((error) => of(collectForagingRewardError({error}))))
+      )
+    )
+  )
+
+  collectForagingRewardSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(collectForagingRewardSuccess),
+      mergeMap((props) =>
+        of(props.reward).pipe(
+          map((reward) => {
+            increasePetfoods({petfoods: reward});
+          }))
       )
     )
   )

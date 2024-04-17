@@ -23,15 +23,15 @@ export const initialState: ForagingState = {
 export const ForagingReducers = createReducer(
     initialState,
     on(loadForaging, (state) => ({...state, loading: true})),
-    on(loadForagingSuccess, (state, {foraging}) => ({...state, foraging, loading: false})),
+    on(loadForagingSuccess, (state, {activity}) => ({...state, foraging : activity, loading: false})),
     on(loadForagingError, (state, {error}) => ({...state, error: error, loading: false})),
 
     on(createForaging, (state) => ({...state, loading: true})),
-    on(createForagingSuccess, (state, {foraging}) => ({...state, foraging, loading: false})),
+    on(createForagingSuccess, (state, {activity}) => ({...state, foraging: activity, loading: false})),
     on(createForagingError, (state, {error}) => ({...state, error: error, loading: false})),
 
     on(deleteForaging, collectForagingReward, (state) => ({...state, loading: true})),
-    on(deleteForagingSuccess, collectForagingRewardSuccess, (state,) => ({...state, foraging: undefined, loading: false})),
+    on(deleteForagingSuccess, collectForagingRewardSuccess, (state) => ({...state, foraging: undefined, loading: false})),
     on(deleteForagingError, collectForagingRewardError, (state, {error}) => ({...state, error: error, loading: false})),
   )
 ;
