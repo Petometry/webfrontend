@@ -8,6 +8,6 @@ export const loadPetShopSuccess = createAction('[PetShop] Load PetShop Success',
 export const loadPetShopError = createAction('[PetShop] Load PetShop Error', props<{error: string}>())
 
 //Buy Pet
-export const buyPet = createAction('[PetShop] Buy Pet')
+export const buyPet = createAction('[PetShop] Buy Pet', props<{petId: number}>())
 export const buyPetSuccess = createAction('[PetShop] Buy Pet Success', props<{pet: PetModel}>())
 export const buyPetError = createAction('[PetShop] Buy Pet Error', props<{error: string}>())

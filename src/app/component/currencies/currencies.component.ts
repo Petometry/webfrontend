@@ -22,7 +22,7 @@ export class CurrenciesComponent{
   protected balances$:Observable<GeoCoinsState>
 
   constructor() {
-    this.balances$ = this.store.select('balances')
+    this.balances$ = this.store.select('geoCoins')
     this.store.dispatch(loadGeoCoins())
   }
 }

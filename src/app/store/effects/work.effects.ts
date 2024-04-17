@@ -1,17 +1,32 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {loadActivity} from "../actions/activity.actions";
 import {ActivityService} from "../../service/activityservice/activity.service";
 import {catchError, map, mergeMap, of} from "rxjs";
 import {
-  collectWorkReward, collectWorkRewardError,
-  collectWorkRewardSuccess,
+  collectForagingReward,
+  collectForagingRewardError,
+  collectForagingRewardSuccess,
+  createForaging,
+  createForagingError,
+  createForagingSuccess,
+  deleteForaging,
+  deleteForagingError,
+  deleteForagingSuccess,
+  loadForaging,
+  loadForagingError,
+  loadForagingSuccess
+} from "../actions/foraging.actions";
+import {increasePetfoods} from "../actions/petfoods.actions";
+import {
+  collectWorkReward, collectWorkRewardSuccess,
   createWork,
-  deleteWork,
-  loadWork,
+  createWorkError,
+  createWorkSuccess,
+  deleteWork, deleteWorkError, deleteWorkSuccess,
   loadWorkError,
   loadWorkSuccess
 } from "../actions/work.actions";
+import {increaseGeoCoins} from "../actions/geocoins.actions";
 
 @Injectable()
 export class WorkEffects {
@@ -21,11 +36,11 @@ export class WorkEffects {
 
   loadWork$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(loadWork),
+      ofType(loadForaging),
       mergeMap(() =>
         this.activityService.getWork().pipe(
           map((work) => {
-            return loadWorkSuccess({work});
+            loadWorkSuccess({activity: work});
           })
           , catchError((error) => of(loadWorkError({error}))))
       ))
@@ -36,50 +51,47 @@ export class WorkEffects {
       ofType(createWork),
       mergeMap((props) =>
         this.activityService.startWork(props.duration).pipe(
-          map((work) => {
-            return loadWorkSuccess({work});
+          map((activity) => {
+            createWorkSuccess({activity});
           })
-          , catchError((error) => of(loadWorkError({error}))))
+          , catchError((error) => of(createWorkError({error}))))
       )
     )
   )
 
-  deleteWork$ = createEffect(() =>
+  deleteActivity$ = createEffect(() =>
     this.actions$.pipe(
       ofType(deleteWork),
       mergeMap(() =>
         this.activityService.stopWork().pipe(
-          map((work) => {
-            return loadWorkSuccess({work});
-          })
-          , catchError((error) => of(loadWorkError({error}))))
-      ))
-  )
-
-  loadWorkSuccess$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(loadWorkSuccess, loadWorkError),
-      mergeMap(() =>
-        of(undefined).pipe(map(loadActivity))
-      ))
-  )
-
-  collectReward$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(collectWorkReward),
-      mergeMap((props) =>
-        this.activityService.collectWork().pipe(
-          map(collectWorkRewardSuccess)
-          , catchError((error) => of(collectWorkRewardError({error}))))
+          map(() => {
+            deleteWorkSuccess();
+          }), catchError((error) => of(deleteWorkError({error}))))
       )
     )
   )
 
-  collectRewardSuccess$ = createEffect(() =>
+  collectForagingReward$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(collectWorkReward),
+      mergeMap(() =>
+        this.activityService.collectWork().pipe(
+          map((reward) => {
+            collectWorkRewardSuccess({reward});
+          }), catchError((error) => of(collectForagingRewardError({error}))))
+      )
+    )
+  )
+
+  collectForagingRewardSuccess$ = createEffect(() =>
     this.actions$.pipe(
       ofType(collectWorkRewardSuccess),
-      mergeMap(() =>
-        of(undefined).pipe(map(loadWork))
-      ))
+      mergeMap((props) =>
+        of(props.reward).pipe(
+          map((reward) => {
+            increaseGeoCoins({geocoins: reward});
+          }))
+      )
+    )
   )
 }

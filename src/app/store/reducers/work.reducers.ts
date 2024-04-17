@@ -25,11 +25,11 @@ export const workReducer = createReducer(
     initialState,
     // Load Work
     on(loadWork, (state) => ({...state, loading: true})),
-    on(loadWorkSuccess, (state, {work}) => ({...state, work, loading: false})),
+    on(loadWorkSuccess, (state, {activity}) => ({...state, work: activity, loading: false})),
     on(loadWorkError, (state, {error}) => ({...state, error: error, loading: false})),
     // Create work
     on(createWork, (state) => ({...state, loading: true})),
-    on(createWorkSuccess, (state, {work}) => ({...state, work, loading: false})),
+    on(createWorkSuccess, (state, {activity}) => ({...state, work: activity, loading: false})),
     on(createWorkError, (state, {error}) => ({...state, error: error, loading: false})),
     // Delete work AND Collect work reward
     on(deleteWork, collectWorkReward, (state) => ({...state, loading: true})),

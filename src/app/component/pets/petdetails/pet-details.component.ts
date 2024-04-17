@@ -9,6 +9,7 @@ import {AsyncPipe, NgStyle} from "@angular/common";
 import {feedPet, loadPets} from "../../../store/actions/pets.actions";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PetfoodsState} from "../../../store/reducers/petfoods.reducers";
+import {PetfeedingModel} from "../../../model/pet/petfeeding.model";
 
 @Component({
   selector: 'app-pet-details',
@@ -33,13 +34,18 @@ export class PetDetailsComponent implements OnInit {
   pets$: Observable<PetsState>;
   petfoods$: Observable<PetfoodsState>;
   private maxFeedAmount: number;
+  private petGeometry: string;
 
   constructor() {
     this.petfoods$ = this.store.select("petfoods")
     this.pets$ = this.store.select("pets")
     this.pet$ = this.pets$.pipe(map(ps => ps.entities[this.petId()]))
     this.maxFeedAmount = 0
-    this.pet$.subscribe(pet => this.maxFeedAmount = 100 - pet?.hunger!)
+    this.petGeometry = ""
+    this.pet$.subscribe(pet => {
+      this.petGeometry = pet?.appearance.geometry!;
+      this.maxFeedAmount = 100 - pet?.hunger!
+    })
   }
 
   ngOnInit(): void {
@@ -47,6 +53,7 @@ export class PetDetailsComponent implements OnInit {
   }
 
   feedPet() {
-    this.store.dispatch(feedPet({petId: this.petId(), amount: this.maxFeedAmount}))
+    let feeding: PetfeedingModel = {petId: this.petId(), amount: this.maxFeedAmount, foodType: this.petGeometry}
+    this.store.dispatch(feedPet({feeding}))
   }
 }

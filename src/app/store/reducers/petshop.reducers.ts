@@ -22,14 +22,10 @@ export const initialState:PetShopState = {
   error: ''
 }
 
-function buypet(state:PetShopState, pet: PetModel) {
+function removePetFromPetshop(state:PetShopState, pet: PetModel) {
   let petShop = state.petShop!
-  if (petShop == undefined){
-    return {...state, petShop: petShop, loading: false};
-  }
-  let pets = petShop.pets
-  const index = pets.indexOf(pet, 0);
-  pets.splice(index, 1);
+  const index = petShop.pets.indexOf(pet, 0);
+  petShop.pets = petShop.pets.splice(index, 1);
   return {...state, petShop: petShop, loading: false};
 }
 
@@ -39,6 +35,6 @@ export const PetShopReducer = createReducer(
   on(loadPetShopSuccess, (state, {petShop}) => ({ ...state, petShop, loading: false })),
   on(loadPetShopError, (state, {error}) => ({ ...state, error: error, loading: false })),
   on(buyPet, (state) => ({ ...state, loading: true })),
-  on(buyPetSuccess, (state, {pet}) => buypet(state, pet)),
+  on(buyPetSuccess, (state, {pet}) => removePetFromPetshop(state, pet)),
   on(buyPetError, (state, {error}) => ({ ...state, error: error, loading: false })),
 );

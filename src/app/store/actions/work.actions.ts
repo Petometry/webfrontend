@@ -1,5 +1,6 @@
 import {createAction, props} from "@ngrx/store";
 import {WorkModel} from "../../model/activity/work.model";
+import {GeoCoinsModel} from "../../model/currency/geoCoinsModel";
 
 // Load Work
 export const loadWork = createAction('[Work] Load Work')
@@ -7,7 +8,7 @@ export const loadWorkSuccess = createAction('[Work] Load Work Success', props<{ 
 export const loadWorkError = createAction('[Work] Load Work Error', props<{ error: string }>())
 
 // Create Wor
-export const createWork = createAction('[Work] Create Work', props<{ work: WorkModel }>())
+export const createWork = createAction('[Work] Create Work', props<{ duration: number }>())
 export const createWorkSuccess = createAction('[Work] Create Work Success', props<{ activity: WorkModel }>())
 export const createWorkError = createAction('[Work] Create Work Success', props<{ error: string }>())
 
@@ -18,6 +19,6 @@ export const deleteWorkError = createAction('[Work] Delete Work Error', props<{ 
 
 // Collect Work
 export const collectWorkReward = createAction('[Work] Collect Work Reward')
-export const collectWorkRewardSuccess = createAction('[Work] Collect Work Reward Success', props<{ work: WorkModel }>())
+export const collectWorkRewardSuccess = createAction('[Work] Collect Work Reward Success', props<{ reward: GeoCoinsModel }>())
 export const collectWorkRewardError = createAction('[Work] Collect Work Reward Error', props<{ error: string }>())
 

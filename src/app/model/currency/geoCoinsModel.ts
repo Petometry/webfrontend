@@ -1,3 +1,3 @@
 export interface GeoCoinsModel {
-  geocoins: number
+  geocoin: number
 }

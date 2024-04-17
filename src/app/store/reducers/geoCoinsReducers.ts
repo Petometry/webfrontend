@@ -26,8 +26,8 @@ export const geoCoinsReducers = createReducer(
   on(loadGeoCoinsSuccess, (state, {geocoins}) => ({ ...state, geocoins, loading: false })),
   on(loadGeoCoinsError, (state, {error}) => ({ ...state, error: error, loading: false })),
   // Increase GeoCoins
-  on(increaseGeoCoins, (state, {geocoins}) => ({...state, geocoins : {geocoins: state.geocoins.geocoins + geocoins},loading: false})),
+  on(increaseGeoCoins, (state, {geocoins}) => ({...state, geocoins : {geocoin: state.geocoins.geocoin + geocoins.geocoin},loading: false})),
   // Decrease Geo coins
-  on(decreaseGeoCoins, (state, {geocoins}) => ({...state, geocoins : {geocoins: state.geocoins.geocoins - geocoins},loading: false})),
+  on(decreaseGeoCoins, (state, {geocoins}) => ({...state, geocoins : {geocoin: state.geocoins.geocoin - geocoins.geocoin},loading: false})),
   // @formatter:on
 );

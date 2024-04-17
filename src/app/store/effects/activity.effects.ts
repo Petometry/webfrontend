@@ -13,11 +13,19 @@ import {
   collectForagingRewardSuccess,
   createForagingSuccess,
   deleteForagingSuccess,
-  loadForaging
+  loadForaging, loadForagingSuccess
 } from "../actions/foraging.actions";
 import {ActivityModel} from "../../model/activity/activity.model";
-import {collectWorkRewardSuccess, createWorkSuccess, deleteWorkSuccess, loadWork} from "../actions/work.actions";
+import {
+  collectWorkRewardSuccess,
+  createWorkSuccess,
+  deleteWorkSuccess,
+  loadWork,
+  loadWorkSuccess
+} from "../actions/work.actions";
 import {TypedAction} from "@ngrx/store/src/models";
+import {WorkModel} from "../../model/activity/work.model";
+import {ForagingModel} from "../../model/activity/foraging.model";
 
 @Injectable()
 export class ActivityEffects {
@@ -40,6 +48,24 @@ export class ActivityEffects {
         of(props).pipe(map((props) => this.mapLoadActivity(props.activity)))
       ))
   )
+
+  loadActivitySuccessChangeLoading$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadActivitySuccess),
+      mergeMap((props) =>
+        of(props).pipe(map((props) => this.mapChangeLoading(props.activity)))
+      ))
+  )
+
+  private mapChangeLoading(activity: ActivityModel): TypedAction<any> | undefined {
+    if (activity.type == "FORAGING") {
+      return loadWorkSuccess({activity: {} as WorkModel});
+    }
+    if ("WORK" == activity.type){
+      return loadForagingSuccess({activity: activity as ForagingModel})
+    }
+      return undefined
+  }
 
   private mapLoadActivity(activity: ActivityModel): TypedAction<any> | undefined {
     if (activity.type == "WORK") {
