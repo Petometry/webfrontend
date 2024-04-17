@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {PetComponent} from "../pet/pet.component";
 import {LoadingComponent} from "../../loading/loading.component";
 import {Store} from "@ngrx/store";
-import {buyPet, loadPetShop} from "../../../store/actions/petshop.actions";
+import {buyPet} from "../../../store/actions/petshop.actions";
 import {Observable} from "rxjs";
 import {PetShopState} from "../../../store/reducers/petshop.reducers";
 import {AsyncPipe} from "@angular/common";
@@ -21,7 +21,6 @@ export class PetshopComponent{
   store = inject(Store)
   petShop$: Observable<PetShopState>;
   constructor() {
-    this.store.dispatch(loadPetShop());
     this.petShop$ = this.store.select('petShop');
   }
 

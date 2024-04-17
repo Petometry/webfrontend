@@ -23,9 +23,16 @@ export const initialState:PetShopState = {
 }
 
 function removePetFromPetshop(state:PetShopState, pet: PetModel) {
-  let petShop = state.petShop!
-  const index = petShop.pets.indexOf(pet, 0);
-  petShop.pets = petShop.pets.splice(index, 1);
+
+  let petShop = {...state.petShop!}
+  let pets = [...petShop.pets]
+  for (let i = 0; i < pets.length; i++) {
+    if (pets[i].id == pet.id){
+      pets.splice(i, 1);
+      break
+    }
+  }
+  petShop.pets = pets
   return {...state, petShop: petShop, loading: false};
 }
 

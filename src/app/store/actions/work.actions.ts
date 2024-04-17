@@ -4,7 +4,7 @@ import {GeoCoinsModel} from "../../model/currency/geoCoinsModel";
 
 // Load Work
 export const loadWork = createAction('[Work] Load Work')
-export const loadWorkSuccess = createAction('[Work] Load Work Success', props<{ activity: WorkModel }>())
+export const loadWorkSuccess = createAction('[Work] Load Work Success', props<{ activity: WorkModel|undefined }>())
 export const loadWorkError = createAction('[Work] Load Work Error', props<{ error: string }>())
 
 // Create Wor

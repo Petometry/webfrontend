@@ -36,7 +36,7 @@ function updateHunger(feeding: PetfeedingModel, state: PetsState) {
   return adapter.updateOne({
     id: feeding.petId,
     changes: {...state.entities[feeding.petId], hunger: state.entities[feeding.petId]!.hunger + feeding.amount}
-  }, {...state});
+  }, {...state, loading: false});
 }
 
 export const petsReducer = createReducer(

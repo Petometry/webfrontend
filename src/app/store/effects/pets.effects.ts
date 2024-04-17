@@ -54,10 +54,11 @@ export class PetsEffects {
   )
 
   private mapFeedingToPetFoods(feeding: PetfeedingModel):PetfoodsModel {
+    console.log(feeding)
     switch (feeding.foodType) {
-      case "CIRCLE" : return {circle: feeding.amount, rectangle: 0, triangle: 0};
-      case "TRIANGLE" : return {circle: 0, rectangle: 0, triangle: feeding.amount};
-      case "RECTANGLE" : return {circle: 0, rectangle: feeding.amount, triangle: 0};
+      case "circle" : return {circle: feeding.amount, rectangle: 0, triangle: 0};
+      case "triangle" : return {circle: 0, rectangle: 0, triangle: feeding.amount};
+      case "rectangle" : return {circle: 0, rectangle: feeding.amount, triangle: 0};
       default: return {} as PetfoodsModel
     }
   }

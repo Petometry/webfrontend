@@ -7,6 +7,7 @@ import {loadPets} from "./store/actions/pets.actions";
 import {loadGeoCoins} from "./store/actions/geocoins.actions";
 import {loadPetShop} from "./store/actions/petshop.actions";
 import {loadActivity} from "./store/actions/activity.actions";
+import {loadPetfoods} from "./store/actions/petfoods.actions";
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,7 @@ export class AppComponent {
     this.store.dispatch(loadPets())
     this.store.dispatch(loadGeoCoins())
     this.store.dispatch(loadPetShop())
+    this.store.dispatch(loadPetfoods())
   }
 
 

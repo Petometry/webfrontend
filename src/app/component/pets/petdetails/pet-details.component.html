@@ -6,7 +6,7 @@
   } @else {
     <div id="pet-details">
       <div>
-        <h3>Hunger: {{ (pet$ | async)!.hunger.toFixed(1) }} / 100</h3>
+        <h3>Hunger: {{ (pet$ | async)!.hunger.toFixed(1) }} / 100.0</h3>
         <div id="foodbar">
           <div id="foodbarfill"
                [ngStyle]="{'width': (pet$ | async)!.hunger + '%'}">

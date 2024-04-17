@@ -16,7 +16,7 @@ export interface ForagingState {
 }
 
 export const initialState: ForagingState = {
-  foraging: {} as ForagingModel,
+  foraging: undefined,
   loading: true,
   error: ''
 }

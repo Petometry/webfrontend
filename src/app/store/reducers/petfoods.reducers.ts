@@ -20,18 +20,21 @@ export const initialState: PetfoodsState = {
   error: ''
 }
 
-function increasePetFoods(state: PetfoodsState, petfoods: PetfoodsModel) {
-  state.petfoods.circle += petfoods.circle
-  state.petfoods.triangle += petfoods.triangle
-  state.petfoods.rectangle += petfoods.rectangle
+function increasePetFoods(state: PetfoodsState, increase: PetfoodsModel) {
+  console.log(increase)
+  state.petfoods.circle += increase.circle
+  state.petfoods.triangle += increase.triangle
+  state.petfoods.rectangle += increase.rectangle
   return {...state, loading: false};
 }
 
-function decreasePetFoods(state: PetfoodsState, petfoods: PetfoodsModel) {
-  state.petfoods.circle -= petfoods.circle
-  state.petfoods.triangle -= petfoods.triangle
-  state.petfoods.rectangle -= petfoods.rectangle
-  return {...state, loading: false};
+function decreasePetFoods(state: PetfoodsState, decrease: PetfoodsModel) {
+  console.log(decrease)
+  const circle = state.petfoods.circle - decrease.circle
+  const triangle = state.petfoods.triangle - decrease.triangle
+  const rectangle = state.petfoods.rectangle - decrease.rectangle
+  const petfoods = {circle, triangle, rectangle}
+  return {...state, petfoods, loading: false};
 }
 
 export const petFoodsReducers = createReducer(

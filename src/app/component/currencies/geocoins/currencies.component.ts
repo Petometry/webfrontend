@@ -2,9 +2,8 @@ import {Component, inject} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {AsyncPipe} from "@angular/common";
 import {Observable} from "rxjs";
-import {loadGeoCoins} from "../../store/actions/geocoins.actions";
-import {GeoCoinsState} from "../../store/reducers/geoCoinsReducers";
-import {LoadingComponent} from "../loading/loading.component";
+import {GeoCoinsState} from "../../../store/reducers/geoCoinsReducers";
+import {LoadingComponent} from "../../loading/loading.component";
 
 @Component({
   selector: 'app-currencies',
@@ -23,6 +22,5 @@ export class CurrenciesComponent{
 
   constructor() {
     this.balances$ = this.store.select('geoCoins')
-    this.store.dispatch(loadGeoCoins())
   }
 }

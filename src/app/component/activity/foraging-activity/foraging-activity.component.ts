@@ -3,8 +3,6 @@ import {AsyncPipe, DatePipe} from "@angular/common";
 import {LoadingComponent} from "../../loading/loading.component";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
-import {WorkState} from "../../../store/reducers/work.reducers";
-import {collectWorkReward, deleteWork} from "../../../store/actions/work.actions";
 import {collectForagingReward, deleteForaging} from "../../../store/actions/foraging.actions";
 import {ForagingState} from "../../../store/reducers/foraging.reducers";
 

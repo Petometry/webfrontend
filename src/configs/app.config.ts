@@ -15,6 +15,7 @@ import {PetsEffects} from "../app/store/effects/pets.effects";
 import {PetShopEffects} from "../app/store/effects/petshop.effects";
 import {GeocoinsEffects} from "../app/store/effects/geocoins.effects";
 import {ForagingEffects} from "../app/store/effects/foraging.effects";
+import {PetFoodsEffects} from "../app/store/effects/petfoods.effects";
 
 
 export const appConfig: ApplicationConfig = {
@@ -26,7 +27,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes) // Provides routing for the application
     ,
     provideStore(reducers, {metaReducers}),
-    provideEffects(ActivityEffects, WorkEffects, PetsEffects, PetShopEffects, GeocoinsEffects, ForagingEffects),
+    provideEffects(ActivityEffects, WorkEffects, PetsEffects, PetShopEffects, GeocoinsEffects, ForagingEffects, PetFoodsEffects),
     provideStoreDevtools({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode

@@ -6,7 +6,6 @@ import {WorkActivityComponent} from "../../component/activity/work-activity/work
 import {Observable} from "rxjs";
 import {ActivityState} from "../../store/reducers/activity.reducers";
 import {Store} from "@ngrx/store";
-import {loadForaging} from "../../store/actions/foraging.actions";
 import {ForagingActivityComponent} from "../../component/activity/foraging-activity/foraging-activity.component";
 import {StartForagingComponent} from "../../component/activity/start-foraging/start-foraging.component";
 
@@ -31,6 +30,5 @@ export class ForagingScreenComponent {
 
   constructor() {
     this.activity$ = this.store.select('activity')
-    this.store.dispatch(loadForaging());
   }
 }
