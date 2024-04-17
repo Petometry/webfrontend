@@ -4,6 +4,7 @@ import {WorkModel} from "../../model/activity/work.model";
 import {HttpService} from "../httpservice/http.service";
 import {ActivityModel} from "../../model/activity/activity.model";
 import {ForagingModel} from "../../model/activity/foraging.model";
+import {PetfoodsModel} from "../../model/currency/petfoods.model";
 
 @Injectable({
   providedIn: 'root'
@@ -49,7 +50,7 @@ export class ActivityService {
     return this.httpService.sendDeleteRequest("activity", "activities/foraging");
   }
 
-  collectForaging() {
+  collectForaging():Observable<PetfoodsModel> {
     return this.httpService.sendPutRequest("activity", "activities/foraging/collectable", null);
   }
 }

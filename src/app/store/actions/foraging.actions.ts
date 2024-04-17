@@ -1,19 +1,17 @@
 import {createAction, props} from "@ngrx/store";
-import {ForagingModel} from "../../model/activity/foraging.model";
 import {PetfoodsModel} from "../../model/currency/petfoods.model";
+import {ActivityModel} from "../../model/activity/activity.model";
 
 //  Load
 export const loadForaging = createAction('[Foraging] Load Foraging')
 export const loadForagingSuccess = createAction('[Foraging] Load Foraging Success', props<{
-  foraging: ForagingModel
+  activity: ActivityModel
 }>())
 export const loadForagingError = createAction('[Foraging] Load Foraging Error', props<{ error: string }>())
 
 //Create Foraging
-export const createForaging = createAction('[Foraging] Create Foraging')
-export const createForagingSuccess = createAction('[Foraging] Create Foraging Success', props<{
-  foraging: ForagingModel
-}>())
+export const createForaging = createAction('[Foraging] Create Foraging', props<{ duration: number }>())
+export const createForagingSuccess = createAction('[Foraging] Create Foraging Success', props<{ activity: ActivityModel }>())
 export const createForagingError = createAction('[Foraging] Create Foraging Error', props<{ error: string }>())
 
 // Delete Foraging

@@ -1,14 +1,15 @@
 import {createAction, props} from "@ngrx/store";
 import {WorkModel} from "../../model/activity/work.model";
+import {ActivityModel} from "../../model/activity/activity.model";
 
 // Load Work
 export const loadWork = createAction('[Work] Load Work')
-export const loadWorkSuccess = createAction('[Work] Load Work Success', props<{ work: WorkModel }>())
+export const loadWorkSuccess = createAction('[Work] Load Work Success', props<{ activity: ActivityModel }>())
 export const loadWorkError = createAction('[Work] Load Work Error', props<{ error: string }>())
 
 // Create Wor
 export const createWork = createAction('[Work] Create Work', props<{ work: WorkModel }>())
-export const createWorkSuccess = createAction('[Work] Create Work Success', props<{ work: WorkModel }>())
+export const createWorkSuccess = createAction('[Work] Create Work Success', props<{ activity: ActivityModel }>())
 export const createWorkError = createAction('[Work] Create Work Success', props<{ error: string }>())
 
 // Delete Work
