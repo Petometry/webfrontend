@@ -1,0 +1,25 @@
+@if ((foraging$ | async)?.loading) {
+  <app-loading/>
+} @else if ((foraging$ | async)?.foraging?.collectable == true) {
+  <div id="layout" class="layout">
+    <div id="component" class="component">
+      <div id="header" class="header"><h2>Your Foraging ended</h2></div>
+      <div>Collect your Reward of<br>
+        <b>{{ (foraging$ |async)?.foraging?.reward?.circle }} Circle</b><br>
+        <b>{{ (foraging$ |async)?.foraging?.reward?.triangle }} Triangle</b><br>
+        <b>{{ (foraging$ |async)?.foraging?.reward?.rectangle }} Rectangle</b>
+      </div>
+      <button (click)="collectReward()">Collect Reward</button>
+    </div>
+  </div>
+} @else {
+  <div class="layout">
+    <div class="component">
+      <div class="header"><h2>You are Foraging</h2></div>
+      <div>Your Foraging ends at
+        <h4>{{ (foraging$ |async)?.foraging?.endTime | date:'dd/MM HH:mm' }}</h4>
+      </div>
+      <button (click)="stopForaging()">Stop Foraging</button>
+    </div>
+  </div>
+}

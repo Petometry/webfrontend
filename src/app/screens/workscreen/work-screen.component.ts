@@ -4,7 +4,6 @@ import {Observable} from "rxjs";
 import {ActivityState} from "../../store/reducers/activity.reducers";
 import {Store} from "@ngrx/store";
 import {AsyncPipe} from "@angular/common";
-import {loadWork} from "../../store/actions/work.actions";
 import {ReactiveFormsModule} from '@angular/forms';
 import {StartWorkComponent} from "../../component/activity/start-work/start-work.component";
 import {WorkActivityComponent} from "../../component/activity/work-activity/work-activity.component";
@@ -26,6 +25,5 @@ export class WorkScreenComponent {
 
   constructor() {
     this.activity$ = this.store.select('activity')
-    this.store.dispatch(loadWork());
   }
 }

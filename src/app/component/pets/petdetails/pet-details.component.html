@@ -1,10 +1,22 @@
 <div id="container" class="grid-container">
-  @if ((pets$ | async)?.loading){
+  @if ((pets$ | async)?.loading) {
     <app-loading></app-loading>
-  } @else if ((pet$ | async) == undefined){
+  } @else if ((pet$ | async) == undefined) {
 
   } @else {
-    <div id="pet-details">Put the details for the pet here</div>
+    <div id="pet-details">
+      <div>
+        <h3>Hunger: {{ (pet$ | async)!.hunger.toFixed(1) }} / 100.0</h3>
+        <div id="foodbar">
+          <div id="foodbarfill"
+               [ngStyle]="{'width': (pet$ | async)!.hunger + '%'}">
+          </div>
+        </div>
+        <div id="hungerform">
+         <button (click)="feedPet()">Feed</button>
+        </div>
+      </div>
+    </div>
     <app-pet [pet]="(pet$ | async)!"></app-pet>
   }
 </div>

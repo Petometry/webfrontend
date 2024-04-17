@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import {PetDetailsComponent} from "../../component/pets/petdetails/pet-details.component";
 import {ActivatedRoute} from "@angular/router";
+import {PetfoodsComponent} from "../../component/currencies/petfoods/petfoods.component";
 
 @Component({
   selector: 'app-pet-details-screen',
   standalone: true,
   imports: [
-    PetDetailsComponent
+    PetDetailsComponent,
+    PetfoodsComponent
   ],
   templateUrl: './pet-details-screen.component.html',
   styleUrl: './pet-details-screen.component.css',

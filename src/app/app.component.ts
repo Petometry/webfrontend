@@ -3,10 +3,11 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {PetComponent} from "./component/pets/pet/pet.component";
 import {Store} from "@ngrx/store";
 import {interval} from "rxjs";
-import {loadWork} from "./store/actions/work.actions";
 import {loadPets} from "./store/actions/pets.actions";
-import {loadBalances} from "./store/actions/geocoins.actions";
+import {loadGeoCoins} from "./store/actions/geocoins.actions";
 import {loadPetShop} from "./store/actions/petshop.actions";
+import {loadActivity} from "./store/actions/activity.actions";
+import {loadPetfoods} from "./store/actions/petfoods.actions";
 
 @Component({
   selector: 'app-root',
@@ -27,10 +28,12 @@ export class AppComponent {
   }
 
   initializeStore() {
-    this.store.dispatch(loadWork())
+
+    this.store.dispatch(loadActivity())
     this.store.dispatch(loadPets())
-    this.store.dispatch(loadBalances())
+    this.store.dispatch(loadGeoCoins())
     this.store.dispatch(loadPetShop())
+    this.store.dispatch(loadPetfoods())
   }
 
 

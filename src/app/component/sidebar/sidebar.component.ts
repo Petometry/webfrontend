@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {RouterLink} from "@angular/router";
-import {CurrenciesComponent} from "../currencies/currencies.component";
+import {CurrenciesComponent} from "../currencies/geocoins/currencies.component";
 
 @Component({
   selector: 'app-sidebar',

@@ -1,0 +1,14 @@
+<div class="grid-container screen-layout">
+  <div class="screen-header"><h2>Foraging</h2></div>
+  @if ((activity$ |async)?.loading) {
+    <app-loading></app-loading>
+  } @else if ((activity$ |async)?.activity == undefined) {
+    <app-start-foraging class="screen-component"/>
+  } @else if ((activity$ |async)?.activity?.type != "FORAGING") {
+    <div class="screen-component" >You are on another activity</div>
+  } @else if ((activity$ |async)?.activity?.type == "FORAGING") {
+    <app-foraging-activity class="screen-component"/>
+  }
+</div>
+
+

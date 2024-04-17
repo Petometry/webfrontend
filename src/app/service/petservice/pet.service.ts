@@ -3,6 +3,7 @@ import {PetModel} from "../../model/pet/pet.model";
 import {HttpService} from "../httpservice/http.service";
 import {Observable} from "rxjs";
 import {PetShopModel} from "../../model/pet/petshop.model";
+import {PetfeedingModel} from "../../model/pet/petfeeding.model";
 
 @Injectable({
   providedIn: 'root'
@@ -37,5 +38,10 @@ export class PetService {
   getPet(id:number): Observable<PetModel> {
 
     return this.httpService.sendGetRequest(this.service, "pets/"+ id)
+  }
+
+  public createFeeding(feeding: PetfeedingModel): Observable<PetfeedingModel> {
+
+    return this.httpService.sendPostRequest(this.service, "feedings", feeding)
   }
 }

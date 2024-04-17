@@ -2,9 +2,18 @@ import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {catchError, map, mergeMap, of} from "rxjs";
 import {PetService} from "../../service/petservice/pet.service";
-import {loadPets, loadPetsError, loadPetsSuccess} from "../actions/pets.actions";
-import {buyPet, buyPetError, buyPetSuccess} from "../actions/petshop.actions";
-import {PetModel} from "../../model/pet/pet.model";
+import {
+  feedPet,
+  feedPetSuccess,
+  freePet,
+  freePetSuccess,
+  loadPets,
+  loadPetsError,
+  loadPetsSuccess
+} from "../actions/pets.actions";
+import {decreasePetfoods} from "../actions/petfoods.actions";
+import {PetfoodsModel} from "../../model/currency/petfoods.model";
+import {PetfeedingModel} from "../../model/pet/petfeeding.model";
 
 @Injectable()
 export class PetsEffects {
@@ -20,11 +29,37 @@ export class PetsEffects {
       ))
   )
 
-  buyPet$ = createEffect(() =>
+  freePets$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(buyPet),
+      ofType(freePet),
       mergeMap((props) =>
-        this.petService.createPet(props.petId).pipe(map((pet: PetModel) => buyPetSuccess({pet: pet})), catchError((error) => of(buyPetError({error}))))
+        this.petService.deletePet(props.petId).pipe(map(() => freePetSuccess({petId: props.petId})), catchError((error) => of(loadPetsError({error}))))
       ))
   )
+
+  feedPet$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(feedPet),
+      mergeMap((props) =>
+        this.petService.createFeeding(props.feeding).pipe(map((feeding) => feedPetSuccess({feeding})), catchError((error) => of(loadPetsError({error}))))
+      ))
+  )
+
+  feedPetSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(feedPetSuccess),
+      mergeMap((props) =>
+        of(props.feeding).pipe(map((feeding) => decreasePetfoods({petfoods: this.mapFeedingToPetFoods(feeding)})))
+      ))
+  )
+
+  private mapFeedingToPetFoods(feeding: PetfeedingModel):PetfoodsModel {
+    console.log(feeding)
+    switch (feeding.foodType) {
+      case "circle" : return {circle: feeding.amount, rectangle: 0, triangle: 0};
+      case "triangle" : return {circle: 0, rectangle: 0, triangle: feeding.amount};
+      case "rectangle" : return {circle: 0, rectangle: feeding.amount, triangle: 0};
+      default: return {} as PetfoodsModel
+    }
+  }
 }
