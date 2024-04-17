@@ -21,15 +21,14 @@ export const initialState: PetfoodsState = {
 }
 
 function increasePetFoods(state: PetfoodsState, increase: PetfoodsModel) {
-  console.log(increase)
-  state.petfoods.circle += increase.circle
-  state.petfoods.triangle += increase.triangle
-  state.petfoods.rectangle += increase.rectangle
-  return {...state, loading: false};
+  const circle = state.petfoods.circle + increase.circle
+  const triangle = state.petfoods.triangle + increase.triangle
+  const rectangle = state.petfoods.rectangle + increase.rectangle
+  const petfoods = {circle, triangle, rectangle}
+  return {...state, petfoods, loading: false};
 }
 
 function decreasePetFoods(state: PetfoodsState, decrease: PetfoodsModel) {
-  console.log(decrease)
   const circle = state.petfoods.circle - decrease.circle
   const triangle = state.petfoods.triangle - decrease.triangle
   const rectangle = state.petfoods.rectangle - decrease.rectangle

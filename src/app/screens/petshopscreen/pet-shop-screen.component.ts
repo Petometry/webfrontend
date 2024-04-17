@@ -1,7 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {NgStyle} from "@angular/common";
 import {PetComponent} from "../../component/pets/pet/pet.component";
 import {PetshopComponent} from "../../component/pets/petshop/petshop.component";
+import {Store} from "@ngrx/store";
+import {loadPetShop} from "../../store/actions/petshop.actions";
 
 @Component({
   selector: 'app-petshop-screen',
@@ -18,5 +20,9 @@ import {PetshopComponent} from "../../component/pets/petshop/petshop.component";
   }
 })
 export class PetShopScreenComponent {
-  constructor() {}
+
+  store = inject(Store)
+  constructor() {
+    this.store.dispatch(loadPetShop())
+  }
 }

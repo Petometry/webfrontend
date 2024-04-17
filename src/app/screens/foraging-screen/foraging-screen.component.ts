@@ -8,6 +8,7 @@ import {ActivityState} from "../../store/reducers/activity.reducers";
 import {Store} from "@ngrx/store";
 import {ForagingActivityComponent} from "../../component/activity/foraging-activity/foraging-activity.component";
 import {StartForagingComponent} from "../../component/activity/start-foraging/start-foraging.component";
+import {loadActivity} from "../../store/actions/activity.actions";
 
 @Component({
   selector: 'app-foraging-screen',
@@ -30,5 +31,6 @@ export class ForagingScreenComponent {
 
   constructor() {
     this.activity$ = this.store.select('activity')
+    this.store.dispatch(loadActivity())
   }
 }

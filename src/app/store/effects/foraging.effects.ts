@@ -92,7 +92,7 @@ export class ForagingEffects {
       ofType(loadActivitySuccess),
       mergeMap((props) =>
         of(props).pipe(map((props) => {
-          if (props.activity == null || props.activity.type != "WORK") {
+          if (props.activity == null || props.activity.type != "FORAGING") {
             return loadForagingSuccess({activity: undefined})
           }
           return loadForaging()

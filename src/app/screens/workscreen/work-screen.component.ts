@@ -7,6 +7,7 @@ import {AsyncPipe} from "@angular/common";
 import {ReactiveFormsModule} from '@angular/forms';
 import {StartWorkComponent} from "../../component/activity/start-work/start-work.component";
 import {WorkActivityComponent} from "../../component/activity/work-activity/work-activity.component";
+import {loadActivity} from "../../store/actions/activity.actions";
 
 @Component({
   selector: 'app-workplace',
@@ -25,5 +26,6 @@ export class WorkScreenComponent {
 
   constructor() {
     this.activity$ = this.store.select('activity')
+    this.store.dispatch(loadActivity())
   }
 }

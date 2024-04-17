@@ -2,9 +2,9 @@ import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {ActivityService} from "../../service/activityservice/activity.service";
 import {catchError, map, mergeMap, of} from "rxjs";
-import {collectForagingRewardError, loadForaging} from "../actions/foraging.actions";
 import {
   collectWorkReward,
+  collectWorkRewardError,
   collectWorkRewardSuccess,
   createWork,
   createWorkError,
@@ -27,7 +27,7 @@ export class WorkEffects {
 
   loadWork$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(loadForaging),
+      ofType(loadWork),
       mergeMap(() =>
         this.activityService.getWork().pipe(
           map((work) => {
@@ -62,19 +62,19 @@ export class WorkEffects {
     )
   )
 
-  collectForagingReward$ = createEffect(() =>
+  collectWorkReward$ = createEffect(() =>
     this.actions$.pipe(
       ofType(collectWorkReward),
       mergeMap(() =>
         this.activityService.collectWork().pipe(
           map((reward) => {
             return collectWorkRewardSuccess({reward});
-          }), catchError((error) => of(collectForagingRewardError({error}))))
+          }), catchError((error) => of(collectWorkRewardError({error}))))
       )
     )
   )
 
-  collectForagingRewardSuccess$ = createEffect(() =>
+  collectWorkRewardSuccess$ = createEffect(() =>
     this.actions$.pipe(
       ofType(collectWorkRewardSuccess),
       mergeMap((props) =>
