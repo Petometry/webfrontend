@@ -1,6 +1,6 @@
 <div id="page-layout" class="grid-container">
   <header id="grid-header">
-    <button type="button" mat-button (click)="drawer.toggle()">
+    <button type="button" mat-button (click)="toggleMenu()">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" id="burgermenu-icon">
         <path
           d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"/>
@@ -8,12 +8,24 @@
     </button>
     <a>Petometry</a>
   </header>
-  <mat-drawer-container autosize>
-    <app-sidebar #drawer/>
-    <main class="example-sidenav-content">
-      <router-outlet/>
-    </main>
-  </mat-drawer-container>
+  <mat-sidenav-container autosize="true">
+    <mat-sidenav [ngClass]="!isCollapsed ? 'expanded' : ''" [mode]="isMobile ? 'over' : 'side'" [opened]="isMobile ? 'false' : 'true'">
+      <mat-nav-list>
+        <a mat-list-item>
+        <span class="entry">
+          <mat-icon>house</mat-icon>
+          @if(!isCollapsed){
+            <span>Dashboard</span>
+          }
+        </span>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <app-sidebar></app-sidebar>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
   <footer id="grid-footer">
     <div>v0.2.0-BETA</div>
   </footer>
