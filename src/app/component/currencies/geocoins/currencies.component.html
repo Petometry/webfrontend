@@ -1,7 +1,17 @@
 @if ((balances$ |async)?.loading){
   <app-loading/>
-} @else {
-  <div>GeoCoins:
+} @else if (!collapsed){
+  <div>Geocoins:
+    @if((balances$ |async)?.geocoins?.geocoin! > 1000000000) {
+      {{ ((balances$ |async)?.geocoins?.geocoin! / 1000000000).toFixed(0) }}B
+    } @else if ((balances$ |async)?.geocoins?.geocoin! > 1000000) {
+      {{ ((balances$ |async)?.geocoins?.geocoin! / 1000000).toFixed(0) }}M
+    }@else {
+      {{ (balances$ |async)?.geocoins?.geocoin! }}
+    }
+  </div>
+}@else{
+  <div>
     @if((balances$ |async)?.geocoins?.geocoin! > 1000000000) {
       {{ ((balances$ |async)?.geocoins?.geocoin! / 1000000000).toFixed(0) }}B
     } @else if ((balances$ |async)?.geocoins?.geocoin! > 1000000) {

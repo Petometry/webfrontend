@@ -32,6 +32,12 @@ main{
   width: 20px;
 }
 
+.sidebar-item, .sidebar-item-bottom, .sidebar-item-top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 h1 {
   padding: 0 1rem;

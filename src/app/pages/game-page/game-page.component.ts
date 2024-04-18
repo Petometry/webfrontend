@@ -57,11 +57,7 @@ export class GamePageComponent {
 
   ngOnInit() {
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
-      if(screenSize.matches){
-        this.isMobile = true;
-      } else {
-        this.isMobile = false;
-      }
+      this.isMobile = screenSize.matches;
     });
   }
 
