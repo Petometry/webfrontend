@@ -1,15 +1,16 @@
 import {Component, inject, input, OnInit} from '@angular/core';
 import {PetModel} from "../../../model/pet/pet.model";
 import {PetComponent} from "../pet/pet.component";
-import {map, Observable, of} from "rxjs";
+import {map, Observable} from "rxjs";
 import {LoadingComponent} from "../../loading/loading.component";
 import {Store} from "@ngrx/store";
 import {PetsState} from "../../../store/reducers/pets.reducers";
 import {AsyncPipe, NgStyle} from "@angular/common";
 import {feedPet} from "../../../store/actions/pets.actions";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {PetfoodsState} from "../../../store/reducers/petfoods.reducers";
 import {PetfeedingModel} from "../../../model/pet/petfeeding.model";
+import {PetfoodsModel} from "../../../model/currency/petfoods.model";
+import {PetfoodsState} from "../../../store/reducers/petfoods.reducers";
 
 @Component({
   selector: 'app-pet-details',
@@ -25,35 +26,39 @@ import {PetfeedingModel} from "../../../model/pet/petfeeding.model";
   templateUrl: './pet-details.component.html',
   styleUrl: './pet-details.component.css'
 })
-export class PetDetailsComponent implements OnInit{
+export class PetDetailsComponent implements OnInit {
 
   petId = input.required<number>();
 
   store = inject(Store)
   pet$: Observable<PetModel | undefined>
   pets$: Observable<PetsState>;
-  petfoods$: Observable<PetfoodsState>;
-  private maxFeedAmount: number;
   private petGeometry: string;
+  private petFoods: PetfoodsModel;
+  private pet: PetModel;
+  private petFoods$: Observable<PetfoodsState>;
 
   constructor() {
-    this.petfoods$ = this.store.select("petfoods")
     this.pets$ = this.store.select("pets")
-    this.maxFeedAmount = 0
+    this.pet$ = this.pets$.pipe(map(ps => ps.entities[this.petId()]))
+    this.petFoods$ = this.store.select("petFoods")
+    this.petFoods = {} as PetfoodsModel
+    this.pet = {} as PetModel
     this.petGeometry = ""
-    this.pet$ = of(undefined)
   }
 
   ngOnInit(): void {
-    this.pet$ = this.pets$.pipe(map(ps => ps.entities[this.petId()]))
+    this.petFoods$.subscribe((petFoodsState: PetfoodsState) => this.petFoods = petFoodsState.petfoods)
     this.pet$.subscribe(pet => {
       this.petGeometry = pet?.appearance.geometry!;
-      this.maxFeedAmount = 100 - pet?.hunger!
+      this.pet = pet!
     })
-    }
+  }
 
   feedPet() {
-    let feeding: PetfeedingModel = {petId: this.petId(), amount: this.maxFeedAmount, foodType: this.petGeometry}
+    const petFood = this.pet.appearance.geometry == "circle" ? this.petFoods.circle : this.pet.appearance.geometry == "triangle" ? this.petFoods.triangle : this.petFoods.rectangle
+    const amount = 100 - this.pet.hunger < petFood ? 100 - this.pet.hunger : petFood
+    let feeding: PetfeedingModel = {petId: this.petId(), amount, foodType: this.petGeometry}
     this.store.dispatch(feedPet({feeding}))
   }
 }
