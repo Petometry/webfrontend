@@ -1,14 +1,20 @@
 <div id="page-layout" class="grid-container">
   <header id="grid-header">
-    <h1>Petometry</h1>
+    <button type="button" mat-button (click)="drawer.toggle()">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" id="burgermenu-icon">
+        <path
+          d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"/>
+      </svg>
+    </button>
+    <a>Petometry</a>
   </header>
-  <div id="game-layout">
-    <app-sidebar id="page-sidebar"></app-sidebar>
-    <div id="page-content">
+  <mat-drawer-container autosize>
+    <app-sidebar #drawer/>
+    <main class="example-sidenav-content">
       <router-outlet/>
-    </div>
-  </div>
-  <div id="grid-footer">
+    </main>
+  </mat-drawer-container>
+  <footer id="grid-footer">
     <div>v0.2.0-BETA</div>
-  </div>
+  </footer>
 </div>

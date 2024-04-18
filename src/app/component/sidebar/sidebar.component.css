@@ -6,16 +6,36 @@
     "pets"
     "work"
     "petshop";
-  grid-template-rows: repeat(5, fit-content(4em));
 }
 
 .sidebar-item {
-  border-top: black solid 1px;
-  border-bottom: black solid 1px;
   text-align: center;
-  padding: 10px 0;
+  display: block;
+  padding: 10px 20px;
+  border-top: gray solid 1px;
+  border-bottom: gray solid 1px;
+
+}
+
+.sidebar-item-top{
+  text-align: center;
+  display: block;
+  padding: 20px;
+  border-bottom: gray solid 1px;
+}
+
+.sidebar-item-bottom{
+  text-align: center;
+  display: block;
+  padding: 10px 20px 20px;
+  border-top: gray solid 1px;
 }
 
 #balances {
   grid-area: balances;
+}
+
+mat-drawer {
+
+  background-color: #FEFAF6;
 }

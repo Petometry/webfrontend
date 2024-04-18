@@ -1,5 +1,5 @@
-<div id="sidebar-layout" class="grid-container">
-  <app-currencies id="balances" class="sidebar-item"/>
+<mat-drawer #drawer mode="side">
+  <app-currencies id="balances" class="sidebar-item-top"/>
   <a routerLink="/game/pets" class="sidebar-item">
     <div>Pets</div>
   </a>
@@ -9,7 +9,7 @@
   <a routerLink="/game/petshop" class="sidebar-item">
     <div>Shop</div>
   </a>
-  <a routerLink="/game/foraging" class="sidebar-item">
+  <a routerLink="/game/foraging" class="sidebar-item-bottom">
     <div>Foraging</div>
   </a>
-</div>
+</mat-drawer>
