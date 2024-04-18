@@ -18,8 +18,7 @@ import {loadPetfoods} from "./store/actions/petfoods.actions";
 })
 export class AppComponent {
 
-  title = 'frontend';
-  pet = {id: 10, appearance: {geometry: "triangle", color: "#121212"}}
+  title = 'Petometry';
 
 
   constructor(private store: Store ) {
