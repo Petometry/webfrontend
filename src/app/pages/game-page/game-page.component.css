@@ -32,10 +32,31 @@ main{
   width: 20px;
 }
 
-.sidebar-item, .sidebar-item-bottom, .sidebar-item-top{
+.sidebar-item,.sidebar-item-top, .sidebar-item-bottom {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.2em;
+}
+
+.sidebar-item {
+  text-align: center;
+  padding: 10px 20px;
+  border-top: gray solid 1px;
+  border-bottom: gray solid 1px;
+
+}
+
+.sidebar-item-top{
+  text-align: center;
+  padding: 20px;
+  border-bottom: gray solid 1px;
+}
+
+.sidebar-item-bottom{
+  text-align: center;
+  padding: 10px 20px 20px;
+  border-top: gray solid 1px;
 }
 
 
@@ -56,6 +77,7 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
+    background: #FEFAF6;
   padding-top: 3.5rem;
   transition: width 0.3s ease;
   @media screen and (min-width: 600px) {
@@ -80,4 +102,9 @@ mat-sidenav-content{
 
 .expanded {
   width: 250px;
+}
+
+mat-nav-list a{
+  color: inherit;
+  text-decoration: none;
 }

@@ -2,7 +2,7 @@
   @if ((pets$ | async)?.loading) {
     <app-loading></app-loading>
   } @else if ((pet$ | async) == undefined) {
-
+    <div>Error please go back to pets</div>
   } @else {
     <div id="pet-details">
       <div>

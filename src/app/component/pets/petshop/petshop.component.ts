@@ -6,6 +6,7 @@ import {buyPet} from "../../../store/actions/petshop.actions";
 import {Observable} from "rxjs";
 import {PetShopState} from "../../../store/reducers/petshop.reducers";
 import {AsyncPipe} from "@angular/common";
+import {PetModel} from "../../../model/pet/pet.model";
 
 @Component({
   selector: 'app-petshop',
@@ -24,9 +25,7 @@ export class PetshopComponent{
     this.petShop$ = this.store.select('petShop');
   }
 
-  buyPet(event: MouseEvent) {
-
-    let target = event.target as Element;
-    this.store.dispatch(buyPet({petId: target.id as unknown as number}))
+  buyPet(pet: PetModel) {
+    this.store.dispatch(buyPet({petId: pet.id}))
   }
 }

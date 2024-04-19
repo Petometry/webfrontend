@@ -5,7 +5,7 @@
   "details pet "
 ;
   grid-template-rows: minmax(0px, 100px) minmax(50px, auto) ;
-  grid-template-columns: minmax(0px, 5fr) minmax(50px, 2fr);
+  grid-template-columns: minmax(0px, 5fr) minmax(50px, 4fr);
   grid-gap: 5px;
 }
 
@@ -29,6 +29,7 @@ app-pet {
   background-color: darkgreen;
   height: 100%;
   text-align: center;
+  border-radius: 10px;
 }
 
 #hungerform *{

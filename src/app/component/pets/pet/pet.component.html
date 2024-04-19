@@ -1,6 +1,6 @@
-<div #container id="container">
-  <div id="petcontainer">
-    <div id="{{pet().id}}" class="pet {{pet().appearance.geometry}}"
-         [ngStyle]="{'background-color': pet().appearance.color, 'height' : petHeight, 'width' : petWidth}"></div>
+<div #container id="container" (click)="onClick.emit(pet())">
+  <div id="petcontainer" (click)="onClick.emit(pet())">
+    <div id="{{pet().id}}" class="pet {{pet().appearance.geometry}} "
+         [ngStyle]="{'background-color': pet().appearance.color, 'height' : petHeight, 'width' : petWidth}" (click)="onClick.emit(pet())"></div>
   </div>
 </div>

@@ -7,6 +7,7 @@ import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import {AsyncPipe} from "@angular/common";
 import {PetsState} from "../../../store/reducers/pets.reducers";
+import {PetModel} from "../../../model/pet/pet.model";
 
 @Component({
   selector: 'app-pets-overview',
@@ -29,8 +30,7 @@ export class PetsOverviewComponent{
     this.pets$ = this.store.select('pets')
   }
 
-  showPetDetails(event: MouseEvent){
-    let target = event.target as Element;
-  this.router.navigateByUrl("/game/pets/" + target.id)
+  showPetDetails(pet: PetModel){
+  this.router.navigateByUrl("/game/pets/" + pet.id)
   }
 }

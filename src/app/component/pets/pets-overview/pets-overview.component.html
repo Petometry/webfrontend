@@ -4,7 +4,7 @@
   <div class="screen-layout">
     <div id="shop-layout" class="grid-container">
       @for (id of (pets$ | async)?.ids; track id) {
-        <app-pet (click)="showPetDetails($event)" [pet]="(pets$ | async)!.entities[id]!"/>
+        <app-pet (onClick)="showPetDetails($event)" [pet]="(pets$ | async)!.entities[id]!"/>
       } @empty {
         You do not have any pets
       }

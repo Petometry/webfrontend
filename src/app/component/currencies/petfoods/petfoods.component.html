@@ -1,8 +1,15 @@
-@if ((petFoods$ |async)?.loading){
+@if ((petFoods$ |async)?.loading) {
   <app-loading/>
 } @else {
-  <h3>Pet Foods</h3>
-  <span>Circle:{{ (petFoods$ |async)?.petfoods!.circle!.toFixed(1) }} </span>
-  <span>Triangle:{{ (petFoods$ |async)?.petfoods!.triangle!.toFixed(1) }} </span>
-  <span>Rectangle:{{ (petFoods$ |async)?.petfoods!.rectangle!.toFixed(1) }} </span>
+  <div id="container">
+    <div>
+      <mat-icon>radio_button_unchecked</mat-icon>{{ (petFoods$ |async)?.petfoods!.circle!.toFixed(1) }}
+    </div>
+    <div>
+      <mat-icon>change_history</mat-icon>{{ (petFoods$ |async)?.petfoods!.triangle!.toFixed(1) }}
+    </div>
+    <div>
+      <mat-icon>check_box_outline_blank</mat-icon>{{ (petFoods$ |async)?.petfoods!.rectangle!.toFixed(1) }}
+    </div>
+  </div>
 }
