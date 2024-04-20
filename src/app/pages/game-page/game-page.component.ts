@@ -1,5 +1,4 @@
 import {Component, ViewChild} from '@angular/core';
-import {SidebarComponent} from "../../component/sidebar/sidebar.component";
 import {RouterLink, RouterOutlet} from "@angular/router";
 import {MatButton, MatIconButton} from "@angular/material/button";
 import {
@@ -15,6 +14,9 @@ import {MatToolbar} from "@angular/material/toolbar";
 import {MatIcon} from "@angular/material/icon";
 import {MatListItem, MatNavList} from "@angular/material/list";
 import {BreakpointObserver} from "@angular/cdk/layout";
+import {FooterComponent} from "../../component/page/footer/footer.component";
+import {HeaderComponent} from "../../component/page/header/header.component";
+import {SidebarComponent} from "../../component/page/sidebar/sidebar.component";
 
 @Component({
   selector: 'app-game-page',
@@ -36,7 +38,9 @@ import {BreakpointObserver} from "@angular/cdk/layout";
     MatIconButton,
     MatSidenavContent,
     MatListItem,
-    MatSidenav
+    MatSidenav,
+    FooterComponent,
+    HeaderComponent
   ],
   templateUrl: './game-page.component.html',
   styleUrl: './game-page.component.css',

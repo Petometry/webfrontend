@@ -1,6 +1,6 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {RouterLink} from "@angular/router";
-import {CurrenciesComponent} from "../currencies/geocoins/currencies.component";
+import {CurrenciesComponent} from "../../currencies/geocoins/currencies.component";
 import {MatDrawer, MatSidenav} from "@angular/material/sidenav";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {NgClass} from "@angular/common";
@@ -24,6 +24,7 @@ import {MatIcon} from "@angular/material/icon";
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent{
+
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
   isMobile= true;
@@ -34,11 +35,7 @@ export class SidebarComponent{
 
   ngOnInit() {
     this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
-      if(screenSize.matches){
-        this.isMobile = true;
-      } else {
-        this.isMobile = false;
-      }
+      this.isMobile = screenSize.matches;
     });
   }
 
