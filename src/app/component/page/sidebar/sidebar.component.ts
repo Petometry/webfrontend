@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, input, output} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {CurrenciesComponent} from "../../currencies/geocoins/currencies.component";
 import {MatDrawer, MatSidenav} from "@angular/material/sidenav";
@@ -25,4 +25,9 @@ import {MatIcon} from "@angular/material/icon";
 export class SidebarComponent{
 
   isCollapsed = input.required<boolean>();
+  itemClicked = output()
+
+  toggleSideBar() {
+    this.itemClicked.emit();
+  }
 }

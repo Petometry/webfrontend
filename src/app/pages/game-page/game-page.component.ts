@@ -74,4 +74,10 @@ export class GamePageComponent {
       this.isCollapsed = !this.isCollapsed;
     }
   }
+
+  sideBarToggle() {
+    if (this.isMobile){
+      this.toggleMenu()
+    }
+  }
 }
