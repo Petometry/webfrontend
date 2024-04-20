@@ -1,8 +1,7 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, input} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {CurrenciesComponent} from "../../currencies/geocoins/currencies.component";
 import {MatDrawer, MatSidenav} from "@angular/material/sidenav";
-import {BreakpointObserver} from "@angular/cdk/layout";
 import {NgClass} from "@angular/common";
 import {MatListItem, MatNavList} from "@angular/material/list";
 import {MatIcon} from "@angular/material/icon";
@@ -25,29 +24,5 @@ import {MatIcon} from "@angular/material/icon";
 })
 export class SidebarComponent{
 
-  @ViewChild(MatSidenav)
-  sidenav!: MatSidenav;
-  isMobile= true;
-  isCollapsed = true;
-
-
-  constructor(private observer: BreakpointObserver) {}
-
-  ngOnInit() {
-    this.observer.observe(['(max-width: 800px)']).subscribe((screenSize) => {
-      this.isMobile = screenSize.matches;
-    });
-  }
-
-  toggleMenu() {
-    if(this.isMobile){
-      this.sidenav.toggle();
-      this.isCollapsed = false;
-    } else {
-      this.sidenav.open();
-      this.isCollapsed = !this.isCollapsed;
-    }
-  }
-
-
+  isCollapsed = input.required<boolean>();
 }

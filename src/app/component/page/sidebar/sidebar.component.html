@@ -1,29 +1,28 @@
-
 <mat-nav-list>
-  <app-currencies id="balances" class="sidebar-item-top" [collapsed]="isCollapsed"/>
+  <app-currencies id="balances" class="sidebar-item-top" [collapsed]="isCollapsed()"/>
   <a routerLink="/game/pets" class="sidebar-item">
     <mat-icon>pets</mat-icon>
-    @if (!isCollapsed) {
+    @if (!isCollapsed()) {
       <span>Pets</span>
     }
   </a>
 
   <a routerLink="/game/work" class="sidebar-item">
     <mat-icon>work</mat-icon>
-    @if (!isCollapsed) {
+    @if (!isCollapsed()) {
       <span>Work</span>
     }
   </a>
 
   <a routerLink="/game/petshop" class="sidebar-item">
     <mat-icon>storefront</mat-icon>
-    @if (!isCollapsed) {
+    @if (!isCollapsed()) {
       <span>Shop</span>
     }
   </a>
   <a routerLink="/game/foraging" class="sidebar-item-bottom">
     <mat-icon>forest</mat-icon>
-    @if (!isCollapsed) {
+    @if (!isCollapsed()) {
       <span>Foraging</span>
     }
   </a>

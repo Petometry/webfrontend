@@ -19,9 +19,7 @@ import {RouterLink} from "@angular/router";
 export class HeaderComponent {
 
   expandSideBar = output()
-  expanded = false
   toggleMenu() {
     this.expandSideBar.emit()
-
   }
 }
