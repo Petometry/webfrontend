@@ -10,7 +10,6 @@
   padding: 10px 20px;
   border-top: gray solid 1px;
   border-bottom: gray solid 1px;
-
 }
 
 .sidebar-item-top{
@@ -26,8 +25,11 @@
 }
 
 mat-nav-list a{
-  color: inherit;
+  color: #102C57;
   text-decoration: none;
+}
+app-currencies{
+  color: #102C57;
 }
 
 
