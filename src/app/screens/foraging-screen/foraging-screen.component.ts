@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {AsyncPipe} from "@angular/common";
-import {LoadingComponent} from "../../component/loading/loading.component";
+import {LoadingComponent} from "../../component/page/loading/loading.component";
 import {StartWorkComponent} from "../../component/activity/start-work/start-work.component";
 import {WorkActivityComponent} from "../../component/activity/work-activity/work-activity.component";
 import {Observable} from "rxjs";

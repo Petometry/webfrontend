@@ -4,7 +4,7 @@ import {collectWorkReward, deleteWork} from "../../../store/actions/work.actions
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {WorkState} from "../../../store/reducers/work.reducers";
-import {LoadingComponent} from "../../loading/loading.component";
+import {LoadingComponent} from "../../page/loading/loading.component";
 
 @Component({
   selector: 'app-work-activity',

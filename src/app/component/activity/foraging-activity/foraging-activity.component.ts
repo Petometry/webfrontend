@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {AsyncPipe, DatePipe} from "@angular/common";
-import {LoadingComponent} from "../../loading/loading.component";
+import {LoadingComponent} from "../../page/loading/loading.component";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {collectForagingReward, deleteForaging} from "../../../store/actions/foraging.actions";

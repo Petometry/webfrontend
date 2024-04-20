@@ -1,4 +1,4 @@
-<div id="container" class="grid-container">
+<div id="container">
   @if ((pets$ | async)?.loading) {
     <app-loading></app-loading>
   } @else if ((pet$ | async) == undefined) {

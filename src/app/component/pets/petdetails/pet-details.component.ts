@@ -2,7 +2,7 @@ import {Component, inject, input, OnInit} from '@angular/core';
 import {PetModel} from "../../../model/pet/pet.model";
 import {PetComponent} from "../pet/pet.component";
 import {map, Observable} from "rxjs";
-import {LoadingComponent} from "../../loading/loading.component";
+import {LoadingComponent} from "../../page/loading/loading.component";
 import {Store} from "@ngrx/store";
 import {PetsState} from "../../../store/reducers/pets.reducers";
 import {AsyncPipe, NgStyle} from "@angular/common";

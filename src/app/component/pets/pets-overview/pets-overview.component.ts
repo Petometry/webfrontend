@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {PetService} from "../../../service/petservice/pet.service";
 import {PetComponent} from "../pet/pet.component";
 import {Router} from "@angular/router";
-import {LoadingComponent} from "../../loading/loading.component";
+import {LoadingComponent} from "../../page/loading/loading.component";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import {AsyncPipe} from "@angular/common";

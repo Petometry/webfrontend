@@ -1,78 +1,5 @@
-#page-layout {
-  height: 100%;
-  display: grid;
-  grid-auto-rows: fit-content(2em) auto fit-content(2em);
-}
-
 mat-drawer-container {
   height: 100%;
-}
-
-footer, header {
-
-  background-color: #102C57;
-  color: #FEFAF6;
-}
-
-footer {
-  padding: 1em;
-}
-
-header {
-  font-size: 1.2em;
-  padding: 1em 0.5em;
-}
-
-main {
-  height: 100%;
-}
-
-#burgermenu-icon {
-  fill: white;
-  height: 20px;
-  width: 20px;
-}
-
-.sidebar-item, .sidebar-item-top, .sidebar-item-bottom {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2em;
-}
-
-.sidebar-item {
-  text-align: center;
-  padding: 10px 20px;
-  border-top: gray solid 1px;
-  border-bottom: gray solid 1px;
-
-}
-
-.sidebar-item-top {
-  text-align: center;
-  padding: 20px;
-  border-bottom: gray solid 1px;
-}
-
-.sidebar-item-bottom {
-  text-align: center;
-  padding: 10px 20px 20px;
-  border-top: gray solid 1px;
-}
-
-
-h1 {
-  padding: 0 1rem;
-}
-
-h2 {
-  padding: 1rem;
-}
-
-mat-toolbar {
-  position: fixed;
-  top: 0;
-  z-index: 2;
 }
 
 mat-sidenav-container {
@@ -80,40 +7,21 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-  background: #FEFAF6;
+  background: #EADBC8;
   padding-top: 3.5rem;
   transition: width 0.3s ease;
+}
 
-  .entry {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem;
-  }
-
+mat-sidenav-content{
+  background-color: #FEFAF6;
 }
 
 .expanded {
   width: 250px;
 }
 
-mat-nav-list a {
-  color: inherit;
-  text-decoration: none;
-}
-
-
-app-header, app-footer {
-  z-index: 2;
-}
-
 mat-sidenav, mat-sidenav-content {
-
   padding-top: 4rem;
   padding-bottom: 2.2rem;
-  transition: width 0.3s ease;
-  @media screen and (min-width: 600px) {
-    padding-top: 4rem;
-    padding-bottom: 2.2rem;
-  }
+  transition: all 0.3s ease;
 }

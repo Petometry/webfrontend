@@ -3,7 +3,7 @@ import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {PetfoodsState} from "../../../store/reducers/petfoods.reducers";
 import {AsyncPipe} from "@angular/common";
-import {LoadingComponent} from "../../loading/loading.component";
+import {LoadingComponent} from "../../page/loading/loading.component";
 import {MatIcon} from "@angular/material/icon";
 
 @Component({

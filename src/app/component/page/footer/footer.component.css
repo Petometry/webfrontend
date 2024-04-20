@@ -9,11 +9,9 @@ mat-toolbar{
 
 h2 {
   padding: 0 1rem;
-  font-size: 2rem;
 }
 
 h2 a{
-  font-size: 1.5rem;
   color: inherit;
   text-decoration: none;
 }

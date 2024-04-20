@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {LoadingComponent} from "../../component/loading/loading.component";
+import {LoadingComponent} from "../../component/page/loading/loading.component";
 import {Observable} from "rxjs";
 import {ActivityState} from "../../store/reducers/activity.reducers";
 import {Store} from "@ngrx/store";

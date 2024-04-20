@@ -3,7 +3,7 @@ import {Store} from "@ngrx/store";
 import {AsyncPipe} from "@angular/common";
 import {Observable} from "rxjs";
 import {GeoCoinsState} from "../../../store/reducers/geoCoinsReducers";
-import {LoadingComponent} from "../../loading/loading.component";
+import {LoadingComponent} from "../../page/loading/loading.component";
 import {MatIcon} from "@angular/material/icon";
 
 @Component({

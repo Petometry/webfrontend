@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {PetComponent} from "../pet/pet.component";
-import {LoadingComponent} from "../../loading/loading.component";
+import {LoadingComponent} from "../../page/loading/loading.component";
 import {Store} from "@ngrx/store";
 import {buyPet} from "../../../store/actions/petshop.actions";
 import {Observable} from "rxjs";
