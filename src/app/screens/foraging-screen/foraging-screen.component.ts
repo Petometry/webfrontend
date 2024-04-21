@@ -3,7 +3,7 @@ import {AsyncPipe} from "@angular/common";
 import {LoadingComponent} from "../../component/page/loading/loading.component";
 import {StartWorkComponent} from "../../component/activity/start-work/start-work.component";
 import {WorkActivityComponent} from "../../component/activity/work-activity/work-activity.component";
-import {Observable} from "rxjs";
+import {interval, Observable} from "rxjs";
 import {ActivityState} from "../../store/reducers/activity.reducers";
 import {Store} from "@ngrx/store";
 import {ForagingActivityComponent} from "../../component/activity/foraging-activity/foraging-activity.component";
@@ -27,10 +27,17 @@ import {loadActivity} from "../../store/actions/activity.actions";
 export class ForagingScreenComponent {
 
   activity$?: Observable<ActivityState>
+  activity: ActivityState|undefined
   store = inject(Store)
 
   constructor() {
     this.activity$ = this.store.select('activity')
+    this.activity$.subscribe(activity => this.activity = activity)
     this.store.dispatch(loadActivity())
+    interval(1000).subscribe(() => {
+      if (new Date(this.activity?.activity?.endTime!).getTime() <= new Date().getTime()&& !this.activity?.activity?.collectable){
+        this.store.dispatch(loadActivity())
+      }
+    })
   }
 }

@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {LoadingComponent} from "../../component/page/loading/loading.component";
-import {Observable} from "rxjs";
+import {interval, Observable} from "rxjs";
 import {ActivityState} from "../../store/reducers/activity.reducers";
 import {Store} from "@ngrx/store";
 import {AsyncPipe} from "@angular/common";
@@ -23,9 +23,16 @@ export class WorkScreenComponent {
 
   activity$?: Observable<ActivityState>
   store = inject(Store)
+  activity: ActivityState|undefined
 
   constructor() {
     this.activity$ = this.store.select('activity')
+    this.activity$.subscribe(activity => this.activity = activity)
     this.store.dispatch(loadActivity())
+    interval(1000).subscribe(() => {
+      if (new Date(this.activity?.activity?.endTime!).getTime() <= new Date().getTime()&& !this.activity?.activity?.collectable){
+        this.store.dispatch(loadActivity())
+      }
+    })
   }
 }
