@@ -20,17 +20,16 @@ import {PetModel} from "../../../model/pet/pet.model";
   templateUrl: './pets-overview.component.html',
   styleUrl: './pets-overview.component.css'
 })
-export class PetsOverviewComponent{
+export class PetsOverviewComponent {
 
   pets$: Observable<PetsState>
-
   store = inject(Store)
 
   constructor(private petService: PetService, private router: Router) {
     this.pets$ = this.store.select('pets')
   }
 
-  showPetDetails(pet: PetModel){
-  this.router.navigateByUrl("/game/pets/" + pet.id)
+  showPetDetails(pet: PetModel) {
+    this.router.navigateByUrl("/game/pets/" + pet.id)
   }
 }

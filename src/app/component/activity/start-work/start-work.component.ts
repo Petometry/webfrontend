@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormControl, ReactiveFormsModule} from "@angular/forms";
 import {createWork} from "../../../store/actions/work.actions";
 import {Store} from "@ngrx/store";
 
@@ -7,13 +7,11 @@ import {Store} from "@ngrx/store";
   selector: 'app-start-work',
   standalone: true,
   imports: [
-    FormsModule,
     ReactiveFormsModule
   ],
   templateUrl: './start-work.component.html',
   styleUrl: './start-work.component.css'
 })
-
 
 
 export class StartWorkComponent {

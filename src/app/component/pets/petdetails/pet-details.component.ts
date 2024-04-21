@@ -7,7 +7,6 @@ import {Store} from "@ngrx/store";
 import {PetsState} from "../../../store/reducers/pets.reducers";
 import {AsyncPipe, NgStyle} from "@angular/common";
 import {feedPet} from "../../../store/actions/pets.actions";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PetfeedingModel} from "../../../model/pet/petfeeding.model";
 import {PetfoodsModel} from "../../../model/currency/petfoods.model";
 import {PetfoodsState} from "../../../store/reducers/petfoods.reducers";
@@ -19,9 +18,7 @@ import {PetfoodsState} from "../../../store/reducers/petfoods.reducers";
     PetComponent,
     LoadingComponent,
     AsyncPipe,
-    NgStyle,
-    FormsModule,
-    ReactiveFormsModule
+    NgStyle
   ],
   templateUrl: './pet-details.component.html',
   styleUrl: './pet-details.component.css'
@@ -29,7 +26,6 @@ import {PetfoodsState} from "../../../store/reducers/petfoods.reducers";
 export class PetDetailsComponent implements OnInit {
 
   petId = input.required<number>();
-
   store = inject(Store)
   pet$: Observable<PetModel | undefined>
   pets$: Observable<PetsState>;
@@ -56,7 +52,20 @@ export class PetDetailsComponent implements OnInit {
   }
 
   feedPet() {
-    const petFood = this.pet.appearance.geometry == "circle" ? this.petFoods.circle : this.pet.appearance.geometry == "triangle" ? this.petFoods.triangle : this.petFoods.rectangle
+    let petFood;
+    switch (this.pet.appearance.geometry) {
+      case "circle" :
+        petFood = this.petFoods.circle;
+        break;
+      case "triangle" :
+        petFood = this.petFoods.triangle;
+        break;
+      case "rectangle":
+        petFood = this.petFoods.rectangle;
+        break;
+      default:
+        return;
+    }
     const amount = 100 - this.pet.hunger < petFood ? 100 - this.pet.hunger : petFood
     let feeding: PetfeedingModel = {petId: this.petId(), amount, foodType: this.petGeometry}
     this.store.dispatch(feedPet({feeding}))

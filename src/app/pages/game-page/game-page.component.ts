@@ -1,18 +1,8 @@
 import {Component, ViewChild} from '@angular/core';
-import {RouterLink, RouterOutlet} from "@angular/router";
-import {MatButton, MatIconButton} from "@angular/material/button";
-import {
-  MatDrawer,
-  MatDrawerContainer,
-  MatSidenav,
-  MatSidenavContainer,
-  MatSidenavContent
-} from "@angular/material/sidenav";
+import {RouterOutlet} from "@angular/router";
+import {MatSidenav, MatSidenavContainer, MatSidenavContent} from "@angular/material/sidenav";
 import {CurrenciesComponent} from "../../component/currencies/geocoins/currencies.component";
-import {NgClass, NgOptimizedImage} from "@angular/common";
-import {MatToolbar} from "@angular/material/toolbar";
-import {MatIcon} from "@angular/material/icon";
-import {MatListItem, MatNavList} from "@angular/material/list";
+import {NgClass} from "@angular/common";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {FooterComponent} from "../../component/page/footer/footer.component";
 import {HeaderComponent} from "../../component/page/header/header.component";
@@ -24,20 +14,10 @@ import {SidebarComponent} from "../../component/page/sidebar/sidebar.component";
   imports: [
     SidebarComponent,
     RouterOutlet,
-    MatButton,
-    MatDrawer,
-    MatDrawerContainer,
     CurrenciesComponent,
-    RouterLink,
-    NgOptimizedImage,
-    MatToolbar,
-    MatIcon,
     MatSidenavContainer,
-    MatNavList,
     NgClass,
-    MatIconButton,
     MatSidenavContent,
-    MatListItem,
     MatSidenav,
     FooterComponent,
     HeaderComponent

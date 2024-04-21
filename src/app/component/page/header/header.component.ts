@@ -9,9 +9,9 @@ import {RouterLink} from "@angular/router";
   standalone: true,
   imports: [
     MatIcon,
-    MatIconButton,
     MatToolbar,
-    RouterLink
+    RouterLink,
+    MatIconButton
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'

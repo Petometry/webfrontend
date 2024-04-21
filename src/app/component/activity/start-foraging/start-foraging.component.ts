@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormControl, ReactiveFormsModule} from "@angular/forms";
 import {Store} from "@ngrx/store";
 import {createForaging} from "../../../store/actions/foraging.actions";
 
@@ -7,7 +7,7 @@ import {createForaging} from "../../../store/actions/foraging.actions";
   selector: 'app-start-foraging',
   standalone: true,
   imports: [
-    FormsModule,
+
     ReactiveFormsModule
   ],
   templateUrl: './start-foraging.component.html',

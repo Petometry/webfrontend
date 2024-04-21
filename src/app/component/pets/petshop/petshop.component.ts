@@ -12,15 +12,17 @@ import {PetModel} from "../../../model/pet/pet.model";
   selector: 'app-petshop',
   standalone: true,
   imports: [
-    PetComponent,AsyncPipe,
+    PetComponent,
+    AsyncPipe,
     LoadingComponent
   ],
   templateUrl: './petshop.component.html',
   styleUrl: './petshop.component.css'
 })
-export class PetshopComponent{
+export class PetshopComponent {
   store = inject(Store)
   petShop$: Observable<PetShopState>;
+
   constructor() {
     this.petShop$ = this.store.select('petShop');
   }

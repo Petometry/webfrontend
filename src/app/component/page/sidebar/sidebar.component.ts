@@ -1,9 +1,7 @@
 import {Component, input, output} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {CurrenciesComponent} from "../../currencies/geocoins/currencies.component";
-import {MatDrawer, MatSidenav} from "@angular/material/sidenav";
-import {NgClass} from "@angular/common";
-import {MatListItem, MatNavList} from "@angular/material/list";
+import {MatNavList} from "@angular/material/list";
 import {MatIcon} from "@angular/material/icon";
 
 @Component({
@@ -12,17 +10,13 @@ import {MatIcon} from "@angular/material/icon";
   imports: [
     RouterLink,
     CurrenciesComponent,
-    MatDrawer,
-    MatSidenav,
-    NgClass,
     MatNavList,
-    MatIcon,
-    MatListItem
+    MatIcon
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
-export class SidebarComponent{
+export class SidebarComponent {
 
   isCollapsed = input.required<boolean>();
   itemClicked = output()
