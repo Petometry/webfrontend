@@ -23,6 +23,9 @@
   padding: 10px 20px 20px;
   border-top: gray solid 1px;
 }
+*{
+  transition: width 0.3s ease;
+}
 
 mat-nav-list a{
   color: #102C57;
