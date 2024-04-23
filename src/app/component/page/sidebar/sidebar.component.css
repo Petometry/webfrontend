@@ -28,11 +28,6 @@
 }
 
 mat-nav-list a{
-  color: #102C57;
+  color: inherit;
   text-decoration: none;
 }
-app-currencies{
-  color: #102C57;
-}
-
-

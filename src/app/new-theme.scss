@@ -1,0 +1,41 @@
+@import "@angular/material";
+
+body {
+  --primary-color: #102c57;
+  --primary-lighter-color: #b7c0cd;
+  --primary-darker-color: #091b3c;
+  --text-primary-color: #fefaf6;
+  --text-primary-lighter-color: rgba(16, 44, 87, 0.87);
+  --text-primary-darker-color: #fefaf6;
+}
+
+body {
+  --accent-color: #eadbc8;
+  --accent-lighter-color: #f9f4ef;
+  --accent-darker-color: #e1cdb4;
+  --text-accent-color: rgba(16, 44, 87, 0.87);
+  --text-accent-lighter-color: rgba(16, 44, 87, 0.87);
+  --text-accent-darker-color: rgba(16, 44, 87, 0.87);
+}
+
+body {
+  --mat-sidenav-container-text-color: #102c57;
+  --mat-icon-color: #102c57;
+  --mat-sidenav-container-elevation-shadow: #e1cdb4;
+  --mat-sidenav-container-background-color: #eadbc8;
+  --mdc-filled-button-label-text-color: var(--text-primary-color);
+  --mdc-filled-button-container-color: var(--primary-color);
+  --mdc-filled-button-container-shape: 20px;
+  --mdc-filled-button-container-height: 2.5em;
+  --mat-toolbar-container-background-color: var(--primary-color);
+  --mat-toolbar-container-text-color: var(--text-primary-color)
+}
+
+body {
+  --warn-color: #ff0000;
+  --warn-lighter-color: #ffb3b3;
+  --warn-darker-color: #ff0000;
+  --text-warn-color: #fefaf6;
+  --text-warn-lighter-color: rgba(16, 44, 87, 0.87);
+  --text-warn-darker-color: #fefaf6; }
+

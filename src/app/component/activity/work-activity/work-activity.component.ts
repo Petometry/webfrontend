@@ -5,6 +5,7 @@ import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {WorkState} from "../../../store/reducers/work.reducers";
 import {LoadingComponent} from "../../page/loading/loading.component";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-work-activity',
@@ -12,7 +13,8 @@ import {LoadingComponent} from "../../page/loading/loading.component";
   imports: [
     AsyncPipe,
     LoadingComponent,
-    DatePipe
+    DatePipe,
+    MatButton
   ],
   templateUrl: './work-activity.component.html',
   styleUrl: './work-activity.component.css'

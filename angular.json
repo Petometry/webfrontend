@@ -26,6 +26,8 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
+//              "@angular/material/prebuilt-themes/purple-green.css",
+              "src/app/new-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -110,7 +112,8 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/purple-green.css",
+//              "@angular/material/prebuilt-themes/purple-green.css",
+              "src/app/new-theme.scss",
               "src/styles.css"
             ],
             "scripts": []

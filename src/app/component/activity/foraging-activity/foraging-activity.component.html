@@ -9,17 +9,22 @@
         <b>{{ (foraging$ |async)?.foraging?.reward?.triangle }} Triangle</b><br>
         <b>{{ (foraging$ |async)?.foraging?.reward?.rectangle }} Rectangle</b>
       </div>
-      <button (click)="collectReward()">Collect Reward</button>
+      <button mat-flat-button (click)="collectReward()">Collect Reward</button>
     </div>
   </div>
 } @else {
   <div class="layout">
-    <div class="component">
-      <div class="header"><h2>You are Foraging</h2></div>
-      <div>Your Foraging ends at
+    <mat-card class="component">
+      <mat-card-header class="header"><h2>You are Foraging</h2></mat-card-header>
+      <mat-card-content>Your Foraging ends at
         <h4>{{ (foraging$ |async)?.foraging?.endTime | date:'dd/MM HH:mm' }}</h4>
-      </div>
-      <button (click)="stopForaging()">Stop Foraging</button>
-    </div>
+      </mat-card-content>
+      <button mat-flat-button (click)="stopForaging()">Stop Foraging</button>
+    </mat-card>
   </div>
 }
+
+<mat-card>
+  <mat-card-header>Bullshit</mat-card-header>
+  <mat-card-content>Is nice</mat-card-content>
+</mat-card>

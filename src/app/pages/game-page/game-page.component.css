@@ -7,14 +7,10 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-  background: #EADBC8;
   padding-top: 3.5rem;
   transition: width 0.3s ease;
 }
 
-mat-sidenav-content{
-  background-color: #FEFAF6;
-}
 
 .expanded {
   width: 250px;

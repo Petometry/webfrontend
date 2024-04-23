@@ -5,6 +5,8 @@ import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {collectForagingReward, deleteForaging} from "../../../store/actions/foraging.actions";
 import {ForagingState} from "../../../store/reducers/foraging.reducers";
+import {MatButton} from "@angular/material/button";
+import {MatCard, MatCardContent, MatCardHeader} from "@angular/material/card";
 
 @Component({
   selector: 'app-foraging-activity',
@@ -12,7 +14,11 @@ import {ForagingState} from "../../../store/reducers/foraging.reducers";
   imports: [
     AsyncPipe,
     DatePipe,
-    LoadingComponent
+    LoadingComponent,
+    MatButton,
+    MatCard,
+    MatCardHeader,
+    MatCardContent
   ],
   templateUrl: './foraging-activity.component.html',
   styleUrl: './foraging-activity.component.css'

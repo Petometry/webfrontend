@@ -2,12 +2,14 @@ import {Component, inject} from '@angular/core';
 import {FormControl, ReactiveFormsModule} from "@angular/forms";
 import {createWork} from "../../../store/actions/work.actions";
 import {Store} from "@ngrx/store";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-start-work',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButton
   ],
   templateUrl: './start-work.component.html',
   styleUrl: './start-work.component.css'
