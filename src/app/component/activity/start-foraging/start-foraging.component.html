@@ -1,11 +1,11 @@
-<div id="layout">
-  <div id="component">
+<div class="layout">
+  <div class="component">
     <div> How long do you want to forage for? (Minutes)</div>
     <div id="range-container"><input type="range" step="1" max="5" min="1" [formControl]="foragingMinutesFormControl">
     </div>
     <div>You are going to forage for <br>
       <b>{{ foragingMinutesFormControl.value! }} min</b>.
     </div>
-    <button (click)="startForaging()">Start Work</button>
+    <button (click)="startForaging()">Start Foraging</button>
   </div>
 </div>

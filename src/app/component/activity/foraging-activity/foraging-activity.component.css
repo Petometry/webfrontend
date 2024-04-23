@@ -1,30 +1,22 @@
-.layout{
+.layout {
   display: grid;
   grid-template-areas:
     "header header header"
     ". component ."
-    ". . ."
-;
+    ". . .";
   height: 100%;
-  grid-template-rows: minmax(0px, auto) auto minmax(0px, auto);
+  grid-template-rows: minmax(0px, auto) minmax(200px, auto) minmax(0px, auto);
   grid-template-columns: minmax(0px, auto) auto minmax(0px, auto);
-  justify-items: center;
-  align-items: center;
 }
 
-.component{
+.component {
   grid-area: component;
   padding: 10px;
-  border: lightgray solid 1px;
+  border: lightgray solid 5px;
   border-radius: 10px;
   background-color: white;
-
-}
-
-.header{
-  grid-area: header;
-}
-
-h4{
-  margin: 5px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
