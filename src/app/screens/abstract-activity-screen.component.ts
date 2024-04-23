@@ -17,7 +17,10 @@ export abstract class AbstractActivityScreenComponent {
     this.store.dispatch(loadActivity())
     interval(5000).subscribe(() => {
       if (new Date(this.activity?.activity?.endTime!).getTime() <= new Date().getTime()&& !this.activity?.activity?.collectable){
-        this.store.dispatch(loadActivity())
+        let audio = new Audio()
+        audio.src = "../../../assets/sounds/reward.mp3"
+        audio.load()
+        audio.play().finally(()=>this.store.dispatch(loadActivity()))
       }
     })
   }
