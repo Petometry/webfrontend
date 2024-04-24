@@ -2,12 +2,7 @@ mat-toolbar{
   position:fixed;
   top:0;
   z-index: 2;
-  color: var(--text-primary-color);
   padding: 0.5rem;
-}
-
-mat-icon{
-  color: var(--text-primary-color);
 }
 
 h1 {

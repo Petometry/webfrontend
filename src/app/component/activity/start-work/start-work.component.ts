@@ -3,13 +3,16 @@ import {FormControl, ReactiveFormsModule} from "@angular/forms";
 import {createWork} from "../../../store/actions/work.actions";
 import {Store} from "@ngrx/store";
 import {MatButton} from "@angular/material/button";
+import {MatSlider, MatSliderThumb} from "@angular/material/slider";
 
 @Component({
   selector: 'app-start-work',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    MatButton
+    MatButton,
+    MatSlider,
+    MatSliderThumb
   ],
   templateUrl: './start-work.component.html',
   styleUrl: './start-work.component.css'

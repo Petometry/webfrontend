@@ -1,11 +1,12 @@
 <div class="layout">
   <div class="component">
     <div> How long do you want to forage for? (Minutes)</div>
-    <div id="range-container"><input type="range" step="1" max="5" min="1" [formControl]="foragingMinutesFormControl">
-    </div>
+    <mat-slider step="1" max="5" min="1" id="range-container" >
+      <input matSliderThumb [formControl]="foragingMinutesFormControl">
+    </mat-slider>
     <div>You are going to forage for <br>
       <b>{{ foragingMinutesFormControl.value! }} min</b>.
     </div>
-    <button mat-flat-button (click)="startForaging()">Start Foraging</button>
+    <button mat-flat-button color="primary" (click)="startForaging()">Start Foraging</button>
   </div>
 </div>

@@ -10,11 +10,14 @@ body {
   padding: 0;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  --mat-sidenav-container-background-color: #eadbc8;
+  --mat-sidenav-content-background-color: #fefaf6;
 }
 
 html, body {
   height: 100%;
-  background-color: #FEFAF6;
+  background-color: #fefaf6;
 }
 
 *, ::after, ::before {

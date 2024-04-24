@@ -7,7 +7,7 @@
       <div>Collect your paycheck of
         <b>{{ (work$ |async)?.work?.reward }} GeoCoin</b>
       </div>
-      <button mat-flat-button (click)="collectReward()">Collect Paycheck</button>
+      <button mat-flat-button color="primary" (click)="collectReward()">Collect Paycheck</button>
     </div>
   </div>
 } @else {
@@ -20,7 +20,7 @@
       <div>You will receive
         <b>{{ (work$ |async)?.work?.reward }} GeoCoin</b>
       </div>
-      <button mat-flat-button (click)="stopWork()">Stop Work</button>
+      <button mat-flat-button color="primary" (click)="stopWork()">Stop Work</button>
     </div>
   </div>
 }
