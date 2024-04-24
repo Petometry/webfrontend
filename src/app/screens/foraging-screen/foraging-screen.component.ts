@@ -15,7 +15,10 @@ import {AbstractActivityScreenComponent} from "../abstract-activity-screen.compo
     StartForagingComponent
   ],
   templateUrl: './foraging-screen.component.html',
-  styleUrl: './foraging-screen.component.css'
+  styleUrl: './foraging-screen.component.css',
+  host: {
+    class: 'game-screen'
+  }
 })
 export class ForagingScreenComponent extends AbstractActivityScreenComponent {
 
