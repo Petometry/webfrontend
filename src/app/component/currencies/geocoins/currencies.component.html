@@ -11,20 +11,6 @@
       {{ (balances$ |async)?.geocoins?.geocoin! }}
     }
   </div>
-  <div id="petfoods">
-    <span>
-      <mat-icon>change_history</mat-icon>
-    @if((petfoods$ |async)?petfoods?triangle! > 1000000000){
-      <span>{{ ((petfoods$ |async)?petfoods?triangle! / 1000000000).toFixed(0) }}B</span>
-      } @else if((petfoods$ |async)?petfoods?triangle! > 1000000){
-      <span>{{ ((petfoods$ |async)?petfoods?triangle! / 1000000).toFixed(0) }}M</span>
-      } @else if((petfoods$ |async)?petfoods?triangle! > 1000){
-      <span>{{ ((petfoods$ |async)?petfoods?triangle! / 1000).toFixed(0) }}k</span>
-      }@else{
-         <span>{{(petfoods$ |async)?petfoods?triangle!}}</span>
-      }
-    </span>
-          
-  </div>
+
 }
 
