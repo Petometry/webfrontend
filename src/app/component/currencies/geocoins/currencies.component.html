@@ -1,10 +1,8 @@
-@if ((balances$ |async)?.loading){
+@if ((balances$ | async)?.loading || (petfoods$ | async)?.loading){
   <app-loading/>
 } @else{
-  <div>
-    @if(!collapsed){
-    Geocoins:
-    }
+  <div id="geocoins">
+    <mat-icon>payments</mat-icon>
     @if((balances$ |async)?.geocoins?.geocoin! > 1000000000) {
       {{ ((balances$ |async)?.geocoins?.geocoin! / 1000000000).toFixed(0) }}B
     } @else if ((balances$ |async)?.geocoins?.geocoin! > 1000000) {
@@ -12,6 +10,21 @@
     }@else {
       {{ (balances$ |async)?.geocoins?.geocoin! }}
     }
+  </div>
+  <div id="petfoods">
+    <span>
+      <mat-icon>change_history</mat-icon>
+    @if((petfoods$ |async)?petfoods?triangle! > 1000000000){
+      <span>{{ ((petfoods$ |async)?petfoods?triangle! / 1000000000).toFixed(0) }}B</span>
+      } @else if((petfoods$ |async)?petfoods?triangle! > 1000000){
+      <span>{{ ((petfoods$ |async)?petfoods?triangle! / 1000000).toFixed(0) }}M</span>
+      } @else if((petfoods$ |async)?petfoods?triangle! > 1000){
+      <span>{{ ((petfoods$ |async)?petfoods?triangle! / 1000).toFixed(0) }}k</span>
+      }@else{
+         <span>{{(petfoods$ |async)?petfoods?triangle!}}</span>
+      }
+    </span>
+          
   </div>
 }
 
