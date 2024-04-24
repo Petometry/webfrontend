@@ -1,17 +1,22 @@
 import {Component, input, output} from '@angular/core';
 import {RouterLink} from "@angular/router";
-import {CurrenciesComponent} from "../../currencies/geocoins/currencies.component";
+
 import {MatNavList} from "@angular/material/list";
 import {MatIcon} from "@angular/material/icon";
+import {GeocoinsComponent} from "../../currencies/geocoins/geocoins.component";
+import {PetfoodsComponent} from "../../currencies/petfoods/petfoods.component";
+import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
   imports: [
     RouterLink,
-    CurrenciesComponent,
+    GeocoinsComponent,
     MatNavList,
-    MatIcon
+    MatIcon,
+    PetfoodsComponent,
+    NgOptimizedImage
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'

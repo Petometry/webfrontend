@@ -42,3 +42,16 @@ app-pet {
 input {
   width: 100%;
 }
+
+#foodbar-header{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#food{
+  border-bottom: lightgray solid 5px;
+  border-top: lightgray solid 5px;
+  padding: 10px;
+}
+

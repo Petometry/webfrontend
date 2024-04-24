@@ -1,5 +1,13 @@
 <mat-nav-list>
-  <app-currencies id="balances" class="sidebar-item-top" [collapsed]="isCollapsed()" (click)="toggleSideBar()"/>
+  <div class="sidebar-item-top">
+    @if(!isCollapsed()){
+      <img id="profile-picture" ngSrc="assets/images/blank-profile-picture.png" alt="profile" height="640" width="640"  (click)="toggleSideBar()">
+    }
+    <div id="balances">
+      <app-geocoins/>
+      <app-petfoods/>
+    </div>
+  </div>
   <a routerLink="/game/pets" class="sidebar-item" (click)="toggleSideBar()">
     <mat-icon>pets</mat-icon>
     @if (!isCollapsed()) {

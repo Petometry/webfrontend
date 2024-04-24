@@ -1,0 +1,6 @@
+@if ((balances$ | async)?.loading ){
+  <app-loading/>
+} @else{
+    <app-currency [currency]="(balances$ |async)?.geocoins?.geocoin!" [icon]="'payments'"/>
+}
+

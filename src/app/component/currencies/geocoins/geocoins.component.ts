@@ -1,27 +1,28 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {AsyncPipe} from "@angular/common";
 import {Observable} from "rxjs";
 import {GeoCoinsState} from "../../../store/reducers/geoCoinsReducers";
 import {LoadingComponent} from "../../page/loading/loading.component";
 import {MatIcon} from "@angular/material/icon";
+import {CurrencyComponent} from "../currency/currency.component";
 
 @Component({
-  selector: 'app-currencies',
+  selector: 'app-geocoins',
   standalone: true,
   imports: [
     AsyncPipe,
     LoadingComponent,
-    MatIcon
+    MatIcon,
+    CurrencyComponent
   ],
-  templateUrl: './currencies.component.html',
-  styleUrl: './currencies.component.css'
+  templateUrl: './geocoins.component.html',
+  styleUrl: './geocoins.component.css'
 })
-export class CurrenciesComponent {
+export class GeocoinsComponent {
 
   store = inject(Store)
   protected balances$: Observable<GeoCoinsState>
-  @Input() collapsed!: boolean;
 
   constructor() {
     this.balances$ = this.store.select('geoCoins')

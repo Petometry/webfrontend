@@ -11,6 +11,7 @@ import {PetfeedingModel} from "../../../model/pet/petfeeding.model";
 import {PetfoodsModel} from "../../../model/currency/petfoods.model";
 import {PetfoodsState} from "../../../store/reducers/petfoods.reducers";
 import {MatButton} from "@angular/material/button";
+import {PetfoodsComponent} from "../../currencies/petfoods/petfoods.component";
 
 @Component({
   selector: 'app-pet-details',
@@ -20,7 +21,8 @@ import {MatButton} from "@angular/material/button";
     LoadingComponent,
     AsyncPipe,
     NgStyle,
-    MatButton
+    MatButton,
+    PetfoodsComponent
   ],
   templateUrl: './pet-details.component.html',
   styleUrl: './pet-details.component.css'

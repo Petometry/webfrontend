@@ -1,7 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
 import {MatSidenav, MatSidenavContainer, MatSidenavContent} from "@angular/material/sidenav";
-import {CurrenciesComponent} from "../../component/currencies/geocoins/currencies.component";
+import {GeocoinsComponent} from "../../component/currencies/geocoins/geocoins.component";
 import {NgClass} from "@angular/common";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {FooterComponent} from "../../component/page/footer/footer.component";
@@ -14,7 +14,7 @@ import {SidebarComponent} from "../../component/page/sidebar/sidebar.component";
   imports: [
     SidebarComponent,
     RouterOutlet,
-    CurrenciesComponent,
+    GeocoinsComponent,
     MatSidenavContainer,
     NgClass,
     MatSidenavContent,

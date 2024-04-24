@@ -2,14 +2,8 @@
   <app-loading/>
 } @else {
   <div id="container">
-    <div>
-      <mat-icon>radio_button_unchecked</mat-icon>{{ (petFoods$ |async)?.petfoods!.circle!.toFixed(0) }}
-    </div>
-    <div>
-      <mat-icon>change_history</mat-icon>{{ (petFoods$ |async)?.petfoods!.triangle!.toFixed(0) }}
-    </div>
-    <div>
-      <mat-icon>check_box_outline_blank</mat-icon>{{ (petFoods$ |async)?.petfoods!.rectangle!.toFixed(0) }}
-    </div>
+    <app-currency [currency]="(petFoods$ |async)?.petfoods!.circle!" [icon]="'radio_button_unchecked'"/>
+    <app-currency [currency]="(petFoods$ |async)?.petfoods!.triangle!" [icon]="'change_history'"/>
+    <app-currency [currency]="(petFoods$ |async)?.petfoods!.rectangle!" [icon]="'check_box_outline_blank'"/>
   </div>
 }
