@@ -5,7 +5,9 @@
     }
     <div id="balances">
       <app-geocoins/>
+        @if(!isCollapsed()){
       <app-petfoods/>
+        }
     </div>
   </div>
   <a routerLink="/game/pets" class="sidebar-item" (click)="toggleSideBar()">
