@@ -2,8 +2,12 @@
   <app-loading/>
 } @else {
   <div id="container">
+    @if(!isCollapsed()){
     <app-currency [currency]="(petFoods$ |async)?.petfoods!.circle!" [icon]="'radio_button_unchecked'"/>
     <app-currency [currency]="(petFoods$ |async)?.petfoods!.triangle!" [icon]="'change_history'"/>
     <app-currency [currency]="(petFoods$ |async)?.petfoods!.rectangle!" [icon]="'check_box_outline_blank'"/>
+      }@else{
+      <app-currency [currency]="(petFoods$ |async)?.petfoods!.circle! + (petFoods$ |async)?.petfoods!.triangle! + (petFoods$ |async)?.petfoods!.rectangle!" [icon]="'category'"/>
+      }
   </div>
 }
