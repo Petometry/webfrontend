@@ -24,7 +24,6 @@ import {NgOptimizedImage} from "@angular/common";
 export class SidebarComponent {
 
   isCollapsed = input.required<boolean>();
-  isMobile = input.required<boolean>();
   itemClicked = output()
 
   toggleSideBar() {
