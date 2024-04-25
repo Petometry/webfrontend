@@ -23,6 +23,7 @@ export class PetfoodsComponent {
 
 store = inject(Store)
    petFoods$: Observable<PetfoodsState>;
+    isCollapsed = input(false);
   constructor() {
   this.petFoods$ = this.store.select("petFoods")
   }
