@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, input} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {PetfoodsState} from "../../../store/reducers/petfoods.reducers";
@@ -21,9 +21,9 @@ import {CurrencyComponent} from "../currency/currency.component";
 })
 export class PetfoodsComponent {
 
-store = inject(Store)
-   petFoods$: Observable<PetfoodsState>;
-    isCollapsed = input(false);
+  store = inject(Store)
+  petFoods$: Observable<PetfoodsState>;
+  isCollapsed = input(false);
   constructor() {
   this.petFoods$ = this.store.select("petFoods")
   }
