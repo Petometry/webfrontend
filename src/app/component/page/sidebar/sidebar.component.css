@@ -44,4 +44,5 @@ mat-nav-list a{
   border: lightgray solid 5px;
   border-radius: 10px;
   margin-right: 10px;
+  cursor: pointer;
 }
