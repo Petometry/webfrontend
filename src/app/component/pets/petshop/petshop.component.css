@@ -13,6 +13,7 @@
 
 app-pet{
   height: 100%;
+  cursor: pointer;
 }
 
 #petContainer{
