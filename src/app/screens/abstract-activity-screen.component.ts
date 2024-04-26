@@ -15,8 +15,12 @@ export abstract class AbstractActivityScreenComponent implements OnInit {
   activity: ActivityState | undefined
   notified: boolean
   store = inject(Store)
+  rewardSound;
 
   protected constructor() {
+    this.rewardSound = new Audio()
+    this.rewardSound.src = "../../../assets/sounds/reward.mp3"
+    this.rewardSound.load()
     this.activity$ = this.store.select('activity')
     this.notified = false
     this.store.dispatch(loadActivity())
@@ -29,10 +33,7 @@ export abstract class AbstractActivityScreenComponent implements OnInit {
 
   private checkActivityFinished() {
     if (new Date(this.activity?.activity?.endTime!).getTime() <= new Date().getTime() && !this.activity?.activity?.collectable && !this.notified) {
-      let audio = new Audio()
-      audio.src = "../../../assets/sounds/reward.mp3"
-      audio.load()
-      audio.play().finally(() => {
+      this.rewardSound.play().finally(() => {
         this.store.dispatch(loadActivity())
         this.notified = true
       })
