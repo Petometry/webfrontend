@@ -9,18 +9,23 @@ export abstract class AbstractActivityScreenComponent {
 
   activity$?: Observable<ActivityState>
   activity: ActivityState|undefined
+  notified:boolean
   store = inject(Store)
 
   constructor() {
     this.activity$ = this.store.select('activity')
     this.activity$.subscribe(activity => this.activity = activity)
+    this.notified = false
     this.store.dispatch(loadActivity())
     interval(5000).subscribe(() => {
-      if (new Date(this.activity?.activity?.endTime!).getTime() <= new Date().getTime()&& !this.activity?.activity?.collectable){
+      if (new Date(this.activity?.activity?.endTime!).getTime() <= new Date().getTime()&& !this.activity?.activity?.collectable && ! this.notified){
         let audio = new Audio()
         audio.src = "../../../assets/sounds/reward.mp3"
         audio.load()
-        audio.play().finally(()=>this.store.dispatch(loadActivity()))
+        audio.play().finally(()=>
+{this.store.dispatch(loadActivity())
+this.notified=true
+})
       }
     })
   }
