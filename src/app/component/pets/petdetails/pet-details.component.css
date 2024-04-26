@@ -2,7 +2,7 @@
   height: 100%;
   display: grid;
   grid-template-areas:
-  "details pet ";
+  "details pet";
   grid-template-rows:  minmax(50px, auto);
   grid-template-columns: minmax(0px, 5fr) minmax(50px, 4fr);
   grid-gap: 5px;
@@ -53,5 +53,12 @@ input {
   border-bottom: lightgray solid 5px;
   border-top: lightgray solid 5px;
   padding: 10px;
+}
+
+app-loading{
+  grid-row-start: details;
+  grid-column-start: details;
+  grid-row-end: pet;
+  grid-column-end: pet;
 }
 
