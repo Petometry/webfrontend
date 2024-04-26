@@ -4,12 +4,14 @@ import {AsyncPipe} from "@angular/common";
 import {StartWorkComponent} from "../../component/activity/start-work/start-work.component";
 import {WorkActivityComponent} from "../../component/activity/work-activity/work-activity.component";
 import {AbstractActivityScreenComponent} from "../abstract-activity-screen.component";
+import {MatButton} from "@angular/material/button";
+import {AnotherActivityComponent} from "../../another-activity/another-activity.component";
 
 @Component({
   selector: 'app-workplace',
   standalone: true,
   imports: [
-    LoadingComponent, AsyncPipe, StartWorkComponent, WorkActivityComponent],
+    LoadingComponent, AsyncPipe, StartWorkComponent, WorkActivityComponent, MatButton, AnotherActivityComponent],
   templateUrl: './work-screen.component.html',
   styleUrl: './work-screen.component.css',
   host: {

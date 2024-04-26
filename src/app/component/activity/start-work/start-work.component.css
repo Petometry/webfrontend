@@ -1,4 +1,4 @@
-#layout{
+.layout{
   display: grid;
   grid-template-areas:
     "header header header"
@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-#component{
+.component{
   grid-area: component;
   padding: 10px;
   border: lightgray solid 1px;
@@ -26,8 +26,8 @@
 
 #range-container{
   display: flex;
-  width: 100%;
-align-items: center;
+  width: 90%;
+  align-items: center;
   justify-content: center;
 }
 

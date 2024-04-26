@@ -5,7 +5,7 @@
   } @else if ((activity$ |async)?.activity == undefined) {
     <app-start-foraging class="screen-component"/>
   } @else if ((activity$ |async)?.activity?.type != "FORAGING") {
-    <div class="screen-component" >You are on another activity</div>
+    <app-another-activity class="screen-component"/>
   } @else if ((activity$ |async)?.activity?.type == "FORAGING") {
     <app-foraging-activity class="screen-component"/>
   }

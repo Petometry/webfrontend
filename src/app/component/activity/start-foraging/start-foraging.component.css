@@ -3,20 +3,34 @@
   grid-template-areas:
     "header header header"
     ". component ."
-    ". . .";
+    ". . ."
+;
   height: 100%;
-  grid-template-rows: minmax(0px, auto) minmax(200px, auto) minmax(0px, auto);
+  grid-template-rows: minmax(0px, auto) auto minmax(0px, auto);
   grid-template-columns: minmax(0px, auto) auto minmax(0px, auto);
+  justify-items: center;
+  align-items: center;
 }
 
-.component {
+.component{
   grid-area: component;
   padding: 10px;
-  border: lightgray solid 5px;
+  border: lightgray solid 1px;
   border-radius: 10px;
   background-color: white;
+}
+
+#header{
+  grid-area: header;
+}
+
+#range-container{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 90%;
   align-items: center;
+  justify-content: center;
+}
+
+#range-container input{
+  width: 100%;
 }
