@@ -19,12 +19,12 @@ export abstract class AbstractActivityScreenComponent implements OnInit {
   protected constructor() {
     this.activity$ = this.store.select('activity')
     this.notified = false
+    this.store.dispatch(loadActivity())
   }
 
   ngOnInit(): void {
     interval(5000).subscribe(() => this.checkActivityFinished())
     this.activity$.subscribe(activity => this.activity = activity)
-    this.store.dispatch(loadActivity())
   }
 
   private checkActivityFinished() {

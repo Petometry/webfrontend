@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {PetshopComponent} from "../../component/pets/petshop/petshop.component";
 import {Store} from "@ngrx/store";
 import {loadPetShop} from "../../store/actions/petshop.actions";
@@ -15,10 +15,11 @@ import {loadPetShop} from "../../store/actions/petshop.actions";
     class: 'game-screen'
   }
 })
-export class PetShopScreenComponent {
+export class PetShopScreenComponent implements OnInit {
 
   store = inject(Store)
-  constructor() {
+
+  ngOnInit(): void {
     this.store.dispatch(loadPetShop())
   }
 }
