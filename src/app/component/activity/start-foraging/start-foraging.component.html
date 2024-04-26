@@ -4,8 +4,7 @@
     <mat-slider step="1" max="5" min="1" id="range-container" >
       <input matSliderThumb [formControl]="foragingMinutesFormControl">
     </mat-slider>
-    <div>You are going to forage for <br>
-      <b>{{ foragingMinutesFormControl.value! }} min</b>.
+    <div>You are going to forage for <b>{{ foragingMinutesFormControl.value! }} min</b>.
     </div>
     <button mat-flat-button color="primary" (click)="startForaging()">Start Foraging</button>
   </div>

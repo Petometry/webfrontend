@@ -4,7 +4,7 @@ import {LoadingComponent} from "../../component/page/loading/loading.component";
 import {ForagingActivityComponent} from "../../component/activity/foraging-activity/foraging-activity.component";
 import {StartForagingComponent} from "../../component/activity/start-foraging/start-foraging.component";
 import {AbstractActivityScreenComponent} from "../abstract-activity-screen.component";
-import {AnotherActivityComponent} from "../../another-activity/another-activity.component";
+import {AnotherActivityComponent} from "../../component/activity/another-activity/another-activity.component";
 
 @Component({
   selector: 'app-foraging-screen',

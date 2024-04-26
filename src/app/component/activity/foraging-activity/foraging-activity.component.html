@@ -1,9 +1,9 @@
 @if ((foraging$ | async)?.loading) {
   <app-loading/>
 } @else if ((foraging$ | async)?.foraging?.collectable) {
-  <div id="layout" class="layout">
-    <div id="component" class="component">
-      <div id="header" class="header"><h2>Your Foraging ended</h2></div>
+  <div class="layout">
+    <div class="component">
+      <div class="header"><h2>Your Foraging ended</h2></div>
       <div>Collect your Reward of<br>
         <b>{{ (foraging$ |async)?.foraging?.reward?.circle }} Circle</b><br>
         <b>{{ (foraging$ |async)?.foraging?.reward?.triangle }} Triangle</b><br>
@@ -14,11 +14,11 @@
   </div>
 } @else {
   <div class="layout">
-    <mat-card class="component">
-      <mat-card-header class="header"><h2>You are Foraging</h2></mat-card-header>
-      <mat-card-content>Your Foraging ends at <b>{{ (foraging$ |async)?.foraging?.endTime | date:'dd/MM HH:mm' }}</b>
-      </mat-card-content>
+    <div class="component">
+      <div class="header"><h2>You are Foraging</h2></div>
+      <div>Your Foraging ends at <b>{{ (foraging$ |async)?.foraging?.endTime | date:'dd/MM HH:mm' }}</b>
+      </div>
       <button mat-flat-button color="primary" (click)="stopForaging()">Stop Foraging</button>
-    </mat-card>
+    </div>
   </div>
 }

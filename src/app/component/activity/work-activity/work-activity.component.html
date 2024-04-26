@@ -14,12 +14,12 @@
   </div>
 } @else {
   <div class="layout">
-    <mat-card class="component">
-      <mat-card-header class="header"><h2>You are Working</h2></mat-card-header>
-      <mat-card-content>Your work ends at <b>{{ (work$ |async)?.work?.endTime | date:'dd/MM HH:mm' }}</b>
+    <div class="component">
+      <div class="header"><h2>You are Working</h2></div>
+      <div>Your work ends at <b>{{ (work$ |async)?.work?.endTime | date:'dd/MM HH:mm' }}</b>
         <div>You will receive<b>{{ (work$ |async)?.work?.reward }} GeoCoin</b></div>
-      </mat-card-content>
+      </div>
       <button mat-flat-button color="primary" (click)="stopWork()">Stop Work</button>
-    </mat-card>
+    </div>
   </div>
 }

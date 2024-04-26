@@ -5,7 +5,7 @@ import {StartWorkComponent} from "../../component/activity/start-work/start-work
 import {WorkActivityComponent} from "../../component/activity/work-activity/work-activity.component";
 import {AbstractActivityScreenComponent} from "../abstract-activity-screen.component";
 import {MatButton} from "@angular/material/button";
-import {AnotherActivityComponent} from "../../another-activity/another-activity.component";
+import {AnotherActivityComponent} from "../../component/activity/another-activity/another-activity.component";
 
 @Component({
   selector: 'app-workplace',
