@@ -1,5 +1,4 @@
 import {Component, inject} from '@angular/core';
-import {PetService} from "../../../service/petservice/pet.service";
 import {PetComponent} from "../pet/pet.component";
 import {Router} from "@angular/router";
 import {LoadingComponent} from "../../page/loading/loading.component";
@@ -25,7 +24,7 @@ export class PetsOverviewComponent {
   pets$: Observable<PetsState>
   store = inject(Store)
 
-  constructor(private petService: PetService, private router: Router) {
+  constructor(private router: Router) {
     this.pets$ = this.store.select('pets')
   }
 
