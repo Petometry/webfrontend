@@ -22,7 +22,7 @@ export abstract class AbstractActivityScreenComponent implements OnInit, OnDestr
     this.rewardSound = new Audio()
     this.rewardSound.src = "../../../assets/sounds/reward.mp3"
     this.rewardSound.load()
-    rewardSound$ = interval(5000)
+    this.rewardSound$ = interval(5000)
     this.activity$ = this.store.select('activity')
     this.notified = false
     this.store.dispatch(loadActivity())
