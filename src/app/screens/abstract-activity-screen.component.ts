@@ -9,10 +9,11 @@ import {ActivityState} from "../store/reducers/activity.reducers";
   template: '',
   selector: 'abstract-activity-screen'
 })
-export abstract class AbstractActivityScreenComponent implements OnInit {
+export abstract class AbstractActivityScreenComponent implements OnInit, OnDestroy{
 
   activity$: Observable<ActivityState>
   activity: ActivityState | undefined
+  rewardSound$
   notified: boolean
   store = inject(Store)
   rewardSound;
@@ -21,13 +22,14 @@ export abstract class AbstractActivityScreenComponent implements OnInit {
     this.rewardSound = new Audio()
     this.rewardSound.src = "../../../assets/sounds/reward.mp3"
     this.rewardSound.load()
+    rewardSound$ = interval(5000)
     this.activity$ = this.store.select('activity')
     this.notified = false
     this.store.dispatch(loadActivity())
   }
 
   ngOnInit(): void {
-    interval(5000).subscribe(() => this.checkActivityFinished())
+    this.rewardSound$.subscribe(() => this.checkActivityFinished())
     this.activity$.subscribe(activity => this.activity = activity)
   }
 
@@ -39,4 +41,8 @@ export abstract class AbstractActivityScreenComponent implements OnInit {
       })
     }
   }
+
+ngOnDestroy() {
+this.rewardSound$.unsubscribe()
+} 
 }
