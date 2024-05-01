@@ -1,5 +1,5 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {interval, Observable} from "rxjs";
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
+import {interval, Observable, Subscription} from "rxjs";
 import {Store} from "@ngrx/store";
 import {loadActivity} from "../store/actions/activity.actions";
 import {ActivityState} from "../store/reducers/activity.reducers";
@@ -9,7 +9,7 @@ import {ActivityState} from "../store/reducers/activity.reducers";
   template: '',
   selector: 'abstract-activity-screen'
 })
-export abstract class AbstractActivityScreenComponent implements OnInit, OnDestroy{
+export abstract class AbstractActivityScreenComponent implements OnInit, OnDestroy {
 
   activity$: Observable<ActivityState>
   activity: ActivityState | undefined
@@ -17,19 +17,20 @@ export abstract class AbstractActivityScreenComponent implements OnInit, OnDestr
   notified: boolean
   store = inject(Store)
   rewardSound;
+  private rewardSoundSubscribe: Subscription;
 
   protected constructor() {
     this.rewardSound = new Audio()
     this.rewardSound.src = "../../../assets/sounds/reward.mp3"
     this.rewardSound.load()
     this.rewardSound$ = interval(5000)
+    this.rewardSoundSubscribe = this.rewardSound$.subscribe(() => this.checkActivityFinished());
     this.activity$ = this.store.select('activity')
     this.notified = false
     this.store.dispatch(loadActivity())
   }
 
   ngOnInit(): void {
-    this.rewardSound$.subscribe(() => this.checkActivityFinished())
     this.activity$.subscribe(activity => this.activity = activity)
   }
 
@@ -42,7 +43,7 @@ export abstract class AbstractActivityScreenComponent implements OnInit, OnDestr
     }
   }
 
-ngOnDestroy() {
-this.rewardSound$.unsubscribe()
-} 
+  ngOnDestroy() {
+    this.rewardSoundSubscribe.unsubscribe()
+  }
 }
