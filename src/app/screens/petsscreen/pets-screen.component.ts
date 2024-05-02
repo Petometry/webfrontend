@@ -1,17 +1,12 @@
-import {Component} from '@angular/core';
-import {NgStyle} from "@angular/common";
-import {PetComponent} from "../../component/pets/pet/pet.component";
+import {Component, inject} from '@angular/core';
 import {PetsOverviewComponent} from "../../component/pets/pets-overview/pets-overview.component";
-import {PetDetailsComponent} from "../../component/pets/petdetails/pet-details.component";
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-pets',
   standalone: true,
   imports: [
-    NgStyle,
-    PetComponent,
     PetsOverviewComponent,
-    PetDetailsComponent
   ],
   templateUrl: './pets-screen.component.html',
   styleUrl: './pets-screen.component.css',
@@ -21,5 +16,5 @@ import {PetDetailsComponent} from "../../component/pets/petdetails/pet-details.c
 })
 export class PetsScreenComponent {
 
-  constructor() {}
+  store = inject(Store)
 }

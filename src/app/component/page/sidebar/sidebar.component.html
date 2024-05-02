@@ -1,0 +1,37 @@
+<mat-nav-list>
+  <div class="sidebar-item-top">
+    @if(!isCollapsed()){
+      <img id="profile-picture" ngSrc="assets/images/blank-profile-picture.png" alt="profile" height="640" width="640"  (click)="toggleSideBar()">
+    }
+    <div id="balances">
+      <app-geocoins/>
+      <app-petfoods [isCollapsed]="isCollapsed()"/>
+    </div>
+  </div>
+  <a routerLink="/game/pets" class="sidebar-item" (click)="toggleSideBar()">
+    <mat-icon>pets</mat-icon>
+    @if (!isCollapsed()) {
+      <span>Pets</span>
+    }
+  </a>
+
+  <a routerLink="/game/work" class="sidebar-item" (click)="toggleSideBar()">
+    <mat-icon>work</mat-icon>
+    @if (!isCollapsed()) {
+      <span>Work</span>
+    }
+  </a>
+
+  <a routerLink="/game/petshop" class="sidebar-item" (click)="toggleSideBar()">
+    <mat-icon>storefront</mat-icon>
+    @if (!isCollapsed()) {
+      <span>Shop</span>
+    }
+  </a>
+  <a routerLink="/game/foraging" class="sidebar-item-bottom" (click)="toggleSideBar()">
+    <mat-icon>forest</mat-icon>
+    @if (!isCollapsed()) {
+      <span>Foraging</span>
+    }
+  </a>
+</mat-nav-list>

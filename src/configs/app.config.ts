@@ -13,7 +13,11 @@ import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {WorkEffects} from "../app/store/effects/work.effects";
 import {PetsEffects} from "../app/store/effects/pets.effects";
 import {PetShopEffects} from "../app/store/effects/petshop.effects";
-import {BalancesEffects} from "../app/store/effects/balances.effects";
+import {GeocoinsEffects} from "../app/store/effects/geocoins.effects";
+import {ForagingEffects} from "../app/store/effects/foraging.effects";
+import {PetFoodsEffects} from "../app/store/effects/petfoods.effects";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideServiceWorker } from '@angular/service-worker';
 
 
 export const appConfig: ApplicationConfig = {
@@ -24,15 +28,20 @@ export const appConfig: ApplicationConfig = {
     KeycloakService, // Service for Keycloak
     provideRouter(routes) // Provides routing for the application
     ,
-    provideStore(reducers, {metaReducers}),
-    provideEffects(ActivityEffects, WorkEffects, PetsEffects, PetShopEffects, BalancesEffects),
+    provideStore(reducers, { metaReducers }),
+    provideEffects(ActivityEffects, WorkEffects, PetsEffects, PetShopEffects, GeocoinsEffects, ForagingEffects, PetFoodsEffects),
     provideStoreDevtools({
-      maxAge: 25, // Retains last 25 states
-      logOnly: !isDevMode(), // Restrict extension to log-only mode
-      autoPause: true, // Pauses recording actions and state changes when the extension window is not open
-      trace: false, //  If set to true, will include stack trace for every dispatched action, so you can see it in trace tab jumping directly to that part of code
-      traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
-      connectInZone: true // If set to true, the connection is established within the Angular zone
+        maxAge: 25, // Retains last 25 states
+        logOnly: !isDevMode(), // Restrict extension to log-only mode
+        autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+        trace: false, //  If set to true, will include stack trace for every dispatched action, so you can see it in trace tab jumping directly to that part of code
+        traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
+        connectInZone: true // If set to true, the connection is established within the Angular zone
+    }),
+    provideAnimationsAsync(),
+    provideServiceWorker('ngsw-worker.js', {
+        enabled: !isDevMode(),
+        registrationStrategy: 'registerWhenStable:30000'
     })
-  ]
+]
 };

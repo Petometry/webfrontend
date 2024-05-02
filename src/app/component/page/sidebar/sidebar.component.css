@@ -1,0 +1,48 @@
+.sidebar-item,.sidebar-item-top, .sidebar-item-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+}
+
+.sidebar-item {
+  text-align: center;
+  padding: 10px 20px;
+  border-top: gray solid 1px;
+  border-bottom: gray solid 1px;
+}
+
+.sidebar-item-top{
+  text-align: center;
+  padding: 10px 20px 20px;
+  border-bottom: gray solid 1px;
+}
+
+.sidebar-item-bottom{
+  text-align: center;
+  padding: 10px 20px;
+  border-top: gray solid 1px;
+}
+*{
+  transition: width 0.3s ease;
+}
+
+mat-nav-list a{
+  color: inherit;
+  text-decoration: none;
+}
+
+#balances{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#profile-picture{
+  max-width: 100px;
+  max-height: 100px;
+  border: lightgray solid 5px;
+  border-radius: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}

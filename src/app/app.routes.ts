@@ -7,6 +7,7 @@ import {PetShopScreenComponent} from "./screens/petshopscreen/pet-shop-screen.co
 import {WorkScreenComponent} from "./screens/workscreen/work-screen.component";
 import {TownScreenComponent} from "./screens/townscreen/town-screen.component";
 import {PetDetailsScreenComponent} from "./screens/petdetailsscreen/pet-details-screen.component";
+import {ForagingScreenComponent} from "./screens/foraging-screen/foraging-screen.component";
 
 export const routes: Routes = [
   {path: 'public', component: PublicPageComponent},
@@ -19,6 +20,7 @@ export const routes: Routes = [
       {path: 'pets', component: PetsScreenComponent},
       {path: 'petshop', component: PetShopScreenComponent},
       {path: 'work', component: WorkScreenComponent},
+      {path: 'foraging', component: ForagingScreenComponent},
       {path: '**', component: TownScreenComponent}
     ]
   },

@@ -4,7 +4,9 @@ import {collectWorkReward, deleteWork} from "../../../store/actions/work.actions
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {WorkState} from "../../../store/reducers/work.reducers";
-import {LoadingComponent} from "../../loading/loading.component";
+import {LoadingComponent} from "../../page/loading/loading.component";
+import {MatButton} from "@angular/material/button";
+import {MatCard, MatCardContent, MatCardHeader} from "@angular/material/card";
 
 @Component({
   selector: 'app-work-activity',
@@ -12,7 +14,11 @@ import {LoadingComponent} from "../../loading/loading.component";
   imports: [
     AsyncPipe,
     LoadingComponent,
-    DatePipe
+    DatePipe,
+    MatButton,
+    MatCard,
+    MatCardContent,
+    MatCardHeader
   ],
   templateUrl: './work-activity.component.html',
   styleUrl: './work-activity.component.css'

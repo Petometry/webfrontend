@@ -1,26 +1,25 @@
 @if ((work$ | async)?.loading) {
   <app-loading/>
-} @else if ((work$ | async)?.work?.collectable == true) {
+} @else if ((work$ | async)?.work?.collectable) {
   <div id="layout" class="layout">
     <div id="component" class="component">
-      <div id="header" class="header"><h2>Your Workday ended</h2></div>
-      <div>Collect your paycheck of
-        <b>{{ (work$ |async)?.work?.reward }} GeoCoin</b>
+      <div id="header" class="header"><h2>Your Foraging ended</h2></div>
+      <div>Collect your Reward of<br>
+        <b>{{ (work$ |async)?.work?.reward! }} geocoins</b>
+
+
       </div>
-      <button (click)="collectReward()">Collect Paycheck</button>
+      <button mat-flat-button color="primary" (click)="collectReward()">Collect Paycheck</button>
     </div>
   </div>
 } @else {
   <div class="layout">
     <div class="component">
-      <div class="header"><h2>You are working</h2></div>
-      <div>Your Workday ends at
-        <h4>{{ (work$ |async)?.work?.endTime | date:'dd/MM HH:mm' }}</h4>
+      <div class="header"><h2>You are Working</h2></div>
+      <div>Your work ends at <b>{{ (work$ |async)?.work?.endTime | date:'dd/MM HH:mm' }}</b>
+        <div>You will receive<b>{{ (work$ |async)?.work?.reward }} GeoCoin</b></div>
       </div>
-      <div>You will receive
-        <b>{{ (work$ |async)?.work?.reward }} GeoCoin</b>
-      </div>
-      <button (click)="stopWork()">Stop Work</button>
+      <button mat-flat-button color="primary" (click)="stopWork()">Stop Work</button>
     </div>
   </div>
 }

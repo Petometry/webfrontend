@@ -1,31 +1,26 @@
-import {Component, inject} from '@angular/core';
-import {LoadingComponent} from "../../component/loading/loading.component";
-import {Observable} from "rxjs";
-import {ActivityState} from "../../store/reducers/activity.reducers";
-import {Store} from "@ngrx/store";
+import {Component} from '@angular/core';
+import {LoadingComponent} from "../../component/page/loading/loading.component";
 import {AsyncPipe} from "@angular/common";
-import {loadWork} from "../../store/actions/work.actions";
-import {ReactiveFormsModule} from '@angular/forms';
 import {StartWorkComponent} from "../../component/activity/start-work/start-work.component";
 import {WorkActivityComponent} from "../../component/activity/work-activity/work-activity.component";
+import {AbstractActivityScreenComponent} from "../abstract-activity-screen.component";
+import {MatButton} from "@angular/material/button";
+import {AnotherActivityComponent} from "../../component/activity/another-activity/another-activity.component";
 
 @Component({
   selector: 'app-workplace',
   standalone: true,
-  imports: [LoadingComponent, AsyncPipe, ReactiveFormsModule, StartWorkComponent, WorkActivityComponent],
+  imports: [
+    LoadingComponent, AsyncPipe, StartWorkComponent, WorkActivityComponent, MatButton, AnotherActivityComponent],
   templateUrl: './work-screen.component.html',
   styleUrl: './work-screen.component.css',
   host: {
     class: 'game-screen'
   }
 })
-export class WorkScreenComponent {
-
-  activity$?: Observable<ActivityState>
-  store = inject(Store)
+export class WorkScreenComponent extends AbstractActivityScreenComponent{
 
   constructor() {
-    this.activity$ = this.store.select('activity')
-    this.store.dispatch(loadWork());
+    super()
   }
 }

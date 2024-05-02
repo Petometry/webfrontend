@@ -1,5 +1,3 @@
-#pets-overview {
-  grid-area: component;
-  height: 100%;
-  width: 100%;
+.screen-layout {
+  grid-template-rows: minmax(100px, 33%) auto fit-content(100px);
 }

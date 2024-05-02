@@ -1,14 +1,12 @@
-import {Component} from '@angular/core';
-import {NgStyle} from "@angular/common";
-import {PetComponent} from "../../component/pets/pet/pet.component";
+import {Component, inject, OnInit} from '@angular/core';
 import {PetshopComponent} from "../../component/pets/petshop/petshop.component";
+import {Store} from "@ngrx/store";
+import {loadPetShop} from "../../store/actions/petshop.actions";
 
 @Component({
   selector: 'app-petshop-screen',
   standalone: true,
   imports: [
-    NgStyle,
-    PetComponent,
     PetshopComponent
   ],
   templateUrl: './pet-shop-screen.component.html',
@@ -17,6 +15,11 @@ import {PetshopComponent} from "../../component/pets/petshop/petshop.component";
     class: 'game-screen'
   }
 })
-export class PetShopScreenComponent {
-  constructor() {}
+export class PetShopScreenComponent implements OnInit {
+
+  store = inject(Store)
+
+  ngOnInit(): void {
+    this.store.dispatch(loadPetShop())
+  }
 }

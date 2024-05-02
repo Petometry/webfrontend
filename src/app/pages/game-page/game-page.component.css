@@ -1,40 +1,27 @@
-
-#page-layout{
+mat-drawer-container {
   height: 100%;
-  max-height: 100vh;
-  grid-template-areas:
-    'header header header'
-    '. game .'
-    'footer footer footer'
-;
-
-  grid-template-rows: 100px 1fr 100px;
-  grid-template-columns: minmax(0, auto) minmax(auto, 1720px) minmax(0, auto);
 }
 
-#grid-header{
-grid-area: header;
+mat-sidenav-container {
+  height: 100%;
 }
 
-#game-layout{
-  grid-area: game;
-  width: 100%;
-  display: grid;
-  grid-template-areas:
-    'menu screen';
-  grid-template-columns: 100px auto ;
-  grid-template-rows: 100%;
+mat-sidenav {
+  padding-top: 3.5rem;
+  transition: width 0.3s ease;
 }
 
-#grid-footer{
-  grid-area: footer;
+
+.expanded {
+  width: 250px;
 }
 
-#page-sidebar{
-  grid-area: menu;
+app-sidebar{
+  transition: width 0.3s ease;
 }
 
-#page-content{
-  grid-area: screen;
-  border: black solid 1px;
+mat-sidenav, mat-sidenav-content {
+  padding-top: 4rem;
+  padding-bottom: 2.5rem;
+  transition: width 0.3s ease;
 }

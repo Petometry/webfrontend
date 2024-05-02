@@ -2,8 +2,8 @@ import {createReducer, on} from "@ngrx/store";
 import {
   collectWorkReward, collectWorkRewardError,
   collectWorkRewardSuccess,
-  createWork,
-  deleteWork,
+  createWork, createWorkError, createWorkSuccess,
+  deleteWork, deleteWorkError, deleteWorkSuccess,
   loadWork,
   loadWorkError,
   loadWorkSuccess
@@ -23,13 +23,17 @@ export const initialState: WorkState = {
 }
 export const workReducer = createReducer(
     initialState,
+    // Load Work
     on(loadWork, (state) => ({...state, loading: true})),
-    on(loadWorkSuccess, (state, {work}) => ({...state, work, loading: false})),
+    on(loadWorkSuccess, (state, {activity}) => ({...state, work: activity, loading: false})),
     on(loadWorkError, (state, {error}) => ({...state, error: error, loading: false})),
-    on(deleteWork, (state) => ({...state, work: {} as WorkModel})),
-    on(createWork, (state) => ({...state, work: {} as WorkModel})),
-    on(collectWorkReward, (state) => ({...state, loading: true})),
-    on(collectWorkRewardSuccess, (state) => ({...state, loading: false})),
-    on(collectWorkRewardError, (state, {error}) => ({...state, error, loading: false})),
+    // Create work
+    on(createWork, (state) => ({...state, loading: true})),
+    on(createWorkSuccess, (state, {activity}) => ({...state, work: activity, loading: false})),
+    on(createWorkError, (state, {error}) => ({...state, error: error, loading: false})),
+    // Delete work AND Collect work reward
+    on(deleteWork, collectWorkReward, (state) => ({...state, loading: true})),
+    on(deleteWorkSuccess, collectWorkRewardSuccess, (state) => ({...state, work: undefined, loading: false})),
+    on(deleteWorkError, collectWorkRewardError, (state, {error}) => ({...state, error: error, loading: false})),
   )
 ;

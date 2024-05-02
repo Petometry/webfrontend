@@ -1,10 +1,10 @@
-@if ((petShop$ |async)?.loading == undefined) {
+@if ((petShop$ |async)?.loading) {
   <app-loading></app-loading>
 } @else {
   <div class="screen-layout">
-    <div id="shop-layout" class="grid-container">
+    <div id="shop-layout">
       @for (pet of (petShop$ | async)?.petShop?.pets; track pet.id) {
-        <app-pet id="{{pet.id}}" [pet]="pet" (click)="buyPet($event)"/>
+        <app-pet id="{{pet.id}}" [pet]="pet" (onClick)="buyPet($event)"/>
       }
     </div>
   </div>

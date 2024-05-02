@@ -7,6 +7,7 @@ import {
   Component,
   ElementRef,
   input,
+  output,
   ViewChild
 } from '@angular/core';
 import {NgStyle} from "@angular/common";
@@ -24,6 +25,7 @@ import {PetModel} from "../../../model/pet/pet.model";
 export class PetComponent implements AfterViewInit {
 
   pet = input.required<PetModel>();
+  onClick = output<PetModel>()
 
   @ViewChild('container') container !: ElementRef;
 
