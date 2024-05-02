@@ -2,12 +2,12 @@ import {Component} from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {PetComponent} from "./component/pets/pet/pet.component";
 import {Store} from "@ngrx/store";
-import {interval} from "rxjs";
 import {loadPets} from "./store/actions/pets.actions";
 import {loadGeoCoins} from "./store/actions/geocoins.actions";
 import {loadPetShop} from "./store/actions/petshop.actions";
 import {loadActivity} from "./store/actions/activity.actions";
 import {loadPetfoods} from "./store/actions/petfoods.actions";
+import {KeycloakEventType, KeycloakService} from "keycloak-angular";
 
 @Component({
   selector: 'app-root',
@@ -21,9 +21,15 @@ export class AppComponent {
   title = 'Petometry';
 
 
-  constructor(private store: Store ) {
+  constructor(private store: Store, private keycloak: KeycloakService) {
     this.initializeStore()
-    interval(300_000).subscribe(()=> this.initializeStore())
+    this.keycloak.keycloakEvents$.subscribe({
+      next(event) {
+        if (event.type == KeycloakEventType.OnTokenExpired){
+          keycloak.updateToken(20)
+        }
+      }
+    })
   }
 
   initializeStore() {
